@@ -384,3 +384,7 @@ psql
 psql
 psql -v
 psql
+cd entrega
+cd entrega3
+ll
+cat definicionMediana.txt 
