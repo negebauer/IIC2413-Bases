@@ -1,0 +1,9 @@
+Muestre todos los profesores que ha tenido un alumno.
+Se reemplaza en alumno por el username del alunno que se quiere consultar.
+
+SELECT usuario.nombres, usuario.apellidoP, usuario.apellidoM
+FROM profesorcurso, curso, usuario, nota
+WHERE curso.nrc = profesorcurso.nrc
+AND nota.nrc = curso.nrc
+AND usuario.username = profesorcurso.username
+AND nota.username = alumno;

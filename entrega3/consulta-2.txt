@@ -1,0 +1,9 @@
+Dado un alumno, muestre todos los cursos que ha aprobado.
+Se reemplaza en alumno por el username del alumno que se quiere consultar.
+
+SELECT ramo.nombre
+FROM ramo, curso, nota
+WHERE ramo.sigla = curso.sigla
+AND curso.nrc = nota.nrc
+AND nota.notafinal >= 4.0
+AND nota.username = alumno;

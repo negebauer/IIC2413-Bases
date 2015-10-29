@@ -1,0 +1,11 @@
+Muestre la cantidad de alumnos que cumplen los prerequisitos de un curso y no lo han tomado aun.
+Se reemplaza la sigla del curso por el que se quiere consultar en siglacurso.
+
+SELECT COUNT(alumno.username)
+FROM nota, alumno, requisito, ramo, curso
+WHERE nota.username = alumno.username
+AND nota.notafinal >= 4.0
+AND curso.sigla = ramo.sigla
+AND nota.nrc = curso.nrc
+AND requisito.siglarequisito = curso.sigla
+AND requisito.siglaramo = siglacurso;
