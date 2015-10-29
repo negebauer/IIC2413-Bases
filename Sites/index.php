@@ -17,7 +17,7 @@
     document.write('<p>Alumnos que reprobaron un curso</p>')
 	document.write('<form action=' + host + 'consultasEntrega3/consulta1.php method="post">')
 	document.write('<input type="text" name="sigla"/><br>')
-	document.write('<input type="submit"/><br>')
+	document.write('<input type="submit"/><br></form>')
 
     // Consulta 2
     document.write('<p>Alumnos que cumplen los requisitos de un curso y aun no lo han tomado</p>')

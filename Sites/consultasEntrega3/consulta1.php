@@ -13,8 +13,6 @@ catch(PDOException $e) {
 
 echo "<h1>Resultado Consulta 1:</h1>";
 
-echo $_POST["sigla"];
-
 $query="SELECT usuario.nombres, usuario.apellidop, usuario.apellidom
 FROM alumno, nota, curso, usuario
 WHERE nota.username = alumno.username
@@ -27,12 +25,10 @@ AND curso.sigla = '" . $_POST['sigla'] . "'";
 
 echo '<table border="1">';
 echo '<tr>';
-echo "<th>username</th>";
-echo "<th>nrc</th>";
-echo "<th>nota</th>";
+echo "<th>Nombres</th>";
+echo "<th>Apellido Paterno</th>";
+echo "<th>Apellido Materno</th>";
 echo "</tr>";
-
-echo "hola béllaqúíllóñ";
 
 foreach($db->query($query) as $row)
 {
