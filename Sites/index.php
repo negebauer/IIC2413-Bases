@@ -5,20 +5,20 @@
 
 Consulta 1
 <p>Alumnos que reprobaron un curso</p>
-<form action=' + host + 'consultasEntrega3/consulta1.php method="post">
+<form action="http://bases.ing.puc.cl/~grupo5/consultasEntrega3/consulta1.php" method="post">
 <input type="text" name="sigla"<br>
 <input type="submit"<br>
 
 Consulta 2
 <p>Alumnos que cumplen los requisitos de un curso y aun no lo han tomado</p>
-<form action=' + host + 'consultasEntrega3/consulta2.php method="post">
+<form action=http://bases.ing.puc.cl/~grupo5/consultasEntrega3/consulta2.php method="post">
 <input type="text" name="sigla"><br>
 <input type="submit"><br>
 
-<a href="' + host + 'consultasEntrega3/consulta2.php">Consulta 2</a><br>
-<a href="' + host + 'consultasEntrega3/consulta3.php">Consulta 3</a><br>
-<a href="' + host + 'consultasEntrega3/consulta4.php">Consulta 4</a><br>
-<a href="' + host + 'consultasEntrega3/consulta5.php">Consulta 5</a><br>
-<a href="' + host + 'consultasEntrega3/consulta6.php">Consulta 6</a><br>
+<a href="http://bases.ing.puc.cl/~grupo5/consultasEntrega3/consulta2.php">Consulta 2</a><br>
+<a href="http://bases.ing.puc.cl/~grupo5/consultasEntrega3/consulta3.php">Consulta 3</a><br>
+<a href="http://bases.ing.puc.cl/~grupo5/consultasEntrega3/consulta4.php">Consulta 4</a><br>
+<a href="http://bases.ing.puc.cl/~grupo5/consultasEntrega3/consulta5.php">Consulta 5</a><br>
+<a href="http://bases.ing.puc.cl/~grupo5/consultasEntrega3/consulta6.php">Consulta 6</a><br>
 
 </body>
