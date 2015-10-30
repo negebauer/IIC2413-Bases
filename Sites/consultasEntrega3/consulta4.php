@@ -13,11 +13,13 @@ catch(PDOException $e) {
 
 echo "<h1>Resultado Consulta 4:</h1>";
 
+$sigla=$_POST['sigla'];
+
 $query="SELECT curso.ano, curso.semestre, MIN(notafinal), MAX(notafinal), AVG(notafinal), median(notafinal)
 FROM nota, curso
-WHERE curso.sigla = '" . $_POST['sigla'] . "'"
+WHERE curso.sigla = '$sigla'
 AND curso.nrc = nota.nrc
-GROUP BY curso.ano, curso.semestre;
+GROUP BY curso.ano, curso.semestre";
 
 echo '<table border="1">';
 echo '<tr>';
