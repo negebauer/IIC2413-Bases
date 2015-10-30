@@ -2,6 +2,7 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>RENNAB</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 </head>
 
@@ -24,7 +25,7 @@
 	AND usuario.username = profesorcurso.username
 	AND nota.username = '$alumno'";
 	
-	echo '<table border="1">';
+	echo '<table border="1" class="table">';
 	echo '<tr>';
 	echo "<th>Nombres</th>";
 	echo "<th>Apellido Paterno</th>";
