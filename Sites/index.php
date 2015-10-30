@@ -55,14 +55,32 @@
 		echo $e->getMessage();
 		}
 
-	$datosConsulta1="SELECT curso.sigla
-	FROM curso
-	ORDER BY curso.sigla";
+	// ***************	Consulta 1	***************
+	$datosConsulta1="SELECT curso.sigla FROM curso ORDER BY curso.sigla GROUP BY curso.sigla";
 	
 	echo '<h5>Consulta 1</h5>';
 	echo '<p>Alumnos que reprobaron un curso</p>';
 	echo '<form action="consultasEntrega3/consulta1.php" method="post">';
 	echo '<label><select name="sigla">';
+
+	$i = 0;
+	foreach($db->query($datosConsulta1) as $row)
+	{
+		echo "<option value=$row[0]>$row[0]</option>";
+		$i = $i + 1;
+	}
+
+	echo '</label>';
+	echo '<input type="submit"/>';
+	echo '</form><br>';
+
+	// ***************	Consulta 2	***************
+	$datosConsulta1="SELECT alumno.username FROM alumno ORDER BY alumno.username";
+	
+	echo '<h5>Consulta 2</h5>';
+	echo '<p>Cursos que ha aprobado un alumno</p>';
+	echo '<form action="consultasEntrega3/consulta2.php" method="post">';
+	echo '<label><select name="alumno">';
 
 	$i = 0;
 	foreach($db->query($datosConsulta1) as $row)

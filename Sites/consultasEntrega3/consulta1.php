@@ -15,8 +15,6 @@
 	
 	echo "<h1>Resultado Consulta 1:</h1>";
 	
-	echo "$'" . $_POST['sigla'] . "'";
-
 	$query="SELECT usuario.nombres, usuario.apellidop, usuario.apellidom
 	FROM alumno, nota, curso, usuario
 	WHERE nota.username = alumno.username
