@@ -59,7 +59,7 @@
 	echo '</form><br>';
 
 	// ***************	Consulta 2	***************
-	$datosConsulta2 = "SELECT alumno.username, usuario.nombres, usuario.apelidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apelidop, usuario.apellidom, usuario.nombres";
+	$datosConsulta2 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
 	
 	echo '<h5>Consulta 2</h5>';
 	echo '<p>Cursos que ha aprobado un alumno</p>';
