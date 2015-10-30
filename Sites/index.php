@@ -13,7 +13,7 @@
 <h5>Consulta 2</h5>
 <p>Cursos que ha aprobado un alumno</p>
 <form action="consultasEntrega3/consulta2.php" method="post">
-<input type="text" name="username"/>
+<input type="text" name="alumno"/>
 <input type="submit"/>
 </form><br>
 
@@ -34,14 +34,14 @@
 <h5>Consulta 5</h5>
 <p>Todos los profesores que ha tenido un alumno</p>
 <form action="consultasEntrega3/consulta5.php" method="post">
-<input type="text" name="sigla"/>
+<input type="text" name="alumno"/>
 <input type="submit"/>
 </form><br>
 
 <h5>Consulta 6</h5>
 <p>Promedio de notas que han obtenido los alumnos en los cursos de cada profesor</p>
 <form action="consultasEntrega3/consulta6.php" method="post">
-<input type="text" name="sigla"/>
+<input type="text" name="profesor"/>
 <input type="submit"/>
 </form><br>
 

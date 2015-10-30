@@ -18,7 +18,7 @@ FROM ramo, curso, nota
 WHERE ramo.sigla = curso.sigla
 AND curso.nrc = nota.nrc
 AND nota.notafinal >= 4.0
-AND nota.username = '" . $_POST['username'] . "'";
+AND nota.username = '" . $_POST['alumno'] . "'";
 
 echo '<table border="1">';
 echo '<tr>';
