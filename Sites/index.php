@@ -193,6 +193,7 @@
 								}
 							
 								echo '</label>';
+								echo '<p></p>';
 								echo '<input type="submit"/>';
 								echo '</form><br>';
 							?>
