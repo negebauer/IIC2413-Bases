@@ -55,7 +55,7 @@
 		echo $e->getMessage();
 		}
 
-	$datosConsulta1="SELECT curso.sigla, curso.ano, curso.semestre
+	$datosConsulta1="SELECT curso.sigla
 	FROM curso
 	ORDER BY curso.sigla";
 	
@@ -67,7 +67,7 @@
 	$i = 0;
 	foreach($db->query($datosConsulta1) as $row)
 	{
-		echo "<option value=$i>$row[0] $row[1] $row[2]</option>";
+		echo "<option value=$i>$row[0]</option>";
 		$i = $i + 1;
 	}
 
