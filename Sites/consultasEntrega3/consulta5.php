@@ -15,7 +15,7 @@ echo "<h1>Resultado Consulta 5:</h1>";
 
 $alumno=$_POST['alumno'];
 
-$quey="SELECT usuario.nombres, usuario.apellidoP, usuario.apellidoM
+$query="SELECT usuario.nombres, usuario.apellidoP, usuario.apellidoM
 FROM profesorcurso, curso, usuario, nota
 WHERE curso.nrc = profesorcurso.nrc
 AND nota.nrc = curso.nrc

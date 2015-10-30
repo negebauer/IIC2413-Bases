@@ -41,7 +41,6 @@
 <h5>Consulta 6</h5>
 <p>Promedio de notas que han obtenido los alumnos en los cursos de cada profesor</p>
 <form action="consultasEntrega3/consulta6.php" method="post">
-<input type="text" name="profesor"/>
 <input type="submit"/>
 </form><br>
 
