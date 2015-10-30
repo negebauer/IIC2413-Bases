@@ -70,8 +70,8 @@
 		$i = $i + 1;
 	}
 
-	echo "</label>";
-	echo "<input type="submit"/>";
-	echo "</form><br>";
+	echo '</label>';
+	echo '<input type="submit"/>';
+	echo '</form><br>';
 
 ?>
