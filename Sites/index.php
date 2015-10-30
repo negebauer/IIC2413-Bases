@@ -96,7 +96,7 @@
 			</div>
 
 		<!-- Consulta 2 -->
-			<div class="wrapper style3">
+			<div class="wrapper style2">
 				<section class="container">
 					<header class="major">
 						<center>
@@ -150,7 +150,7 @@
 			</div>
 
 		<!-- Consulta 2 -->
-			<div class="wrapper style3">
+			<div class="wrapper style2">
 				<section class="container">
 					<header class="major">
 						<center>
@@ -202,7 +202,7 @@
 			</div>
 
 		<!-- Consulta 2 -->
-			<div class="wrapper style3">
+			<div class="wrapper style2">
 				<section class="container">
 					<header class="major">
 						<center>
