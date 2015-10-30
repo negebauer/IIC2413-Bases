@@ -75,19 +75,19 @@
 							<h2>Consulta 1</h2>
 							<span class="byline">Alumnos que reprobaron un curso</span>
 							<?php
-								$datosConsulta1 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
+								// $datosConsulta1 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
 	
-								echo '<form action="consultasEntrega3/consulta1.php" method="post">';
-								echo '<label><select name="sigla">';
+								// echo '<form action="consultasEntrega3/consulta1.php" method="post">';
+								// echo '<label><select name="sigla">';
 							
-								foreach($db -> query($datosConsulta1) as $row)
-								{
-									echo "<option value=$row[0]>$row[0] $row[1]</option>";
-								}
+								// foreach($db -> query($datosConsulta1) as $row)
+								// {
+								// 	echo "<option value=$row[0]>$row[0] $row[1]</option>";
+								// }
 							
-								echo '</label>';
-								echo '<input type="submit"/>';
-								echo '</form><br>';
+								// echo '</label>';
+								// echo '<input type="submit"/>';
+								// echo '</form><br>';
 							?>
 						</center>
 					</header>
