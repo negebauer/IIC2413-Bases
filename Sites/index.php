@@ -63,7 +63,7 @@
 	echo '<form action="consultasEntrega3/consulta1.php" method="post">';
 	echo '<label><select name="sigla">';
 
-	foreach($db -> query($datosConsulta2) as $row)
+	foreach($db -> query($datosConsulta1) as $row)
 	{
 		echo "<option value=$row[0]>$row[0]</option>";
 	}
