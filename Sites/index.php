@@ -56,7 +56,8 @@
 		}
 
 	$datosConsulta1="SELECT curso.sigla, curso.ano, curso.semestre
-	FROM curso";
+	FROM curso"
+	ORDER BY curso.sigla;
 	
 	echo '<h5>Consulta 1</h5>';
 	echo '<p>Alumnos que reprobaron un curso</p>';
