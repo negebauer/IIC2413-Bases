@@ -12,7 +12,6 @@
 </body>
 
 <?php
-// header('Content-Type: text/html; charset=ISO-8859-1');
 	try {
 		$db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
 		}
