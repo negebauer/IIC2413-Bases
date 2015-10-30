@@ -17,10 +17,10 @@ catch(PDOException $e) {
 	echo $e->getMessage();
 	}
 
-$query="SELECT profesor.nombres, profesor.apellidop, profesor.apellidom, AVG(notafinal)
-FROM profesorcurso, nota, profesor
+$query="SELECT usuario.nombres, usuario.apellidop, usuario.apellidom, AVG(notafinal)
+FROM profesorcurso, nota, usuario
 WHERE profesorcurso.nrc = nota.nrc
-AND profesor.username = profesorcurso.username
+AND usuario.username = profesorcurso.username
 GROUP BY profesorcurso.username";
 
 echo '<table border="1">';
