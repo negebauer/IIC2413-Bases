@@ -1,17 +1,29 @@
-<head>
+<!DOCTYPE HTML>
+<!--
+	Solarize by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>RENNAB by grupo5</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>RENNAB</title>
-
-</head>
-
-<body>
-
-	<h1>RENNAB</h1>
-	<h3>Realiza tu consulta favorita</h3>
-
-</body>
-
+<!-- Declaración de variables para PHP -->
 <?php
 
 	try {
@@ -21,98 +33,124 @@
 		echo $e->getMessage();
 		}
 
-	// ***************	Consulta 1	***************
-	$datosConsulta1 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
-	
-	echo '<h5>Consulta 1</h5>';
-	echo '<p>Alumnos que reprobaron un curso</p>';
-	echo '<form action="consultasEntrega3/consulta1.php" method="post">';
-	echo '<label><select name="sigla">';
-
-	foreach($db -> query($datosConsulta1) as $row)
-	{
-		echo "<option value=$row[0]>$row[0] $row[1]</option>";
-	}
-
-	echo '</label>';
-	echo '<input type="submit"/>';
-	echo '</form><br>';
-
-	// ***************	Consulta 2	***************
-	$datosConsulta2 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
-	
-	echo '<h5>Consulta 2</h5>';
-	echo '<p>Cursos que ha aprobado un alumno</p>';
-	echo '<form action="consultasEntrega3/consulta2.php" method="post">';
-	echo '<label><select name="alumno">';
-
-	foreach($db -> query($datosConsulta2) as $row)
-	{
-		echo "<option value=$row[0]>$row[2] $row[3] $row[1]</option>";
-	}
-
-	echo '</label>';
-	echo '<input type="submit"/>';
-	echo '</form><br>';
-
-	// ***************	Consulta 3	***************
-	$datosConsulta3 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
-	
-	echo '<h5>Consulta 3</h5>';
-	echo '<p>Cantidad de alumnos que cumplen los prerequisitos de un curso y no lo han tomado aun</p>';
-	echo '<form action="consultasEntrega3/consulta3.php" method="post">';
-	echo '<label><select name="sigla">';
-
-	foreach($db -> query($datosConsulta3) as $row)
-	{
-		echo "<option value=$row[0]>$row[0] $row[1]</option>";
-	}
-
-	echo '</label>';
-	echo '<input type="submit"/>';
-	echo '</form><br>';
-
-	// ***************	Consulta 4	***************
-	$datosConsulta4 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
-	
-	echo '<h5>Consulta 4</h5>';
-	echo '<p>Nota mínima, máxima, promedio y mediana de un curso dado por cada semestre dictado</p>';
-	echo '<form action="consultasEntrega3/consulta4.php" method="post">';
-	echo '<label><select name="sigla">';
-
-	foreach($db -> query($datosConsulta4) as $row)
-	{
-		echo "<option value=$row[0]>$row[0] $row[1]</option>";
-	}
-
-	echo '</label>';
-	echo '<input type="submit"/>';
-	echo '</form><br>';
-
-	// ***************	Consulta 5	***************
-	$datosConsulta5 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
-	
-	echo '<h5>Consulta 5</h5>';
-	echo '<p>Todos los profesores que ha tenido un alumno</p>';
-	echo '<form action="consultasEntrega3/consulta5.php" method="post">';
-	echo '<label><select name="alumno">';
-
-	foreach($db -> query($datosConsulta5) as $row)
-	{
-		echo "<option value=$row[0]>$row[2] $row[3] $row[1]</option>";
-	}
-
-	echo '</label>';
-	echo '<input type="submit"/>';
-	echo '</form><br>';
-
-	// ***************	Consulta 6	***************
-	$datosConsulta5 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
-	
-	echo '<h5>Consulta 6</h5>';
-	echo '<p>Promedio de notas que han obtenido los alumnos en los cursos de cada profesor</p>';
-	echo '<form action="consultasEntrega3/consulta6.php" method="post">';
-	echo '<input type="submit"/>';
-	echo '</form><br>';
-
 ?>
+
+	<body class="homepage">
+
+		<!-- Header Wrapper -->
+			<div class="wrapper style1">
+			
+			<!-- Header -->
+				<div id="header">
+					<div class="container">
+							
+						<!-- Logo -->
+							<h1><a href="#" id="logo">RENNAB</a></h1>
+						
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="active"><a href="index.php"Home</a></li>
+								</ul>
+							</nav>
+	
+					</div>
+				</div>
+				
+			<!-- Banner -->
+				<div id="banner">
+					<section class="container">
+						<h2>RENNAB</h2>
+						<span>Realice la consulta deseada más abajo</span>
+					</section>
+				</div>
+
+			</div>
+		
+		<!-- Consulta 1 -->
+			<div class="wrapper style2">
+				<section class="container">
+					<header class="major">
+						<center>
+							<h2>Consulta 1</h2>
+							<span class="byline">Alumnos que reprobaron un curso</span>
+							<?php
+								$datosConsulta1 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
+	
+								echo '<form action="consultasEntrega3/consulta1.php" method="post">';
+								echo '<label><select name="sigla">';
+							
+								foreach($db -> query($datosConsulta1) as $row)
+								{
+									echo "<option value=$row[0]>$row[0] $row[1]</option>";
+								}
+							
+								echo '</label>';
+								echo '<input type="submit"/>';
+								echo '</form><br>';
+							?>
+						</center>
+					</header>
+				</section>
+			</div>
+
+		<!-- Consulta 2 -->
+			<div class="wrapper style3">
+				<section class="container">
+					<header class="major">
+						<center>
+							<h2>Consulta 2</h2>
+							<span class="byline">Cursos que ha aprobado un alumno</span>
+						</center>
+					</header>
+				</section>
+			</div>
+
+		<!-- Consulta 1 -->
+			<div class="wrapper style2">
+				<section class="container">
+					<header class="major">
+						<center>
+							<h2>Consulta 1</h2>
+							<span class="byline">Alumnos que reprobaron un curso</span>
+						</center>
+					</header>
+				</section>
+			</div>
+
+		<!-- Consulta 2 -->
+			<div class="wrapper style3">
+				<section class="container">
+					<header class="major">
+						<center>
+							<h2>Consulta 2</h2>
+							<span class="byline">Cursos que ha aprobado un alumno</span>
+						</center>
+					</header>
+				</section>
+			</div>		<!-- Consulta 1 -->
+			<div class="wrapper style2">
+				<section class="container">
+					<header class="major">
+						<center>
+							<h2>Consulta 1</h2>
+							<span class="byline">Alumnos que reprobaron un curso</span>
+						</center>
+					</header>
+				</section>
+			</div>
+
+		<!-- Consulta 2 -->
+			<div class="wrapper style3">
+				<section class="container">
+					<header class="major">
+						<center>
+							<h2>Consulta 2</h2>
+							<span class="byline">Cursos que ha aprobado un alumno</span>
+						</center>
+					</header>
+				</section>
+			</div>
+
+	</body>
+</html>
