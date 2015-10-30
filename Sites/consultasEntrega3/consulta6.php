@@ -21,7 +21,7 @@ $query="SELECT usuario.nombres, usuario.apellidop, usuario.apellidom, AVG(notafi
 FROM profesorcurso, nota, usuario
 WHERE profesorcurso.nrc = nota.nrc
 AND usuario.username = profesorcurso.username
-GROUP BY profesorcurso.username";
+GROUP BY profesorcurso.username, usuario.username";
 
 echo '<table border="1">';
 echo '<tr>';
