@@ -107,8 +107,6 @@
 	echo '</form><br>';
 
 	// ***************	Consulta 6	***************
-	$datosConsulta5 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
-	
 	echo '<h5>Consulta 6</h5>';
 	echo '<p>Promedio de notas que han obtenido los alumnos en los cursos de cada profesor</p>';
 	echo '<form action="consultasEntrega3/consulta6.php" method="post">';

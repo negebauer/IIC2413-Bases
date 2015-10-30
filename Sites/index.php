@@ -84,12 +84,11 @@
 								{
 									echo "<option value=$row[0]>$row[0] $row[1]</option>";
 								}
-							
-								echo '</label>';
-								echo '<br><br>';
-								echo '<input type="submit"/>';
-								echo '</form><br>';
 							?>
+							</label>
+							<br><br>
+							<input type="submit"/>
+							</form>
 						</center>
 					</header>
 				</section>
