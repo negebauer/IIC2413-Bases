@@ -2,6 +2,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
+<body>
+	
+	<h1>Resultado Consulta 6:</h1>
+
+</body>
+
 <?php
 // header('Content-Type: text/html; charset=ISO-8859-1');
 try {
@@ -10,8 +16,6 @@ try {
 catch(PDOException $e) {
 	echo $e->getMessage();
 	}
-
-echo "<h1>Resultado Consulta 6:</h1>";
 
 $query="SELECT profesor.nombres, profesor.apellidop, profesor.apellidom, AVG(notafinal)
 FROM profesorcurso, nota, profesor

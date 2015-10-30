@@ -1,7 +1,6 @@
 <body>
-<h1>Sitio entrega 3</h1>
-<h2>Bienvenido a la mejor pagina de Bases de Datos</h2>
-<h3>Haz click en el link de la consulta que quieras realizar</h3>
+<h1>RENNAB</h1>
+<h3>Realiza tu consulta favorita</h3>
 
 <h5>Consulta 1</h5>
 <p>Alumnos que reprobaron un curso</p>
