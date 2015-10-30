@@ -102,6 +102,21 @@
 						<center>
 							<h2>Consulta 2</h2>
 							<span class="byline">Cursos que ha aprobado un alumno</span>
+							<?php
+								$datosConsulta2 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
+	
+								echo '<form action="consultasEntrega3/consulta2.php" method="post">';
+								echo '<label><select name="alumno">';
+							
+								foreach($db -> query($datosConsulta2) as $row)
+								{
+									echo "<option value=$row[0]>$row[2] $row[3] $row[1]</option>";
+								}
+							
+								echo '</label>';
+								echo '<input type="submit"/>';
+								echo '</form><br>';
+							?>
 						</center>
 					</header>
 				</section>
@@ -112,8 +127,23 @@
 				<section class="container">
 					<header class="major">
 						<center>
-							<h2>Consulta 1</h2>
-							<span class="byline">Alumnos que reprobaron un curso</span>
+							<h2>Consulta 3</h2>
+							<span class="byline">Cantidad de alumnos que cumplen los prerequisitos de un curso y no lo han tomado aun</span>
+							<?php
+								$datosConsulta3 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
+	
+								echo '<form action="consultasEntrega3/consulta3.php" method="post">';
+								echo '<label><select name="sigla">';
+							
+								foreach($db -> query($datosConsulta3) as $row)
+								{
+									echo "<option value=$row[0]>$row[0] $row[1]</option>";
+								}
+							
+								echo '</label>';
+								echo '<input type="submit"/>';
+								echo '</form><br>';
+							?>
 						</center>
 					</header>
 				</section>
@@ -124,8 +154,23 @@
 				<section class="container">
 					<header class="major">
 						<center>
-							<h2>Consulta 2</h2>
-							<span class="byline">Cursos que ha aprobado un alumno</span>
+							<h2>Consulta 4</h2>
+							<span class="byline">Nota mínima, máxima, promedio y mediana de un curso dado por cada semestre dictado</span>
+							<?php
+								$datosConsulta4 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
+
+								echo '<form action="consultasEntrega3/consulta4.php" method="post">';
+								echo '<label><select name="sigla">';
+							
+								foreach($db -> query($datosConsulta4) as $row)
+								{
+									echo "<option value=$row[0]>$row[0] $row[1]</option>";
+								}
+							
+								echo '</label>';
+								echo '<input type="submit"/>';
+								echo '</form><br>';
+							?>
 						</center>
 					</header>
 				</section>
@@ -134,8 +179,23 @@
 				<section class="container">
 					<header class="major">
 						<center>
-							<h2>Consulta 1</h2>
-							<span class="byline">Alumnos que reprobaron un curso</span>
+							<h2>Consulta 5</h2>
+							<span class="byline">Todos los profesores que ha tenido un alumno</span>
+							<?php
+								$datosConsulta5 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
+
+								echo '<form action="consultasEntrega3/consulta5.php" method="post">';
+								echo '<label><select name="alumno">';
+							
+								foreach($db -> query($datosConsulta5) as $row)
+								{
+									echo "<option value=$row[0]>$row[2] $row[3] $row[1]</option>";
+								}
+							
+								echo '</label>';
+								echo '<input type="submit"/>';
+								echo '</form><br>';
+							?>
 						</center>
 					</header>
 				</section>
@@ -146,8 +206,13 @@
 				<section class="container">
 					<header class="major">
 						<center>
-							<h2>Consulta 2</h2>
-							<span class="byline">Cursos que ha aprobado un alumno</span>
+							<h2>Consulta 6</h2>
+							<span class="byline">Promedio de notas que han obtenido los alumnos en los cursos de cada profesor</span>
+							<?php
+								echo '<form action="consultasEntrega3/consulta6.php" method="post">';
+								echo '<input type="submit"/>';
+								echo '</form><br>';
+							?>
 						</center>
 					</header>
 				</section>
