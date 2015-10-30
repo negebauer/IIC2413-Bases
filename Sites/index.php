@@ -86,7 +86,7 @@
 								}
 							?>
 							</label>
-							<br><br>
+							<hr><br><p>   </p><br><hr>
 							<input type="submit"/>
 							</form>
 						</center>
