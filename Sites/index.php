@@ -9,26 +9,6 @@
 
 	<h1>RENNAB</h1>
 	<h3>Realiza tu consulta favorita</h3>
-	
-	<h5>Consulta 4</h5>
-	<p>Nota mínima, máxima, promedio y mediana de un curso dado por cada semestre dictado</p>
-	<form action="consultasEntrega3/consulta4.php" method="post">
-	<input type="text" name="sigla"/>
-	<input type="submit"/>
-	</form><br>
-	
-	<h5>Consulta 5</h5>
-	<p>Todos los profesores que ha tenido un alumno</p>
-	<form action="consultasEntrega3/consulta5.php" method="post">
-	<input type="text" name="alumno"/>
-	<input type="submit"/>
-	</form><br>
-	
-	<h5>Consulta 6</h5>
-	<p>Promedio de notas que han obtenido los alumnos en los cursos de cada profesor</p>
-	<form action="consultasEntrega3/consulta6.php" method="post">
-	<input type="submit"/>
-	</form><br>
 
 </body>
 
@@ -89,6 +69,49 @@
 	}
 
 	echo '</label>';
+	echo '<input type="submit"/>';
+	echo '</form><br>';
+
+	// ***************	Consulta 4	***************
+	$datosConsulta4 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
+	
+	echo '<h5>Consulta 4</h5>';
+	echo '<p>Nota mínima, máxima, promedio y mediana de un curso dado por cada semestre dictado</p>';
+	echo '<form action="consultasEntrega3/consulta4.php" method="post">';
+	echo '<label><select name="sigla">';
+
+	foreach($db -> query($datosConsulta4) as $row)
+	{
+		echo "<option value=$row[0]>$row[0] $row[1]</option>";
+	}
+
+	echo '</label>';
+	echo '<input type="submit"/>';
+	echo '</form><br>';
+
+	// ***************	Consulta 5	***************
+	$datosConsulta5 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
+	
+	echo '<h5>Consulta 5</h5>';
+	echo '<p>Todos los profesores que ha tenido un alumno</p>';
+	echo '<form action="consultasEntrega3/consulta5.php" method="post">';
+	echo '<label><select name="alumno">';
+
+	foreach($db -> query($datosConsulta5) as $row)
+	{
+		echo "<option value=$row[0]>$row[2] $row[3] $row[1]</option>";
+	}
+
+	echo '</label>';
+	echo '<input type="submit"/>';
+	echo '</form><br>';
+
+	// ***************	Consulta 6	***************
+	$datosConsulta5 = "SELECT alumno.username, usuario.nombres, usuario.apellidop, usuario.apellidom FROM alumno, usuario WHERE usuario.username = alumno.username ORDER BY usuario.apellidop, usuario.apellidom, usuario.nombres";
+	
+	echo '<h5>Consulta 6</h5>';
+	echo '<p>Promedio de notas que han obtenido los alumnos en los cursos de cada profesor</p>';
+	echo '<form action="consultasEntrega3/consulta6.php" method="post">';
 	echo '<input type="submit"/>';
 	echo '</form><br>';
 
