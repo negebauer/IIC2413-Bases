@@ -8,12 +8,14 @@ Consulta 1
 <form action="/consultasEntrega3/consulta1.php" method="post">
 <input type="text" name="sigla"<br>
 <input type="submit"<br>
+</form>
 
 Consulta 2
 <p>Alumnos que cumplen los requisitos de un curso y aun no lo han tomado</p>
 <form action="/consultasEntrega3/consulta2.php" method="post">
 <input type="text" name="sigla"><br>
 <input type="submit"><br>
+</form>
 
 <a href="/consultasEntrega3/consulta2.php">Consulta 2</a><br>
 <a href="/consultasEntrega3/consulta3.php">Consulta 3</a><br>
