@@ -5,7 +5,7 @@
 
 Consulta 1
 <p>Alumnos que reprobaron un curso</p>
-<form action="/consultasEntrega3/consulta1.php" method="post">
+<form action="consultasEntrega3/consulta1.php" method="post">
 <input type="text" name="sigla"<br>
 <input type="submit"<br>
 </form>
