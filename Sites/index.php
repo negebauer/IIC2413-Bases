@@ -75,7 +75,7 @@
 	echo '</form><br>';
 
 	// ***************	Consulta 2	***************
-	$datosConsulta1="SELECT alumno.username FROM alumno ORDER BY alumno.username";
+	$datosConsulta2="SELECT alumno.username FROM alumno ORDER BY alumno.username";
 	
 	echo '<h5>Consulta 2</h5>';
 	echo '<p>Cursos que ha aprobado un alumno</p>';
@@ -83,7 +83,7 @@
 	echo '<label><select name="alumno">';
 
 	$i = 0;
-	foreach($db->query($datosConsulta1) as $row)
+	foreach($db->query($datosConsulta2) as $row)
 	{
 		echo "<option value=$row[0]>$row[0]</option>";
 		$i = $i + 1;
