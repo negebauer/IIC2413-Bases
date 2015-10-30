@@ -86,8 +86,10 @@
 								}
 
 								echo '</label>';
-								echo '<hr><br><p>   </p><br><hr>';
-								echo '  ';
+								echo '<br><br><br><br><br><br>';
+								echo '\n';
+								echo '<br><br><br><br><br><br>';
+								echo '\n';
 								echo '<input type="submit"/>';
 								echo '</form>';
 							?>
