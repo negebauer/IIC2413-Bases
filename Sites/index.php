@@ -66,7 +66,7 @@
 	$i = 0;
 	foreach($db->query($query) as $row)
 	{
-		echo "<option value="0">'$row[0]' 'strval($row[1])' 'strval($row[2])'</option>";
+		echo "<option value='strval($i)'>'$row[0]' 'strval($row[1])' 'strval($row[2])'</option>";
 		$i = $i + 1;
 	}
 
