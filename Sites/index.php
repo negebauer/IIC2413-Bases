@@ -86,7 +86,7 @@
 								}
 							
 								echo '</label>';
-								echo '<p></p><p></p>';
+								echo '<br><br>';
 								echo '<input type="submit"/>';
 								echo '</form><br>';
 							?>
