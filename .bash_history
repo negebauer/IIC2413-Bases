@@ -388,3 +388,42 @@ cd entrega
 cd entrega3
 ll
 cat definicionMediana.txt 
+ll
+ls -l
+cd Sites/
+ls -s
+ll
+cd consultasEntrega3/
+ll
+rm -rfv resultado/
+nano consulta1.php 
+ll
+clear
+git
+cd ../..
+git init
+git add README.md
+git commit -m "First commit"
+git config user.email "negebauer@uc.cl"
+git config user.name "nicogeb"
+git commit -m "First commit"
+git add -A
+git commit -m "Added files"
+git remote add origin https://github.com/nicogeb/IIC2143Bases.git
+git push -u origin master
+git pull
+git status
+git add -A
+git commit -m "Final modification trought server"
+git push
+git pull
+git add /A
+git add -A
+git commit -m "Final remote modification"
+git push
+git status
+git add -A
+git commit -m "Final final final remote modification"
+git push
+cat Sites/index.php 
+git pull
