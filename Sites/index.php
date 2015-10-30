@@ -6,21 +6,21 @@
 Consulta 1
 <p>Alumnos que reprobaron un curso</p>
 <form action="consultasEntrega3/consulta1.php" method="post">
-<input type="text" name="sigla"<br>
-<input type="submit"<br>
+<input type="text" name="sigla"/><br>
+<input type="submit"/><br>
 </form>
 
 Consulta 2
 <p>Alumnos que cumplen los requisitos de un curso y aun no lo han tomado</p>
-<form action="/consultasEntrega3/consulta2.php" method="post">
-<input type="text" name="sigla"><br>
-<input type="submit"><br>
+<form action="consultasEntrega3/consulta2.php" method="post">
+<input type="text" name="sigla"/><br>
+<input type="submit"/><br>
 </form>
 
-<a href="/consultasEntrega3/consulta2.php">Consulta 2</a><br>
-<a href="/consultasEntrega3/consulta3.php">Consulta 3</a><br>
-<a href="/consultasEntrega3/consulta4.php">Consulta 4</a><br>
-<a href="/consultasEntrega3/consulta5.php">Consulta 5</a><br>
-<a href="/consultasEntrega3/consulta6.php">Consulta 6</a><br>
+<a href="consultasEntrega3/consulta2.php">Consulta 2</a><br>
+<a href="consultasEntrega3/consulta3.php">Consulta 3</a><br>
+<a href="consultasEntrega3/consulta4.php">Consulta 4</a><br>
+<a href="consultasEntrega3/consulta5.php">Consulta 5</a><br>
+<a href="consultasEntrega3/consulta6.php">Consulta 6</a><br>
 
 </body>
