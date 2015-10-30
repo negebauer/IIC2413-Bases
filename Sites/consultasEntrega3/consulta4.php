@@ -23,13 +23,23 @@ GROUP BY curso.ano, curso.semestre";
 
 echo '<table border="1">';
 echo '<tr>';
-echo "<th>Cantidad</th>";
+echo "<th>Ano</th>";
+echo "<th>Semestre</th>";
+echo "<th>Nota minima</th>";
+echo "<th>Nota maxima</th>";
+echo "<th>Nota promedio</th>";
+echo "<th>Mediana nota</th>";
 echo "</tr>";
 
 foreach($db->query($query) as $row)
 {
 	echo "<tr>";
 	echo "<td>" . $row[0] . "</td>";
+	echo "<td>" . $row[1] . "</td>";
+	echo "<td>" . $row[2] . "</td>";
+	echo "<td>" . $row[3] . "</td>";
+	echo "<td>" . $row[4] . "</td>";
+	echo "<td>" . $row[5] . "</td>";
 	echo "</tr>";
 }
 
