@@ -59,7 +59,7 @@
 	echo '</form><br>';
 
 	// ***************	Consulta 2	***************
-	$datosConsulta2 = "SELECT alumno.username FROM alumno ORDER BY alumno.username";
+	$datosConsulta2 = "SELECT alumno.username, usuario.nombres, usuario.apelidop, usuario.apellidom WHERE usuario.username = alumno.username FROM alumno ORDER BY usuario.apelidop, usuario.apellidom, usuario.nombres";
 	
 	echo '<h5>Consulta 2</h5>';
 	echo '<p>Cursos que ha aprobado un alumno</p>';
@@ -68,7 +68,7 @@
 
 	foreach($db -> query($datosConsulta2) as $row)
 	{
-		echo "<option value=$row[0]>$row[0]</option>";
+		echo "<option value=$row[0]>$row[2] $row[3] $row[1]</option>";
 	}
 
 	echo '</label>';
