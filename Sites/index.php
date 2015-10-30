@@ -192,10 +192,10 @@
 									echo "<option value=$row[0]>$row[2] $row[3] $row[1]</option>";
 								}
 							
-								echo '<br>';
 								echo '</label>';
+								echo '<br><br>';
 								echo '<input type="submit"/>';
-								echo '</form><br>';
+								echo '</form>';
 							?>
 						</center>
 					</header>
