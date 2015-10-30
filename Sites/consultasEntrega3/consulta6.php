@@ -37,7 +37,7 @@ foreach($db->query($query) as $row)
 	echo "<td>" . $row[0] . "</td>";
 	echo "<td>" . $row[1] . "</td>";
 	echo "<td>" . $row[2] . "</td>";
-	echo "<td>" . $row[3] . "</td>";
+	echo "<td>" . round($row[3], 3) . "</td>";
 	echo "</tr>";
 }
 
