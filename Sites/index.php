@@ -66,7 +66,7 @@
 	$i = 0;
 	foreach($db->query($datosConsulta1) as $row)
 	{
-		echo "<option value='strval($i)'>'$row[0]' 'strval($row[1])' 'strval($row[2])'</option>";
+		echo "<option value=$i>$row[0] $row[1] $row[2]</option>";
 		$i = $i + 1;
 	}
 
