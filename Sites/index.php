@@ -58,10 +58,10 @@
 	$datosConsulta1="SELECT curso.sigla, curso.ano, curso.semestre
 	FROM curso";
 	
-	echo "<h5>Consulta 1</h5>";
-	echo "<p>Alumnos que reprobaron un curso</p>";
-	echo "<form action="consultasEntrega3/consulta1.php" method="post">";
-	echo "<label><select name="sigla">";
+	echo '<h5>Consulta 1</h5>';
+	echo '<p>Alumnos que reprobaron un curso</p>';
+	echo '<form action="consultasEntrega3/consulta1.php" method="post">';
+	echo '<label><select name="sigla">';
 
 	$i = 0;
 	foreach($db->query($query) as $row)
