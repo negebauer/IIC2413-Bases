@@ -91,6 +91,7 @@
 								echo '<span class="byline"> </span>';
 								echo '<span class="byline"> </span>';
 								echo '<span class="byline"> </span>';
+								echo "<br/>";
 								echo '<input type="submit"/>';
 								echo '</form>';
 							?>
