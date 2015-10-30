@@ -2,6 +2,8 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>RENNAB</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 
 </head>
 
@@ -24,7 +26,7 @@
 	AND requisito.siglarequisito = curso.sigla
 	AND requisito.siglaramo = '" . $_POST['sigla'] . "'";
 	
-	echo '<table border="1">';
+	echo '<table border="1" class="table">';
 	echo '<tr>';
 	echo "<th>Cantidad</th>";
 	echo "</tr>";

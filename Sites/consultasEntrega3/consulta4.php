@@ -2,6 +2,7 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>RENNAB</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 </head>
 
@@ -23,7 +24,7 @@
 	AND curso.nrc = nota.nrc
 	GROUP BY curso.ano, curso.semestre";
 	
-	echo '<table border="1">';
+	echo '<table border="1" class="table">';
 	echo '<tr>';
 	echo "<th>Ano</th>";
 	echo "<th>Semestre</th>";
