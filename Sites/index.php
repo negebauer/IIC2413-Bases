@@ -86,7 +86,12 @@
 								}
 
 								echo '</label>';
-								echo '<span class="byline"><input type="submit"/></span>';
+								echo '<span class="byline"> </span>';
+								echo '<span class="byline"> </span>';
+								echo '<span class="byline"> </span>';
+								echo '<span class="byline"> </span>';
+								echo '<span class="byline"> </span>';
+								echo '<input type="submit"/>';
 								echo '</form>';
 							?>
 						</center>
