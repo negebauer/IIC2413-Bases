@@ -1,3 +1,9 @@
+alias gst='git status'
+alias gad='git add -A'
+alias gpl='git pull'
+alias gps='git push'
+gcm () { git commit -m "$@" ; }
+
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.

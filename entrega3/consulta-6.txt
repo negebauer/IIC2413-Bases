@@ -1,8 +1,8 @@
 Para cada profesor, muestre el promedio de notas que han obtenido los alumnos de sus cursos.
 En profesor se reemplaza por el username del profesor a consultar.
 
-SELECT AVG(notafinal)
-FROM profesorcurso, nota
+SELECT usuario.nombres, usuario.apellidop, usuario.apellidom, AVG(notafinal)
+FROM profesorcurso, nota, usuario
 WHERE profesorcurso.nrc = nota.nrc
-AND profesorcurso.username = profesor
-GROUP BY profesorcurso.username;
+AND usuario.username = profesorcurso.username
+GROUP BY profesorcurso.username, usuario.username;
