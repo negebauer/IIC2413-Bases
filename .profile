@@ -1,8 +1,26 @@
+export PS1="_____________________________________________________________________________ \n| \u @ \h - \t \d - #\#\n|\w\n|$ "
+
+############################### Some git aliases  ######################################
 alias gst='git status'
 alias gad='git add -A'
 alias gpl='git pull'
 alias gps='git push'
+gcl() { git clone "$@" ; }
 gcm () { git commit -m "$@" ; }
+glcm () { gad ; gcm "$@" ; }
+gfcm () { gad ; gcm "$@" ; gps ; }
+gtg () {
+	if [ -z "$1" -a -z "$2" ];
+		then
+		git tag;
+	elif [ -z "$2" ];
+		then
+		git show "$1";
+	else
+		git tag -a "$1" -m "$2";
+		git push origin "$1";
+	fi
+}
 
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login

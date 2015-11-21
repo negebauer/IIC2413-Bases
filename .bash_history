@@ -427,3 +427,54 @@ git commit -m "Final final final remote modification"
 git push
 cat Sites/index.php 
 git pull
+ll
+nano .profile
+source .profile 
+gst
+gad
+gcm "Updated .profile"
+gps
+gpl
+gps
+gst
+gad
+gcm "Consulta 1 still"
+gps
+gst
+gpl
+psql
+gpl
+psql
+gpl
+gpl
+psql
+git pull
+gpl
+gpl
+psql
+gpl
+psql
+gpl
+git log
+gpl
+git log
+clear
+git log
+gpl
+git log
+git log -p -1
+gpl
+gpl
+git log -p
+gpl
+psql
+gpl
+psql
+gpl
+psql
+gpl
+gpl
+psql
+gpl
+psql
+psql
