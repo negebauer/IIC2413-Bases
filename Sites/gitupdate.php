@@ -2,7 +2,7 @@
 
 require_once('Git.php');
 
-$repo = Git::open('/../');  // -or- Git::create('/path/to/repo')
+$repo = Git::open('../.git');  // -or- Git::create('/path/to/repo')
 
 // $repo->add('.');
 // $repo->commit('Some commit message');
