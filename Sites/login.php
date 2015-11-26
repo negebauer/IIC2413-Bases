@@ -2,8 +2,6 @@
 
     try {
         $db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
-        $message = "Me conecté!!! Yujuuu!!!";
-        echo "<script type='text/javascript'>alert('$message');</script>";
         }
     catch(PDOException $e) {
         echo $e->getMessage();
@@ -13,7 +11,6 @@ function verificar_login($user,$password, $db,&$result)
     { 
         $sql = 'SELECT * FROM usuario WHERE username = \'$user\' and password = \'$password\''; 
         $rec = $db -> query($sql); 
-        $message = "Me conecté!!! Yujuuu!!!";
         echo "<script type='text/javascript'>alert('$rec');</script>";
 
         if (!$rec) {
