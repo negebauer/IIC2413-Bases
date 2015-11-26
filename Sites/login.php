@@ -13,6 +13,9 @@ function verificar_login($user,$password, $db,&$result)
     { 
         $sql = 'SELECT * FROM usuario WHERE username = \'$user\' and password = \'$password\''; 
         $rec = $db -> query($sql); 
+        $message = "Me conecté!!! Yujuuu!!!";
+        echo "<script type='text/javascript'>alert('$rec');</script>";
+
         if (!$rec) {
             return 0;
         } else {
