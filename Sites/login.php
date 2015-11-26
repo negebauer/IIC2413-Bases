@@ -2,6 +2,8 @@
 
 	try {
 		$db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
+		$message = "Me conecté!!! Yujuuu!!!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 	catch(PDOException $e) {
 		echo $e->getMessage();
@@ -9,8 +11,8 @@
 
 function verificar_login($user,$password,&$result) 
     { 
-        $sql = “SELECT * FROM usuario WHERE username = ‘$user’ and password = ‘$password’”; 
-        $rec = query($sql); 
+	    $sql = 'SELECT * FROM usuario WHERE username = \'$user\' and password = \'$password\''; 
+        $rec = $db -> query($sql); 
         if (!$rec) {
         	return 0;
         } else {
@@ -23,7 +25,7 @@ function verificar_login($user,$password,&$result)
 
 if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de sesión que se va a crear cuando el usuario se logee
 { 
-    if(isset($_POST['login'])) //Si la primera condición no pasa, haremos otra preguntando si el boton de login fue presionado
+    if(isset($_POST['login'])) //Si la primera condición no pasa, haremos otra preguntando si el boton de login 	fue presionado
     { 
         if(verificar_login($_POST['user'],$_POST['password'],$result) == 1) //Si el boton fue presionado llamamos a la función verificar_login() dentro de otra condición preguntando si resulta verdadero y le pasamos los valores ingresados como parámetros.
         { 
