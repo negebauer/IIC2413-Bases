@@ -1,7 +1,11 @@
-<?php 
-session_start(); //session_start() crea una sesión para ser usada mediante una petición GET o POST, o pasado por una cookie 
-include_once "conexion.php"; //es la sentencia q usaremos para incluir el archivo de conexión a la base de datos que creamos anteriormente.
-/*Función verificar_login() --> Vamos a crear una función llamada verificar_login, esta se encargara de hacer una consulta a la base de datos para saber si el usuario ingresado es correcto o no.*/
+<?php
+
+	try {
+		$db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
+		}
+	catch(PDOException $e) {
+		echo $e->getMessage();
+		}
 
 function verificar_login($user,$password,&$result) 
     { 
