@@ -37,3 +37,62 @@ git remote
 git remote -v
 gtg
 gst
+git status
+git add -A
+gst
+gcm "Bah"
+gst
+git receive,denyCurrentBranch ignore
+git receive.denyCurrentBranch ignore
+git --help
+git config receive.denyCurrentBranch
+git config receive.denyCurrentBranch warn
+gst
+git diff Sites/index.php
+ll
+gtg
+gtg 1.0.5 "Remote ready for Nico and Carlos"
+gtg
+gst
+git add Sites/index.php 
+cat Sites/index
+cat Sites/index.php 
+ll
+ll
+ls
+ls
+ll
+ll
+ls
+ls -la
+nano .profile 
+ll
+source .profile 
+ll
+cd ..
+ls -la
+cd ..
+ls -la
+cd bin
+ls -la
+~
+cd ~
+ll
+ls
+nano .profile 
+source .profile 
+ll
+ll
+logout
+psql
+psql
+psql
+cat .profile 
+cat .profile 
+gtg
+gtg
+gtg 1.0.5
+c
+clear
+nano .profile
+psql
