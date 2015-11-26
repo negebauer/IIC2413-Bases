@@ -11,20 +11,12 @@ function verificar_login($user,$password,&$result)
     { 
         $sql = “SELECT * FROM usuario WHERE username = ‘$user’ and password = ‘$password’”; 
         $rec = query($sql); 
-        $count = 0; 
-        while($row = mysql_fetch_object($rec)) 
-        { 
-            $count++; 
-            $result = $row; 
-        } 
-        if($count == 1) 
-        { 
-            return 1; 
-        } 
-        else 
-        { 
-            return 0; 
-        } 
+        if (!$rec) {
+        	return 0;
+        } else {
+        	return 1;
+        }
+        
     } 
 
 /*Luego haremos una serie de condicionales que identificaran el momento en el boton de login es presionado y cuando este sea presionado llamaremos a la función verificar_login() pasandole los parámetros ingresados:*/
