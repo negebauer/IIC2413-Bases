@@ -1,0 +1,10 @@
+Dado un curso, muestre todos los alumnos que lo reprobaron en un semestre especiﬁco.
+En siglacurso se reemplaza por la sigla del curso a consultar
+
+SELECT usuario.nombres, usuario.apellidop, usuario.apellidom, curso.ano, curso.semestre
+FROM alumno, nota, curso, usuario
+WHERE nota.username = alumno.username
+AND alumno.username = usuario.username
+AND nota.notafinal <= 4.0
+AND nota.nrc = curso.nrc
+AND curso.sigla = siglacurso;

@@ -1,0 +1,8 @@
+Muestre la nota m´ınima, m´axima, promedio y mediana de un curso dado por cada semestre que se ha dictado.
+Se reemplaza siglacurso por la sigla del curso que se quiere conslultar
+
+SELECT curso.ano, curso.semestre, MIN(notafinal), MAX(notafinal), AVG(notafinal), median(notafinal)
+FROM nota, curso
+WHERE curso.sigla = 'IIC2413'
+AND curso.nrc = nota.nrc
+GROUP BY curso.ano, curso.semestre;
