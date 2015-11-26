@@ -1,5 +1,6 @@
 <h1>Hola</h1>
-// <?php
+
+// <!--?php
 
 // 	try {
 // 		$db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
@@ -49,4 +50,4 @@
 //     echo 'Su usuario ingreso correctamente.'; 
 //     echo '<a href="logout.php">Logout</a>'; 
 // } 
-// ?> 
+// ?--> 
