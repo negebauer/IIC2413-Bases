@@ -2,3 +2,4 @@
 .psql_history*
 .DS_Store
 .cache
+.gitconfig
