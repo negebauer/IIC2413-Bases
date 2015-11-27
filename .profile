@@ -4,24 +4,33 @@ alias ll='ls -FGlhp'
 
 ############################### Some git aliases  ######################################
 alias gst='git status'
-alias gad='git add -A'
 alias gpl='git pull'
 alias gps='git push'
-gcl() { git clone "$@" ; }
+alias glg='git log'
+alias gfc='git fetch'
+gad () {
+        if [ -z "$1" ];
+                then
+                git add -A;
+        else
+                git add "$1";
+        fi
+}
+gcl () { git clone "$@" ; }
 gcm () { git commit -m "$@" ; }
 glcm () { gad ; gcm "$@" ; }
 gfcm () { gad ; gcm "$@" ; gps ; }
 gtg () {
-	if [ -z "$1" -a -z "$2" ];
-		then
-		git tag;
-	elif [ -z "$2" ];
-		then
-		git show "$1";
-	else
-		git tag -a "$1" -m "$2";
-		git push origin "$1";
-	fi
+        if [ -z "$1" -a -z "$2" ];
+                then
+                git tag;
+        elif [ -z "$2" ];
+                then
+                git show "$1";
+        else
+                git tag -a "$1" -m "$2";
+                git push origin "$1";
+        fi
 }
 
 # ~/.profile: executed by the command interpreter for login shells.

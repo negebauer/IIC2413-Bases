@@ -96,3 +96,52 @@ c
 clear
 nano .profile
 psql
+psql
+ll
+cd Sites/
+ll
+gst
+scp -h
+nano
+ll
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+nano login.php 
+..
+cd ..
+ll
+nano address.txt
+cd Site
+cd Sites/
+nano login.php 
+quit
+quit
+exit
+gps
+gst
+cat .gitignore 
+ll -a
+rm .psql_history- 
+gst
+psql
+gst
+gpl
+git checkout Sites/login.php
+gpl
+rm Sites/indexOld.php 
+rm Sites/saludo.php 
+rm Sites/testFile2.txt 
+rm testFile1.txt 
+gst
+rm .psql_history- 
+gpl
+ll
+psql
