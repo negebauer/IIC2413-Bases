@@ -1,3 +1,4 @@
 .bash_history
 .psql_history*
 .DS_Store
+.cache
