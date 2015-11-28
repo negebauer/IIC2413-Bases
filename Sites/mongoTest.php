@@ -36,4 +36,11 @@ echo "<br>";
 echo $universidades->find()->count();
 echo "<br>";
 
+$alumno1 = $alumnos.findOne();
+$cursosAlumno1 = $cursos.find(array('_id' => array('$in' => $alumno1.cursos)));
+echo "Found {$cursosAlumno1->count()}";
+
 ?>
+
+// How many have a list property with array values including "one" and "two"?
+$count_things = $c_things->count(array('list' => array('$in' => array('one','two'))));
