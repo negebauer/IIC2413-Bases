@@ -4,3 +4,4 @@
 .cache
 .gitconfig
 .mongorc.js
+.dbshell
