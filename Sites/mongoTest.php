@@ -42,6 +42,6 @@ var_dump($alumno1["cursos"]);
 $cursosAlumno1 = $cursos->find(array('_id' => array('$in' => $alumno1["cursos"])));
 echo "<br><br><br>";
 echo "Found {$cursosAlumno1->count()}";
-var_dump($cursosAlumno1.find(1));
+var_dump($cursosAlumno1->find(1));
 
 ?>
