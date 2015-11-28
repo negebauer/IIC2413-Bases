@@ -12,7 +12,8 @@
 		'whoami',
 		'git pull',
 		'git status',
-		'git tag'
+		'git tag',
+		'git log -3'
 	);
 	// Run the commands for output
 	$output = '';
