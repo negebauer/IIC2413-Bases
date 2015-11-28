@@ -23,11 +23,11 @@ echo $universidades = $db->universidades;
 echo "<br>";
 echo "<h3>Showing stuff</h3>";
 echo "<br>";
-var_dump($alumnos->find());
+var_dump($alumnos->find()->limit(2));
 echo "<br>";
-var_dump($cursos->find());
+var_dump($cursos->find()->limit(2));
 echo "<br>";
-var_dump($universidades->find());
+var_dump($universidades->find()->limit(2));
 echo "<br>";
 
 ?>
