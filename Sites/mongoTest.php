@@ -1,5 +1,12 @@
 <?php
 
+try {
+		$dbpsql = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
+	}
+catch(PDOException $e) {
+	echo $e->getMessage();
+	}
+
 echo "<h3>Connecting</h3>";
 echo "<br>";
 echo $dbhost = "localhost";
@@ -79,7 +86,19 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 {
 	$nombre = $curso["nombre"];
 	$equivalencia = $curso["equivalencia"];
-	echo "Curso (equivalencia) {$equivalencia} (nombre) {$nombre}<br>";
+	echo "Curso: (equivalencia) {$equivalencia} (nombre) {$nombre}<br>";
+	$query = "SELECT sigla, nombre
+			FROM ramo
+			WHERE ramo.sigla = '{$equivalencia}';"
+	$queryResult = $dbpsql->query($query);
+	if ($queryResult->count() > 0) {
+		foreach($queryResult as $row)
+		{
+			echo "$emsp;Local: (sigla) {$row[0]} (nombre) {$row[1]}<br>";
+		}
+	} else {
+		echo "$emsp;No esta local<br>";
+	}
 }
 
 echo "<h3>Mostremos los nombres de todos los alumnos</h3>";

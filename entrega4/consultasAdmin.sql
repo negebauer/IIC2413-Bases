@@ -38,8 +38,8 @@ AND alumno.username = $usernameAlumno
 AND $usernameAdministrador IN (SELECT administrador.username FROM administrador)
 
 -- [PHP] Ver informacion alumno intercambio #2: Cursos que ha realizado y equivalente
-$alumnos = $db->alumnos;
-$cursos = $db->cursos;
+$alumnos = $dbm->alumnos;
+$cursos = $dbm->cursos;
 
 $mongoid = new MongoId($usernameAlumno);
 $idQuery = array("_id" => $mongoid);
@@ -54,9 +54,9 @@ foreach (iterator_to_array($cursos->find()) as $curso)
     	$sigla = $curso["sigla"];
     	$nombre = $curso["nombre"];
     	$equivalencia = $curso["equivalencia"];
-    	$query = "SELECT sigla, nombre" .
-    			"FROM ramo" .
-    			"WHERE ramo.sigla = '{$equivalencia}';"
+    	$query = "SELECT sigla, nombre
+    			FROM ramo
+    			WHERE ramo.sigla = '{$equivalencia}';"
     	-- EJECUTAR QUERY
     	-- MOSTRAR INFO
 	}

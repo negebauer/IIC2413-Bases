@@ -4,6 +4,6 @@
 $dbhost = "localhost";
 $dbname = "test";
 $mongo = new MongoClient("mongodb://$dbhost");
-$db = $mongo->$dbname;
+$dbm = $mongo->$dbname;
 
 ?>
