@@ -23,11 +23,11 @@ echo $universidades = $db->universidades;
 echo "<br>";
 echo "<h3>Showing stuff</h3>";
 echo "<br>";
-$alumno = array(
-		'nombre' => 'Juanita Toy',
-	);
-
-	$alumno = $alumnos->findOne($alumno);
-	var_dump($alumno);
+var_dump($alumnos->find());
+echo "<br>";
+var_dump($cursos->find());
+echo "<br>";
+var_dump($universidades->find());
+echo "<br>";
 
 ?>
