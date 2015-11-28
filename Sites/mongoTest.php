@@ -74,6 +74,15 @@ echo "<br>";
 echo $universidades->find()->count();
 echo "<br>";
 
+echo "<h3>Mostremos todos los cursos</h3>";
+foreach (iterator_to_array($cursos->find()) as $curso)
+{
+	$sigla = $curso["sigla"];
+	$nombre = $curso["nombre"];
+	$equivalencia = $curso["equivalencia"];
+	echo "Curso (sigla) {$sigla} (equivalencia) {$equivalencia} (nombre) {$nombre}<br>";
+}
+
 echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
 foreach (iterator_to_array($alumnos->find()) as $alumno)
 {
