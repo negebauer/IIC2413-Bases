@@ -52,6 +52,14 @@ foreach (iterator_to_array($universidades->find()) as $universidad)
 	}
 }
 
+echo "<br>";
+echo "<h3>Buscar un alumno en particular</h3>";
+$id = "563c1a99a20c8c06c7918b3f";
+$mongoid = new MongoId($id);
+$alumno1 = $alumnos->find(array('_id' => $mongoid));
+echo "Alumno encontrado: (id) {$alumno1["_id"]} (nombre) {$alumno1["nombre"]}";
+echo "<br>";
+
 echo "<h3>Showing stuff</h3>";
 echo "<br>";
 var_dump($alumnos->find()->limit(2));
