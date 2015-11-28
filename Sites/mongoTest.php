@@ -91,7 +91,7 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 			FROM ramo
 			WHERE ramo.sigla = '{$equivalencia}';";
 	$queryResult = $dbpsql->query($query);
-	if ($queryResult->count() > 0) {
+	if (count($queryResult) > 0) {
 		foreach($queryResult as $row)
 		{
 			echo "$emsp;Local: (sigla) {$row[0]} (nombre) {$row[1]}<br>";
