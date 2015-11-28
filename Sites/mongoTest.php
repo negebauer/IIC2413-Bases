@@ -89,7 +89,7 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 	echo "Curso: (equivalencia) {$equivalencia} (nombre) {$nombre}<br>";
 	$query = "SELECT sigla, nombre
 			FROM ramo
-			WHERE ramo.sigla = '{$equivalencia}';"
+			WHERE ramo.sigla = '{$equivalencia}';";
 	$queryResult = $dbpsql->query($query);
 	if ($queryResult->count() > 0) {
 		foreach($queryResult as $row)
