@@ -81,6 +81,30 @@ echo "<br>";
 echo $universidades->find()->count();
 echo "<br>";
 
+echo "<h3>Unos conteos</h3>";
+$cursosAfuera = 0;
+$cursosEquivalentes = 0;
+foreach (iterator_to_array($cursos->find()) as $curso)
+{
+	$nombre = $curso["nombre"];
+	$equivalencia = $curso["equivalencia"];
+	$cursosAfuera += 1;
+	$query = "SELECT sigla, nombre
+			FROM ramo
+			WHERE ramo.sigla = '{$equivalencia}';";
+	$queryResult = $dbpsql->query($query);
+	$notFound = true;
+	foreach($queryResult as $row)
+	{
+		if ($notFound) {
+			$cursosEquivalentes += 1;
+		}
+		$notFound = false;
+	}
+}
+echo "Numero de cursos de el exterior: {$cursosAfuera}";
+echo "Numero de cursos de equivalentes locales: {$cursosEquivalentes}";
+
 echo "<h3>Mostremos todos los cursos</h3>";
 foreach (iterator_to_array($cursos->find()) as $curso)
 {
