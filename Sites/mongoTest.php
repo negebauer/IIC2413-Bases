@@ -21,20 +21,6 @@ echo $cursos = $db->cursos;
 echo "<br>";
 echo $universidades = $db->universidades;
 echo "<br>";
-echo "<h3>Showing stuff</h3>";
-echo "<br>";
-var_dump($alumnos->find()->limit(2));
-echo "<br>";
-echo $alumnos->find()->count();
-echo "<br>";
-var_dump($cursos->find()->limit(2));
-echo "<br>";
-echo $cursos->find()->count();
-echo "<br>";
-var_dump($universidades->find()->limit(2));
-echo "<br>";
-echo $universidades->find()->count();
-echo "<br>";
 
 $alumno1 = $db->alumnos->findOne();
 var_dump($alumno1);
@@ -52,7 +38,7 @@ $cursosAlumno1 = $alumno1["cursos"];
 foreach (iterator_to_array($cursos->find()) as $curso)
 {
 	if (in_array($curso["_id"], $alumno1["cursos"])) {
-    	echo "(Alumno) {$alumno1["nombre"]} realizo (curso) {$curso["nombre"]} <br>";
+    	echo "(Alumno) {$alumno1["nombre"]} (id) {$alumno1["_id"]->str} realizo (curso) {$curso["nombre"]} <br>";
 	}
 }
 
@@ -65,6 +51,21 @@ foreach (iterator_to_array($universidades->find()) as $universidad)
     	echo "(Alumno) {$alumno1["nombre"]} viene de (universidad) {$universidad["nombre"]} <br>";
 	}
 }
+
+echo "<h3>Showing stuff</h3>";
+echo "<br>";
+var_dump($alumnos->find()->limit(2));
+echo "<br>";
+echo $alumnos->find()->count();
+echo "<br>";
+var_dump($cursos->find()->limit(2));
+echo "<br>";
+echo $cursos->find()->count();
+echo "<br>";
+var_dump($universidades->find()->limit(2));
+echo "<br>";
+echo $universidades->find()->count();
+echo "<br>";
 
 echo "<br><br>";
 echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
