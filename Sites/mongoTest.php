@@ -37,7 +37,7 @@ echo $universidades->find()->count();
 echo "<br>";
 
 $alumno1 = $db->alumnos->findOne();
-$cursosAlumno1 = $cursos->find(array('_id' => array('$in' => ($alumno1->cursos)));
+$cursosAlumno1 = $cursos->find(array('_id' => array('$in' => ($alumno1->cursos))));
 echo "Found {$cursosAlumno1->count()}";
 
 ?>
