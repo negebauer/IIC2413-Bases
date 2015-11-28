@@ -56,7 +56,7 @@ $mongoid = new MongoId($id);
 $idQuery = array("_id" => $mongoid);
 $alumnosMatch = $alumnos->find($idQuery);
 $alumnosMatch->next();
-$alumno1 = $alumnosMatch->current()();
+$alumno1 = $alumnosMatch->current();
 // foreach (iterator_to_array($alumnosMatch) as $alumno1)
 // {
 	echo "Alumno encontrado: (id) {$alumno1["_id"]} (nombre) {$alumno1["nombre"]}";
