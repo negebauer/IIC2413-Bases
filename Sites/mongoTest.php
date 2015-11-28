@@ -48,6 +48,7 @@ var_dump(iterator_to_array($cursosAlumno1));
 
 echo "<br><br><br>";
 echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
-var_dump(iterator_to_array($alumnos->find()));
+$todosLosAlumnos = $alumnos->find();
+var_dump(iterator_to_array($todosLosAlumnos["nombre"]));
 
 ?>
