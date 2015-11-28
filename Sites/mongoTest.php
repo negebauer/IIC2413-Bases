@@ -38,7 +38,7 @@ $cursosAlumno1 = $alumno1["cursos"];
 foreach (iterator_to_array($cursos->find()) as $curso)
 {
 	if (in_array($curso["_id"], $alumno1["cursos"])) {
-    	echo "(Alumno) {$alumno1["nombre"]} (id) {$alumno1["_id"]} realizo (curso) {$curso["nombre"]} <br>";
+    	echo "(id) {$alumno1["_id"]} (Alumno) {$alumno1["nombre"]} realizo (curso) {$curso["nombre"]} <br>";
 	}
 }
 
