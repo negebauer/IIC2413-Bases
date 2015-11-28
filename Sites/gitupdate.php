@@ -20,7 +20,7 @@
 	$rawOutput = '';
 	foreach($commands AS $command){
 		// Run it
-		$tmp = shell_exec("../" . $command);
+		$tmp = shell_exec("../{$command}");
 		// Output
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 		$output .= htmlentities(trim($tmp)) . "\n";
