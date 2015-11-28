@@ -72,7 +72,7 @@ echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
 foreach (iterator_to_array($alumnos->find()) as $alumno)
 {
 	$nombreRaw = $alumno["nombre"];
-	$splited = explode(" ", $nombre);
+	$splited = explode(" ", $nombreRaw);
 	$nombre = $splited[0];
 	$apellido = $splited[1];
 	echo "Alumno nombre: {$nombre} apellido: {$apellido} <br>";
