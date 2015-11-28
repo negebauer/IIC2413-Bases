@@ -28,3 +28,36 @@ AND nota.nrc = curso.nrc
 AND ramo.sigla = curso.sigla
 ORDER BY curso.ano, curso.semestre, curso.sigla, ramo.nombre
 AND $usernameAdministrador IN (SELECT administrador.username FROM administrador)
+
+-- [SQL] Ver informacion alumno intercambio #1: Informacion personal
+SELECT usuario.username, usuario.nombres, usuario.apellidop, alumno.mailuc, alumno.encausal, alumnointercambio.universidadprocedencia
+FROM usuario, alumno, alumnointercambio
+WHERE usuario.username = alumno.username
+AND usuario.username = alumnointercambio.username
+AND alumno.username = $usernameAlumno
+AND $usernameAdministrador IN (SELECT administrador.username FROM administrador)
+
+-- [PHP] Ver informacion alumno intercambio #2: Cursos que ha realizado y equivalente
+$alumnos = $db->alumnos;
+$cursos = $db->cursos;
+
+$mongoid = new MongoId($usernameAlumno);
+$idQuery = array("_id" => $mongoid);
+$alumnoCursor = $alumnos->find($idQuery);
+$alumnosMatch = $alumnos->find($idQuery);
+$alumnosMatch->next();
+$alumno = $alumnosMatch->current();
+
+foreach (iterator_to_array($cursos->find()) as $curso)
+{
+	if (in_array($curso["_id"], $alumno["cursos"])) {
+    	$sigla = $curso["sigla"];
+    	$nombre = $curso["nombre"];
+    	$equivalencia = $curso["equivalencia"];
+    	$query = "SELECT sigla, nombre" .
+    			"FROM ramo" .
+    			"WHERE ramo.sigla = '{$equivalencia}';"
+    	-- EJECUTAR QUERY
+    	-- MOSTRAR INFO
+	}
+}
