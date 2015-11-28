@@ -40,20 +40,12 @@ $alumno1 = $db->alumnos->findOne();
 var_dump($alumno1);
 var_dump($alumno1["cursos"]);
 $cursosAlumno1 = $cursos->find(array('_id' => array('$in' => $alumno1["cursos"])));
-echo "<br><br><br>";
+echo "<br><br>";
 echo "Found {$cursosAlumno1->count()}";
 echo "<br>";
 var_dump(iterator_to_array($cursosAlumno1));
 
-
-echo "<br><br><br>";
-echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
-foreach (iterator_to_array($alumnos->find()) as $alumno)
-{
-	echo "Alumno nombre: {$alumno["nombre"]} <br>";
-}
-
-echo "<br><br><br>";
+echo "<br><br>";
 echo "<h3>Mostremos los nombres los cursos que ha hecho un alumno</h3>";
 $alumno1 = $alumnos->findOne();
 $cursosAlumno1 = $alumno1["cursos"];
@@ -62,6 +54,23 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 	if (in_array($curso["_id"], $alumno1["cursos"])) {
     	echo "(Alumno) {$alumno1["nombre"]} realizo (curso) {$curso["nombre"]} <br>";
 	}
+}
+
+echo "<br><br>";
+echo "<h3>Mostremos la universidad de un alumno</h3>";
+$alumno1 = $alumnos->findOne();
+foreach (iterator_to_array($universidades->find()) as $universidad)
+{
+	if ($universidad["_id"] == $alumno1["universidad"]) {
+    	echo "(Alumno) {$alumno1["nombre"]} viene de (universidad) {$universidad["nombre"]} <br>";
+	}
+}
+
+echo "<br><br>";
+echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
+foreach (iterator_to_array($alumnos->find()) as $alumno)
+{
+	echo "Alumno nombre: {$alumno["nombre"]} <br>";
 }
 
 ?>
