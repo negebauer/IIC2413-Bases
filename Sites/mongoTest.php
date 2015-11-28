@@ -75,7 +75,7 @@ foreach (iterator_to_array($alumnos->find()) as $alumno)
 	$splited = explode(" ", $nombreRaw);
 	$nombre = $splited[0];
 	$apellido = $splited[1];
-	echo "Alumno {$nombreRaw}<br>&emsp Nombre: {$nombre}<br>&emsp Apellido: {$apellido}<br>";
+	echo "Alumno {$nombreRaw}<br>&emsp;Nombre: {$nombre}<br>&emsp;Apellido: {$apellido}<br>";
 	if (count($splited) > 2) {
 		echo "&emsp--- HAY UNO QUE TIENE MAS DE DOS COSAS: {$nombreRaw}";
 	}
