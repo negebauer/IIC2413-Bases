@@ -48,8 +48,20 @@ var_dump(iterator_to_array($cursosAlumno1));
 
 echo "<br><br><br>";
 echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
-foreach (iterator_to_array($alumnos->find()) as $alumno ) {
-	echo "Alumno nombre {$alumno["nombre"]} <br>";
+foreach (iterator_to_array($alumnos->find()) as $alumno)
+{
+	echo "Alumno nombre: {$alumno["nombre"]} <br>";
+}
+
+echo "<br><br><br>";
+echo "<h3>Mostremos los nombres los cursos que ha hecho un alumno</h3>";
+$alumno1 = $alumnos->findOne();
+$cursosAlumno1 = $alumno1["cursos"];
+foreach (iterator_to_array($cursos->find()) as $curso)
+{
+	if ($curso["id"] in $alumno1["cursos"]) {
+    	echo "(Alumno) {$alumno1["nombre"]} realizo (curso) {$curso["nombre"]} <br>";
+	}
 }
 
 ?>
