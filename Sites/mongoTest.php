@@ -102,8 +102,8 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 		$notFound = false;
 	}
 }
-echo "Numero de cursos de el exterior: {$cursosAfuera}";
-echo "Numero de cursos de equivalentes locales: {$cursosEquivalentes}";
+echo "Numero de cursos de el exterior: {$cursosAfuera}<br>";
+echo "Numero de cursos de equivalentes locales: {$cursosEquivalentes}<br>";
 
 echo "<h3>Mostremos todos los cursos</h3>";
 foreach (iterator_to_array($cursos->find()) as $curso)
