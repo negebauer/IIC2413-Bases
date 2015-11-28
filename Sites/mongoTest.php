@@ -1,6 +1,6 @@
 <?php
 
-echo <h3>"Connecting"</h3>;
+echo "<h3>"Connecting"</h3>";
 echo <br>;
 echo $dbhost = "localhost";
 echo <br>;
