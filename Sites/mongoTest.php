@@ -38,7 +38,7 @@ echo "<br>";
 
 $alumno1 = $db->alumnos->findOne();
 var_dump($alumno1);
-var_dump($alumno1->cursos->sort());
+var_dump($alumno1["cursos"]);
 $cursosAlumno1 = $cursos->find(array('_id' => array('$in' => array($alumno1->cursos))));
 echo "Found {$cursosAlumno1->count()}";
 
