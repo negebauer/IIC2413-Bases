@@ -1,4 +1,4 @@
--- Inscribir ramo
+-- [SQL] Inscribir ramo
 INSERT INTO nota(username, nrc)
 (
 	SELECT alumno.username, curso.nrc

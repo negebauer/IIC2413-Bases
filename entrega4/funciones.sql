@@ -1,4 +1,4 @@
--- Alumno cumple los requisitos y corequisitos de un ramo
+-- [SQL] Alumno cumple los requisitos y corequisitos de un ramo
 CREATE OR REPLACE FUNCTION AlumnoCumpleRequisitos (_username text, _sigla text)
 RETURNS BOOLEAN AS $$
 DECLARE
@@ -33,7 +33,7 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
--- Curso tiene cupos restantes
+-- [SQL] Curso tiene cupos restantes
 CREATE OR REPLACE FUNCTION CuposRestantes (_nrc integer)
 RETURNS integer AS $$
 BEGIN
