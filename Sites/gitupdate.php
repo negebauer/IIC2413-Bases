@@ -13,7 +13,7 @@
 		'git pull',
 		'git status',
 		'git tag',
-		'git log -3'
+		'git log -s -3'
 	);
 	// Run the commands for output
 	$output = '';
@@ -39,7 +39,7 @@
  .  ____  .    ____________________________
  |/      \|   |                            |
 [| <span style="color: #FF0000;">&hearts;    &hearts;</span> |]  | Git Deployment Script v0.2 |
- |___==___|  /       	&copy; negebauer 2015 |
+ |___==___|  /       	  &copy; negebauer 2015 |
               |____________________________|
 
 <?php echo $output; ?>
