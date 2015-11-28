@@ -59,7 +59,7 @@ $alumno1 = $alumnos->findOne();
 $cursosAlumno1 = $alumno1["cursos"];
 foreach (iterator_to_array($cursos->find()) as $curso)
 {
-	if (in_array($alumno1["cursos"], $curso["id"])) {
+	if (in_array($alumno1["cursos"], $curso["_id"])) {
     	echo "(Alumno) {$alumno1["nombre"]} realizo (curso) {$curso["nombre"]} <br>";
 	}
 }
