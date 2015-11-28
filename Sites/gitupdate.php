@@ -13,7 +13,7 @@
 		'git pull',
 		'git status',
 		'git tag',
-		'git log -s -3'
+		'git log --stat -3'
 	);
 	// Run the commands for output
 	$output = '';
