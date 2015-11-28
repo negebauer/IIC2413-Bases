@@ -71,7 +71,10 @@ echo "<br><br>";
 echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
 foreach (iterator_to_array($alumnos->find()) as $alumno)
 {
-	echo "Alumno nombre: {$alumno["nombre"]} <br>";
+	echo "Alumno nombre: {$alumno["nombre"]->split(" ")[0]} apellido: {$alumno["nombre"]->split(" ")[1]} <br>";
+	if ($alumno["nombre"]->split(" ")->count() > 2) {
+		echo "HAY UNO QUE TIENE MAS DE DOS COSAS: {$alumno["nombre"]}";
+	}
 }
 
 ?>
