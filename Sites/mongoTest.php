@@ -26,21 +26,21 @@ echo "<br>";
 foreach($alumnos->find() as $alumno)
 	{
 		echo "<tr>";
-		echo "<td>" . $alumno[0] . "</td>";
+		echo "<td>" . $alumno . "</td>";
 		echo "</tr>";
 	}
 echo "<br>";
 foreach($cursos->find() as $curso)
 	{
 		echo "<tr>";
-		echo "<td>" . $curso[0] . "</td>";
+		echo "<td>" . $curso . "</td>";
 		echo "</tr>";
 	}
 echo "<br>";
 foreach($universidades->find() as $universidad)
 	{
 		echo "<tr>";
-		echo "<td>" . $universidad[0] . "</td>";
+		echo "<td>" . $universidad . "</td>";
 		echo "</tr>";
 	}
 echo "<br>";
