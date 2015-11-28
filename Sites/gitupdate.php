@@ -41,5 +41,7 @@
 
 <?php echo $output; ?>
 </pre>
+<h1>Raw text output</h1>
+<p><?php echo $output; ?></p>
 </body>
 </html>
