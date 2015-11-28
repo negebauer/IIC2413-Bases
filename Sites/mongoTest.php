@@ -23,24 +23,24 @@ echo $universidades = $db->universidades;
 echo "<br>";
 echo "<h3>Showing stuff</h3>";
 echo "<br>";
-foreach($alumnos->findOne() as $alumno)
+foreach($alumnos->find() as $alumno)
 	{
 		echo "<tr>";
-		echo "<td>" . $alumno . "</td>";
+		echo "<td>" . $alumnos.findOne() . "</td>";
 		echo "</tr>";
 	}
 echo "<br>";
-foreach($cursos->findOne() as $curso)
+foreach($cursos->find() as $curso)
 	{
 		echo "<tr>";
-		echo "<td>" . $curso . "</td>";
+		echo "<td>" . $cursos.findOne() . "</td>";
 		echo "</tr>";
 	}
 echo "<br>";
-foreach($universidades->findOne() as $universidad)
+foreach($universidades->find() as $universidad)
 	{
 		echo "<tr>";
-		echo "<td>" . $universidad . "</td>";
+		echo "<td>" . $universidades.findOne() . "</td>";
 		echo "</tr>";
 	}
 echo "<br>";
