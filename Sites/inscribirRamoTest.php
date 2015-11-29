@@ -27,19 +27,18 @@ if ($esIntercambio) {
 	echo "Es intercambio<br>";
 	$alumnos = $dbm->alumnos;
 	$cursos = $dbm->cursos;
-
 	$mongoid = new MongoId($usernameAlumno);
 	$idQuery = array("_id" => $mongoid);
 	$alumnosMatch = $alumnos->find($idQuery);
 	$alumnosMatch->next();
 	$alumno = $alumnosMatch->current();
-	$cursosID = $alumno["cursos"];
-	foreach (iterator_to_array($cursos->find()) as $curso)
+	
+	$cursosAlumno = $cursos->find(array('_id' => array('$in' => $alumno["cursos"])));
+
+	foreach (iterator_to_array($cursosAlumno) as $curso)
 	{
-		if ($curso["_id"] = ANY($cursosID)) {
-			$equivalencia = $curso["equivalencia"];
-			echo "Curso encontrado: {$equivalencia}<br>";
-		}
+		$equivalencia = $curso["equivalencia"];
+		echo "Curso encontrado: {$equivalencia}<br>";
 	}
 }
 
