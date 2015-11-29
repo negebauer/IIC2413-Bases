@@ -64,7 +64,7 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 					);";
 $queryInscribirRamo . "<br>";
 
-if (count($dbp->query($queryInscribirRamo).fetchAll()) == 0) {
+if (count($dbp->query($queryInscribirRamo)->fetchAll()) == 0) {
 	// No cumple requisitos
 	echo "No cumple requisitos";
 } else {
