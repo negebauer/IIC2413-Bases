@@ -15,7 +15,7 @@ catch(PDOException $e) {
 
 // #################### INSCRIBIR RAMO ####################
 $usernameAlumno = "563c1a99a20c8c06c7918ba6";
-$nrcCurso = ;
+$nrcCurso = 99998;
 $equivalentesintercambio = [];
 
 $queryVerSiExtranjero = "SELECT *
