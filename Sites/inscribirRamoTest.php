@@ -25,6 +25,19 @@ $esIntercambio = count($dbp->query($queryVerSiExtranjero));
 
 if ($esIntercambio) {
 	echo "Es intercambio<br>";
+	$mongoid = new MongoId($usernameAlumno);
+	$idQuery = array("_id" => $mongoid);
+	$alumnosMatch = $alumnos->find($idQuer
+	$alumnosMatch->next();
+	$alumno = $alumnosMatch->current();
+	$cursosID = $alumno["cursos"];
+	foreach (iterator_to_array($cursos->find()) as $curso)
+	{
+		if ($curso["_id"] = ANY($cursosID)) {
+			$equivalencia = $curso["equivalencia"];
+			echo "Curso encontrado: {$equivalencia}<br>";
+		}
+	}
 }
 
 $queryInscribirRamo = "INSERT INTO nota(username, nrc)
