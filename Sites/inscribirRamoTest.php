@@ -29,7 +29,11 @@ $esIntercambio = false;
 if (count($dbp->query($queryVerSiExtranjero)->fetchAll()) > 0) {
 	$esIntercambio = true;
 }
-echo "esIntercambio: {$esIntercambio}";
+if ($esIntercambio) {
+	echo "true";
+} else {
+	echo "false";
+}
 
 if ($esIntercambio) {
 	$alumnos = $dbm->alumnos;
