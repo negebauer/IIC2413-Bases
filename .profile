@@ -11,7 +11,6 @@ alias gfc='git fetch'
 gad () {
     if [ -z "$1" ];
         then
-        echo "Adding all modified and untracked files to index";
         git add -A;
     else
         echo "Adding all modified and untracked files that match ($1) to index";
@@ -23,7 +22,6 @@ gcl () {
         then
         echo "You must specify an url to clone from";
     else
-        echo "Cloning ($1)";
         git clone "$1";
     fi
 }
@@ -32,7 +30,6 @@ gcm () {
         then
         echo "You must specify a message for the commit";
     else
-        echo "Performing commit with message ($1)";
         git commit -m "$1";
     fi
 }
@@ -41,7 +38,6 @@ glcm () {
         then
         echo "You must specify a message for the local commit";
     else
-        echo "Performing local commit (add, commit) with message ($1)";
         gad;
         gcm "$1";
     fi
@@ -51,7 +47,6 @@ gfcm () {
         then
         echo "You must specify a message for the full commit";
     else
-        echo "Performing full commit (add, commit, push) with message ($1)";
         gad;
         gcm "$1";
         gps;
