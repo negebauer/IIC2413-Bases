@@ -9,28 +9,79 @@ alias gps='git push'
 alias glg='git log'
 alias gfc='git fetch'
 gad () {
-        if [ -z "$1" ];
-                then
-                git add -A;
-        else
-                git add "$1";
-        fi
+    if [ -z "$1" ];
+        then
+        echo "Adding all modified and untracked files to index";
+        git add -A;
+    else
+        echo "Adding all modified and untracked files that match ($1) to index";
+        git add "$1";
+    fi
 }
-gcl () { git clone "$@" ; }
-gcm () { git commit -m "$@" ; }
-glcm () { gad ; gcm "$@" ; }
-gfcm () { gad ; gcm "$@" ; gps ; }
+gcl () {
+    if [ -z "$1" ];
+        then
+        echo "You must specify an url to clone from";
+    else
+        echo "Cloning ($1)";
+        git clone "$1";
+    fi
+}
+gcm () {
+    if [ -z "$1" ];
+        then
+        echo "You must specify a message for the commit";
+    else
+        echo "Performing commit with message ($1)";
+        git commit -m "$1";
+    fi
+}
+glcm () {
+    if [ -z "$1" ];
+        then
+        echo "You must specify a message for the local commit";
+    else
+        echo "Performing local commit (add, commit) with message ($1)";
+        gad;
+        gcm "$1";
+    fi
+}
+gfcm () {
+    if [ -z "$1" ];
+        then
+        echo "You must specify a message for the full commit";
+    else
+        echo "Performing full commit (add, commit, push) with message ($1)";
+        gad;
+        gcm "$1";
+        gps;
+    fi
+}
 gtg () {
-        if [ -z "$1" -a -z "$2" ];
-                then
-                git tag;
-        elif [ -z "$2" ];
-                then
-                git show "$1";
-        else
-                git tag -a "$1" -m "$2";
-                git push origin "$1";
-        fi
+    if [ -z "$1" -a -z "$2" ];
+        then
+        echo "Showing all tags:";
+        git tag;
+    elif [ -z "$2" ];
+        then
+        echo "Showing information of tag ($1):";
+        git show "$1";
+    else
+        echo "Creating and pushing tag ($1) with message ($2)";
+        git tag -a "$1" -m "$2";
+        git push origin "$1";
+    fi
+}
+gmg () {
+    if [ -z "$1" ];
+        then
+        echo "You must specify a branch to merge from. Current branches are:";
+        git branch;
+    else
+        export currentBranch='git symbolic-ref --short HEAD';
+        echo "Performing merge from ($1) to ($currentBranch) as merge commit";
+        git merge --no-ff "$1";
+    fi
 }
 
 # ~/.profile: executed by the command interpreter for login shells.
