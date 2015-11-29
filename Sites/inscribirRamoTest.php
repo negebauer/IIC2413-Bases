@@ -39,7 +39,13 @@ if ($esIntercambio) {
 	{
 		$equivalencia = $curso["equivalencia"];
 		echo "Curso encontrado: {$equivalencia}<br>";
+		if ($equivalentesintercambio == "") {
+			$equivalentesintercambio = $equivalencia;
+		} else {
+			$equivalentesintercambio = ", " . $equivalencia;
+		}
 	}
+	echo $equivalentesintercambio . "<br>";
 }
 
 $queryInscribirRamo = "INSERT INTO nota(username, nrc)
