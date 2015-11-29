@@ -25,7 +25,7 @@ $equivalentesintercambio = "";
 $queryVerSiExtranjero = "SELECT COUNT(*)
 						FROM alumnointercambio
 						WHERE username = '{$usernameAlumno}';";
-$esIntercambio = (count($dbp->query($queryVerSiExtranjero)->fetchAll()) > 1);
+$esIntercambio = count($dbp->query($queryVerSiExtranjero)->fetchAll()) > 0;
 echo count($dbp->query($queryVerSiExtranjero)->fetchAll());
 echo "esIntercambio: {$esIntercambio}";
 
