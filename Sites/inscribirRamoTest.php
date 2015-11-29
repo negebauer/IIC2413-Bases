@@ -22,10 +22,10 @@ $nrcCurso = 14352;
 
 // #################### INSCRIBIR RAMO ####################
 $equivalentesintercambio = "";
-$queryVerSiExtranjero = "SELECT *
+$queryVerSiExtranjero = "SELECT COUNT(*)
 						FROM alumnointercambio
 						WHERE username = '{$usernameAlumno}';";
-$esIntercambio = count($dbp->query($queryVerSiExtranjero)) > 0;
+$esIntercambio = $dbp->query($queryVerSiExtranjero) > 0;
 
 if ($esIntercambio) {
 	$alumnos = $dbm->alumnos;
