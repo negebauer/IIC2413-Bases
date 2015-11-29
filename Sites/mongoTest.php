@@ -119,8 +119,10 @@ foreach (iterator_to_array($alumnos->find()) as $alumno)
 		$cursosMatch = $cursos->find($idQuery);
 		$cursosMatch->next();
 		$curso = $cursosMatch->current();
-		if ($curso["equivalencia"] == "ICC2304" || $curso["equivalencia"] == "ICC2104") {
-			echo "Alumno (id) {$alumno["_id"]} cumple requisito de ICC2913 (ICC2304) o ICC3914 (ICC2104)<br>";
+		if ($curso["equivalencia"] == "ICC2304") {
+			echo "Alumno (id) {$alumno["_id"]} cumple requisito de ICC2913 (ICC2304)<br>";
+		} else if ($curso["equivalencia"] == "ICC2104") {
+			echo "Alumno (id) {$alumno["_id"]} cumple requisito de ICC3914 (ICC2104)<br>";
 		}
 	}
 }
