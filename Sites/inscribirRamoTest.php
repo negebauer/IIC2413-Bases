@@ -63,7 +63,14 @@ $dbp->query($queryInscribirRamo);
 
 // TEST
 $query2 = "select curso.nrc, sigla, seccion from curso, nota where username = '563c1a99a20c8c06c7918ba6' and curso.nrc = 99998 and nota.nrc = curso.nrc;";
-echo $dbp->query($query2);
+foreach($dbp->query($query2) as $row)
+	{
+		echo "<tr>";
+		echo "<td>" . $row[0] . "</td>";
+		echo "<td>" . $row[1] . "</td>";
+		echo "<td>" . $row[2] . "</td>";
+		echo "</tr>";
+	}
 
 ?>
 
