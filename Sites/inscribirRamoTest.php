@@ -54,7 +54,7 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 						FROM alumno, curso
 						WHERE alumno.username = '{$usernameAlumno}'
 						AND curso.nrc = '{$nrcCurso}'
-						AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}])) = true
+						AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]::text[])) = true
 						AND (select * from CuposRestantes(curso.nrc)) > 0
 					);";
 echo $queryInscribirRamo . "<br>";
@@ -98,12 +98,19 @@ foreach($dbp->query($query2) as $row)
 <br>
 <h1>Stuff</h1>
 
-select count(*) from (SELECT MAX(nota.notafinal)
+select count(*) from administrador where (SELECT MAX(nota.notafinal)
 FROM nota, curso
 WHERE nota.nrc = curso.nrc
 AND nota.username = '563c1a99a20c8c06c7918ba6'
 AND curso.sigla = 'ICC2304') >=4
 OR ('ICC2304' = ANY(ARRAY['LET2437', 'ICC2453', 'LET2256', 'IIC2478', 'ICC2351', 'ICC2182', 'DPT2171', 'ICC2304']));
+
+select count(*) from administrador where (SELECT MAX(nota.notafinal)
+FROM nota, curso
+WHERE nota.nrc = curso.nrc
+AND nota.username = '563c1a99a20c8c06c7918ba6'
+AND curso.sigla = 'ICC2304') >=4
+OR ('ICC2304' = ANY(ARRAY[]::text[]));
 
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2913}'::text[]);
