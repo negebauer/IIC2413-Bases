@@ -109,9 +109,11 @@ echo "<h3>Mostremos los alumnos que han aprobado requisito de ICC2913 (ICC2304) 
 foreach (iterator_to_array($alumnos->find()) as $alumno)
 {
 	$cursosAlumno = $alumno["cursos"];
+	echo "First dump<br>";
 	var_dump($cursosAlumno);
 	foreach ($cursosAlumno as $cursoAlumno)
 	{
+		echo "Second dump<br>";
 		var_dump($cursoAlumno);
 		$id = $cursoAlumno["id"];
 		$mongoid = new MongoId($id);
