@@ -7,12 +7,12 @@
         echo $e->getMessage();
         }
 
+        echo "<script type='text/javascript'>alert('Holaaaa!!!!');</script>";
 function verificar_login($user,$password, $db,&$result) 
     { 
         $sql = 'SELECT * FROM usuario WHERE username = \'$user\' and password = \'$password\''; 
         $rec = $db -> query($sql); 
 
-        echo "<script type='text/javascript'>alert('Holaaaa!!!!');</script>";
 
         foreach ($rec as $user) {
             echo "<script type='text/javascript'>alert('$user');</script>";
