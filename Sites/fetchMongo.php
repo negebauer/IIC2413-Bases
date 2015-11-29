@@ -28,11 +28,11 @@ foreach (iterator_to_array($alumnos) as $alumno)
 	$id = $alumno["_id"];
 
 	// Nos preparamos para agregar al alumno a nuestra base de datos
-	$query1 = "INSERT INTO usuario
-			VALUES ('{$id}', 1234, '{$direccion}', '{$email}', '', '', '', '{$nombre}', '{$apellido}', '', 0, null);";
-	$query2 = "INSERT INTO alumno
-			VALUES ('{$id}', '', 0, 2015, false);";
-	$query3 = "INSERT INTO alumnointercambio
+	$query = "INSERT INTO usuario
+			VALUES ('{$id}', 1234, '{$direccion}', '{$email}', '', '', '', '{$nombre}', '{$apellido}', '', 0, null);
+			INSERT INTO alumno
+			VALUES ('{$id}', '', 0, 2015, false);
+			INSERT INTO alumnointercambio
 			VALUES ('{$id}', '{$universidad}');";
 
 	// Agregamos el alumno a la base de datos
@@ -40,32 +40,19 @@ foreach (iterator_to_array($alumnos) as $alumno)
 	// echo "Query2: {$query2}<br>";
 	// echo "Query3: {$query3}<br>";
 	// echo "<br>";
-	echo $dbp->query($query1);
-	echo $dbp->query($query2);
-	echo $dbp->query($query3);
+	$dbp->query($$query);
 
 }
 
 // #################### AGREGAR CURSOS EQUIVALENTES A LA BASE DE DATOS CON NOMBRE EXTRANJERO ####################
 $cursos = $dbm->cursos->find();
-$cursosQueFaltan = "";
 foreach (iterator_to_array($cursos) as $curso)
 {
 	$sigla = $curso["sigla"];
 	$nombre = $curso["nombre"];
-	$query = "SELECT *
-			FROM ramo
-			WHERE sigla = '{$sigla}';";
-	$count = $dbp->query($query1)->count();
-	if ($count == 0) {
-		$cursosQueFaltan .= $sigla . ": " . $nombre;
-	}
+	$query = "INSERT INTO ramo
+			VALUES ('{$sigla}', '{$nombre}', 10, 'EscuelaNoIdentificada');";
+	$dbp->query($query);
 }
-if (count($cursosQueFaltan) > 0) {
-	echo "Hay cursos que no tenemos en nuetras base de datos:<br>"
-	foreach ($cursosQueFaltan as $curso)
-	{
-		echo "&emsp;$curso<br>";
-	}
-}
+
 ?>
