@@ -12,7 +12,6 @@ catch(PDOException $e) {
 	echo $e->getMessage();
 }
 
-
 $alumnos = $dbm->alumnos->find();
 foreach (iterator_to_array($alumnos) as $alumno)
 {
