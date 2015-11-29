@@ -36,6 +36,9 @@ foreach (iterator_to_array($alumnos) as $alumno)
 			VALUES ('{$id}', '{$universidad}');";
 
 	// Agregamos el alumno a la base de datos
+	echo "Query1: {$query1}";
+	echo "Query2: {$query2}";
+	echo "Query3: {$query3}";
 	echo $dbp->query($query1);
 	echo $dbp->query($query2);
 	echo $dbp->query($query3);
