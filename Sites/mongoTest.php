@@ -58,7 +58,7 @@ foreach (iterator_to_array($universidades->find()) as $universidad)
 }
 
 echo "<h3>Buscar un alumno en particular</h3>";
-$id = "563c1a99a20c8c06c7918b3f";
+$id = "563c1a99a20c8c06c7918ba6";
 $mongoid = new MongoId($id);
 $idQuery = array("_id" => $mongoid);
 $alumnosMatch = $alumnos->find($idQuery);
