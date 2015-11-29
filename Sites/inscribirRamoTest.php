@@ -65,18 +65,18 @@ $dbp->query($queryInscribirRamo);
 $queryRequisitos = "select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]);";
 $queryRestantes = "select * from CuposRestantes(curso.nrc);";
 echo $dbp->query($queryRequisitos;
-foreach($dbp->query($queryRequisitos) as $row)
-{
-	echo "<tr>";
-	echo "<td>" . $row[0] . "</td>";
-	echo "</tr>";
-}
-foreach($dbp->query($queryRestantes) as $row)
-{
-	echo "<tr>";
-	echo "<td>" . $row[0] . "</td>";
-	echo "</tr>";
-}
+// foreach($dbp->query($queryRequisitos) as $row)
+// {
+// 	echo "<tr>";
+// 	echo "<td>" . $row[0] . "</td>";
+// 	echo "</tr>";
+// }
+// foreach($dbp->query($queryRestantes) as $row)
+// {
+// 	echo "<tr>";
+// 	echo "<td>" . $row[0] . "</td>";
+// 	echo "</tr>";
+// }
 
 // TEST
 $query2 = "select curso.nrc, sigla, seccion from curso, nota where username = '563c1a99a20c8c06c7918ba6' and curso.nrc = 99998 and nota.nrc = curso.nrc;";
