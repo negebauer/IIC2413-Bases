@@ -134,13 +134,15 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 	// echo "Curso: (equivalencia) {$equivalencia} (nombre) {$nombre}<br>";
 	$query = "SELECT sigla, nombre
 			FROM ramo
-			WHERE ramo.sigla = '{$equivalencia}';";
+			WHERE ramo.sigla = '{$equivalencia}'
+			AND ramo.nombre <> '{$nombre}'
+			AND ramo.escuela <> 'EscuelaNoIdentificada';";
 	$queryResult = $dbpsql->query($query);
 	$notFound = true;
 	foreach($queryResult as $row)
 	{
 		//echo "&emsp;Local: (sigla) {$row[0]} (nombre) {$row[1]}<br>";
-		echo "{$row[0]}: {$row[1]}<br>";
+		echo "{$row[0]: {$row[1]}<br>";
 		$notFound = false;
 	}
 	if ($notFound) {
