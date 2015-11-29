@@ -111,11 +111,11 @@ foreach (iterator_to_array($alumnos->find()) as $alumno)
 	$cursosAlumno = $alumno["cursos"];
 	echo "First dump<br>";
 	var_dump($cursosAlumno);
-	foreach ($cursosAlumno as $cursoAlumno)
+	foreach ($cursosAlumno as $mongoid)
 	{
 		echo "Second dump<br>";
 		var_dump($cursoAlumno);
-		$idQuery = array("_id" => $cursoAlumno["id"]);
+		$idQuery = array("_id" => $mongoid);
 		$cursosMatch = $cursos->find($idQuery);
 		$cursosMatch->next();
 		$curso = $cursosMatch->current();
