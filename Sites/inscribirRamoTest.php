@@ -42,7 +42,7 @@ if ($esIntercambio) {
 		if ($equivalentesintercambio == "") {
 			$equivalentesintercambio = $equivalencia;
 		} else {
-			$equivalentesintercambio = ", " . $equivalencia;
+			$equivalentesintercambio .= ", " . $equivalencia;
 		}
 	}
 	echo $equivalentesintercambio . "<br>";
