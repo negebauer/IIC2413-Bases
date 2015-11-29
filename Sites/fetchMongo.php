@@ -10,7 +10,7 @@ $dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;passwor
 
 
 // #################### AGREGAR ALUMNOS DE INTERCAMBIO A BASE DE DATOS ####################
-$queryList = array();
+$queryList = [];
 $alumnos = $dbm->alumnos->find();
 foreach (iterator_to_array($alumnos) as $alumno)
 {
@@ -35,8 +35,7 @@ foreach (iterator_to_array($alumnos) as $alumno)
 			VALUES ('{$id}', '{$universidad}');"
 
 	// Guardamos la query para ejecutarla
-	array_push($queryList, $query);
-	
+	$queryList[] = $query;
 }
 
 $queryLenght = count($queryList);
