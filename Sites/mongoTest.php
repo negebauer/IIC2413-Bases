@@ -105,6 +105,23 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 echo "Numero de cursos de el exterior: {$cursosAfuera}<br>";
 echo "Numero de cursos de equivalentes locales: {$cursosEquivalentes}<br>";
 
+echo "<h3>Mostremos los alumnos que han aprobado requisito de ICC2913 (ICC2304) o ICC3914 (ICC2104)</h3>";
+foreach (iterator_to_array($alumnos->find()) as $alumno)
+{
+	$cursosAlumno = $alumno["cursos"];
+	foreach (iterator_to_array($cursosAlumno["_id"] as $id)
+	{
+		$mongoid = new MongoId($id);
+		$idQuery = array("_id" => $mongoid);
+		$cursosMatch = $cursos->find($idQuery);
+		$cursosMatch->next();
+		$curso = $cursosMatch->current();
+		if ($curso["equivalencia"] == "ICC2304" || $curso["equivalencia"] == "ICC2104") {
+			echo "Alumno (id) {$alumno["_id"]} cumple requisito de ICC2913 (ICC2304) o ICC3914 (ICC2104)<br>";
+		}
+	}
+}
+
 echo "<h3>Mostremos todos los cursos</h3>";
 foreach (iterator_to_array($cursos->find()) as $curso)
 {
