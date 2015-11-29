@@ -38,8 +38,8 @@ foreach (iterator_to_array($alumnos) as $alumno)
 			VALUES ('{$id}', '{$universidad}');";
 
 	// Agregamos el alumno a la base de datos
-	$dbp->query($query);
-	
+	echo $dbp->query($query);
+
 }
 
 // #################### AGREGAR CURSOS EQUIVALENTES A LA BASE DE DATOS CON NOMBRE EXTRANJERO ####################
