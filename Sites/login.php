@@ -11,7 +11,12 @@ function verificar_login($user,$password, $db,&$result)
     { 
         $sql = 'SELECT * FROM usuario WHERE username = \'$user\' and password = \'$password\''; 
         $rec = $db -> query($sql); 
-        echo "<script type='text/javascript'>alert('$rec');</script>";
+
+        echo "<script type='text/javascript'>alert('$sql');</script>";
+
+        foreach ($rec as $user) {
+            echo "<script type='text/javascript'>alert('$user');</script>";
+        }
 
         if (!$rec) {
             return 0;
