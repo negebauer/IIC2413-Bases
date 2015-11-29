@@ -25,9 +25,11 @@ $esIntercambio = count($dbp->query($queryVerSiExtranjero));
 
 if ($esIntercambio) {
 	echo "Es intercambio<br>";
+	$alumnos = $dbm->alumnos;
+	$cursos = $dbm->cursos;
+
 	$mongoid = new MongoId($usernameAlumno);
 	$idQuery = array("_id" => $mongoid);
-	$alumnos = $dbm->alumnos;
 	$alumnosMatch = $alumnos->find($idQuery);
 	$alumnosMatch->next();
 	$alumno = $alumnosMatch->current();
