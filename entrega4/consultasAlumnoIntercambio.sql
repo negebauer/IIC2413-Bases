@@ -21,6 +21,7 @@ foreach (iterator_to_array($alumnos) as $alumno)
 	-- EJECUTAR QUERY
 }
 
+-- ##### DEPRECADA --- ESTA MALA, NO USAR NI TOCAR #####
 -- [PHP] Ver si algun curso equivalente de los de intercambio no esta en nuestra base de datos
 $cursos = $dbm->cursos->find();
 $cursosQueFaltan = "";
