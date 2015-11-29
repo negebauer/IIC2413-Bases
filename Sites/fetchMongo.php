@@ -1,12 +1,16 @@
 <?php
 
+// #################### DELCARACION BASES DE DATOS ####################
 $dbhost = "localhost";
 $dbname = "test";
 $mongo = new MongoClient("mongodb://$dbhost");
 $dbm = $mongo->$dbname;
 
-$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
+$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
 
+
+// #################### AGREGAR ALUMNOS DE INTERCAMBIO A BASE DE DATOS ####################
+$queryList = array();
 $alumnos = $dbm->alumnos->find();
 foreach (iterator_to_array($alumnos) as $alumno)
 {
@@ -30,9 +34,17 @@ foreach (iterator_to_array($alumnos) as $alumno)
 			INSERT INTO alumnointercambio
 			VALUES ('{$id}', '{$universidad}');"
 
-	// Agregamos al alumno a nuestra base de datos
-	$dbp->query($query);
+	// Guardamos la query para ejecutarla
+	array_push($queryList, $query);
+	
 }
 
+$queryLenght = count($queryList);
+for($x = 0; $x < $queryLenght; $x++) {
+	// Agregamos cada alumno a la base de datos
+	$dbp->query($queryList[$x]);
+}
+
+// #################### AGREGAR CURSOS EQUIVALENTES A LA BASE DE DATOS CON NOMBRE EXTRANJERO ####################
 
 ?>
