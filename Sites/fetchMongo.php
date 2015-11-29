@@ -55,7 +55,7 @@ foreach (iterator_to_array($cursos) as $curso)
 	$nombre = $curso["nombre"];
 	$query = "SELECT *
 			FROM ramo
-			WHERE sigla = '{$sigla}';"
+			WHERE sigla = '{$sigla}';";
 	$count = $dbp->query($query1)->count();
 	if ($count == 0) {
 		$cursosQueFaltan .= $sigla . ": " . $nombre;
