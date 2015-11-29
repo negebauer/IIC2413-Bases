@@ -58,7 +58,16 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 						AND (select * from CuposRestantes(curso.nrc)) > 0
 					);";
 
+echo $queryInscribirRamo . "<br>";
+
 ?>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Stuff</h1>
 
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2913}'::text[]);
