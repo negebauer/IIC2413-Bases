@@ -40,9 +40,10 @@ foreach (iterator_to_array($alumnos) as $alumno)
 	echo "Query2: {$query2}<br>";
 	echo "Query3: {$query3}<br>";
 	echo "<br>";
-	echo $dbp->query($query1);
-	echo $dbp->query($query2);
-	echo $dbp->query($query3);
+	echo $dbp;
+	$dbp->query($query1);
+	$dbp->query($query2);
+	$dbp->query($query3);
 
 }
 
