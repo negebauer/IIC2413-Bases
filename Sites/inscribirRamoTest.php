@@ -14,7 +14,7 @@ catch(PDOException $e) {
 }
 
 // #################### INSCRIBIR RAMO ####################
-$usernameAlumno = "563c1a99a20c8c06c7918b3f";
+$usernameAlumno = "563c1a99a20c8c06c7918ba6";
 $nrcCurso = ;
 $equivalentesintercambio = [];
 
@@ -38,4 +38,16 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 					);";
 
 ?>
-select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and curso.sigla = ANY('{IIC2062}'::text[]);
+
+select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
+select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2913}'::text[]);
+select sigla, nombre from ramo where ramo.sigla = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
+
+select * from requisito where siglarequisito = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
+
+ siglaramo | siglarequisito 
+-----------+----------------
+ ICC2913   | ICC2304
+ ICC3914   | ICC2104
+
+ICC2304, ICC2304, ICC2104, IIC2173
