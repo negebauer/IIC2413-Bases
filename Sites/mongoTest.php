@@ -142,7 +142,7 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 	foreach($queryResult as $row)
 	{
 		//echo "&emsp;Local: (sigla) {$row[0]} (nombre) {$row[1]}<br>";
-		echo "{$row[0]: {$row[1]}<br>";
+		echo "{$row[0]}: {$row[1]}<br>";
 		$notFound = false;
 	}
 	if ($notFound) {
