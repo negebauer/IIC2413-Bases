@@ -48,7 +48,7 @@ foreach (iterator_to_array($alumnos) as $alumno)
 $cursos = $dbm->cursos->find();
 foreach (iterator_to_array($cursos) as $curso)
 {
-	$sigla = $curso["sigla"];
+	$sigla = $curso["equivalencia"];
 	$nombre = $curso["nombre"];
 	$query = "INSERT INTO ramo
 			VALUES ('{$sigla}', '{$nombre}', 10, 'EscuelaNoIdentificada');";
