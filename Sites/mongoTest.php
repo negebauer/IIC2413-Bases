@@ -126,6 +126,29 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 	}
 }
 
+echo "<h3>Mostremos los equivalentes (siglas) de todos los cursos</h3>";
+foreach (iterator_to_array($cursos->find()) as $curso)
+{
+	$nombre = $curso["nombre"];
+	$equivalencia = $curso["equivalencia"];
+	// echo "Curso: (equivalencia) {$equivalencia} (nombre) {$nombre}<br>";
+	$query = "SELECT sigla, nombre
+			FROM ramo
+			WHERE ramo.sigla = '{$equivalencia}'
+			AND ramo.nombre <> '{$nombre}';";
+	$queryResult = $dbpsql->query($query);
+	$notFound = true;
+	foreach($queryResult as $row)
+	{
+		//echo "&emsp;Local: (sigla) {$row[0]} (nombre) {$row[1]}<br>";
+		echo "{$row[0]}<br>";
+		$notFound = false;
+	}
+	if ($notFound) {
+		//echo "&emsp;No esta local<br>";
+	}
+}
+
 echo "<h3>Mostremos los nombres de todos los alumnos</h3>";
 foreach (iterator_to_array($alumnos->find()) as $alumno)
 {
