@@ -29,8 +29,7 @@ foreach (iterator_to_array($alumnos) as $alumno)
 
 	// Nos preparamos para agregar al alumno a nuestra base de datos
 	$query = "INSERT INTO usuario
-			(username, password, direccion, mail, nombres, apellidop)
-			VALUES ('{$id}', 1234, '{$direccion}', '{$email}', '{$nombre}', '{$apellido}');
+			VALUES ('{$id}', 1234, '{$direccion}', '{$email}', '', '', '', '{$nombre}', '{$apellido}'), '', 0, null;
 			INSERT INTO alumno
 			(username, mailuc, anoadmin)
 			VALUES ();
