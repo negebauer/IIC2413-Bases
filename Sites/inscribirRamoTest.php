@@ -40,9 +40,9 @@ if ($esIntercambio) {
 		$equivalencia = $curso["equivalencia"];
 		echo "Curso encontrado: {$equivalencia}<br>";
 		if ($equivalentesintercambio == "") {
-			$equivalentesintercambio = $equivalencia;
+			$equivalentesintercambio = "'" . $equivalencia . "'";
 		} else {
-			$equivalentesintercambio .= ", " . $equivalencia;
+			$equivalentesintercambio .= ", " . "'" . $equivalencia . "'";
 		}
 	}
 	echo $equivalentesintercambio . "<br>";
