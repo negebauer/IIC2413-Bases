@@ -5,12 +5,7 @@ $dbname = "test";
 $mongo = new MongoClient("mongodb://$dbhost");
 $dbm = $mongo->$dbname;
 
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
+$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
 
 $alumnos = $dbm->alumnos->find();
 foreach (iterator_to_array($alumnos) as $alumno)
