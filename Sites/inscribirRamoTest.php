@@ -27,7 +27,8 @@ if ($esIntercambio) {
 	echo "Es intercambio<br>";
 	$mongoid = new MongoId($usernameAlumno);
 	$idQuery = array("_id" => $mongoid);
-	$alumnosMatch = $dbm->$alumnos->find($idQuery);
+	$alumnos = $dbm->alumnos;
+	$alumnosMatch = $alumnos->find($idQuery);
 	$alumnosMatch->next();
 	$alumno = $alumnosMatch->current();
 	$cursosID = $alumno["cursos"];
