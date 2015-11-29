@@ -57,8 +57,13 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 						AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}])) = true
 						AND (select * from CuposRestantes(curso.nrc)) > 0
 					);";
-
 echo $queryInscribirRamo . "<br>";
+
+$dbp->query($queryInscribirRamo);
+
+// TEST
+$query2 = "select curso.nrc, sigla, seccion from curso, nota where username = '563c1a99a20c8c06c7918ba6' and curso.nrc = 99998 and nota.nrc = curso.nrc;";
+echo $dbp->query($query2);
 
 ?>
 
@@ -74,6 +79,8 @@ select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla a
 select sigla, nombre from ramo where ramo.sigla = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
 
 select * from requisito where siglarequisito = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
+
+select curso.nrc, sigla, seccion from curso, nota where username = '563c1a99a20c8c06c7918ba6' and curso.nrc = 99998 and nota.nrc = curso.nrc;
 
  siglaramo | siglarequisito 
 -----------+----------------
