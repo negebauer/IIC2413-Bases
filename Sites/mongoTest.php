@@ -115,9 +115,7 @@ foreach (iterator_to_array($alumnos->find()) as $alumno)
 	{
 		echo "Second dump<br>";
 		var_dump($cursoAlumno);
-		$id = $cursoAlumno["id"];
-		$mongoid = new MongoId($id);
-		$idQuery = array("_id" => $mongoid);
+		$idQuery = array("_id" => $cursoAlumno["id"]);
 		$cursosMatch = $cursos->find($idQuery);
 		$cursosMatch->next();
 		$curso = $cursosMatch->current();
