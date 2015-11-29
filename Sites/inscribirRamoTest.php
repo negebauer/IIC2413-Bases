@@ -53,7 +53,7 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 						SELECT alumno.username, curso.nrc
 						FROM alumno, curso
 						WHERE alumno.username = '{$usernameAlumno}'
-						AND curso.nrc = '{$nrcCurso}'
+						AND curso.nrc = {$nrcCurso}
 						AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]::text[])) = true
 						AND (select * from CuposRestantes(curso.nrc)) > 0
 					);";
@@ -64,7 +64,7 @@ $dbp->query($queryInscribirRamo);
 // TEST 2
 $queryRequisitos = "select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]);";
 $queryRestantes = "select * from CuposRestantes(curso.nrc);";
-echo $dbp->query($queryRequisitos);
+$dbp->query($queryRequisitos);
 // foreach($dbp->query($queryRequisitos) as $row)
 // {
 // 	echo "<tr>";
@@ -98,6 +98,15 @@ foreach($dbp->query($query2) as $row)
 <br>
 <h1>Stuff</h1>
 
+select nota.nrc, username, sigla, from nota, curso where username = '563c1a99a20c8c06c7918ba6' and curso.nrc = nota.nrc;
+
+SELECT alumno.username, curso.nrc
+FROM alumno, curso
+WHERE alumno.username = '563c1a99a20c8c06c7918ba6'
+AND curso.nrc = 99998
+AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY['ICC2304']::text[])) = true
+AND (select * from CuposRestantes(curso.nrc)) > 0
+
 select count(*) from administrador where (SELECT MAX(nota.notafinal)
 FROM nota, curso
 WHERE nota.nrc = curso.nrc
@@ -111,6 +120,8 @@ WHERE nota.nrc = curso.nrc
 AND nota.username = '563c1a99a20c8c06c7918ba6'
 AND curso.sigla = 'ICC2304') >=4
 OR ('ICC2304' = ANY(ARRAY[]::text[]));
+
+select * from AlumnoCumpleRequisitos('563c1a99a20c8c06c7918ba6', 'ICC2913', ARRAY['ICC2304']::text[]);
 
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2913}'::text[]);
@@ -126,3 +137,7 @@ select curso.nrc, sigla, seccion from curso, nota where username = '563c1a99a20c
  ICC3914   | ICC2104
 
 ICC2304, ICC2304, ICC2104, IIC2173
+
+alter table profesorcurso alter COLUMN username type varchar(25);
+alter table ayudante alter COLUMN username type varchar(25);
+alter table administrador alter COLUMN username type varchar(25);
