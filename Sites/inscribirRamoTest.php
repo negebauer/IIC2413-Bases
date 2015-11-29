@@ -29,11 +29,6 @@ $esIntercambio = false;
 if (count($dbp->query($queryVerSiExtranjero)->fetchAll()) > 0) {
 	$esIntercambio = true;
 }
-if ($esIntercambio) {
-	echo "true";
-} else {
-	echo "false";
-}
 
 if ($esIntercambio) {
 	$alumnos = $dbm->alumnos;
@@ -57,17 +52,25 @@ if ($esIntercambio) {
 	}
 }
 
-$queryInscribirRamo = "INSERT INTO nota(username, nrc)
-					(
-						SELECT alumno.username, curso.nrc
+$queryCumpleRequisitos = "SELECT alumno.username, curso.nrc
 						FROM alumno, curso
 						WHERE alumno.username = '{$usernameAlumno}'
 						AND curso.nrc = {$nrcCurso}
 						AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]::text[])) = true
-						AND (select * from CuposRestantes(curso.nrc)) > 0
+						AND (select * from CuposRestantes(curso.nrc)) > 0;";
+$queryInscribirRamo = "INSERT INTO nota(username, nrc)
+					(
+						{$queryCumpleRequisitos}
 					);";
 $queryInscribirRamo . "<br>";
 
-$dbp->query($queryInscribirRamo);
+if (count($dbp->query($queryInscribirRamo).fetchAll()) == 0) {
+	// No cumple requisitos
+	echo "No cumple requisitos";
+} else {
+	// Cumple requisitos
+	echo "Cumple requisitos";
+	$dbp->query($queryInscribirRamo);
+}
 
 ?>
