@@ -1,5 +1,7 @@
 -- [SQL] Alumno cumple los requisitos y corequisitos de un ramo
-CREATE OR REPLACE FUNCTION AlumnoCumpleRequisitos (_username text, _sigla text)
+-- _equivalentesAlumno debe ser el array con todas las siglas de los cursos que ya tiene cursado este alumno
+-- Esta en consultasAdmin.sql
+CREATE OR REPLACE FUNCTION AlumnoCumpleRequisitos (_username text, _sigla text, _equivalentesintercambio text[])
 RETURNS BOOLEAN AS $$
 DECLARE
 	siglarequisito varchar(20);
@@ -12,7 +14,8 @@ BEGIN
         	FROM nota, curso
         	WHERE nota.nrc = curso.nrc
         	AND nota.username = _username
-        	AND curso.sigla = siglarequisito) >= 4 THEN
+        	AND curso.sigla = siglarequisito) >= 4 
+            OR (siglarequisito = ANY(_equivalentesintercambio)) THEN
     	ELSE
     		RETURN false;
     	END IF;

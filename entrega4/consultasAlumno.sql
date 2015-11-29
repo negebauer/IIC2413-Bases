@@ -5,7 +5,7 @@ INSERT INTO nota(username, nrc)
 	FROM alumno, curso
 	WHERE alumno.username = $usernameAlumno
 	AND curso.nrc = $nrcCurso
-	AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla)) = true
+	AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, $equivalentesintercambio)) = true
 	AND (select * from CuposRestantes(curso.nrc)) > 0
 );
 
