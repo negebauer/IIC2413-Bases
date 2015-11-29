@@ -65,12 +65,12 @@ $dbp->query($queryInscribirRamo);
 $queryRequisitos = "select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]);";
 $queryRestantes = "select * from CuposRestantes(curso.nrc);";
 echo $dbp->query($queryRequisitos);
-// foreach($dbp->query($queryRequisitos) as $row)
-// {
-// 	echo "<tr>";
-// 	echo "<td>" . $row[0] . "</td>";
-// 	echo "</tr>";
-// }
+foreach($dbp->query($queryRequisitos) as $row)
+{
+	echo "<tr>";
+	echo "<td>" . $row[0] . "</td>";
+	echo "</tr>";
+}
 // foreach($dbp->query($queryRestantes) as $row)
 // {
 // 	echo "<tr>";
