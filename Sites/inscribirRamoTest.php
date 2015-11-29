@@ -14,18 +14,18 @@ catch(PDOException $e) {
 }
 
 // #################### VARIABLES POR DESIGNAR ####################
-// $usernameAlumno = "563c1a99a20c8c06c7918ba6";
-// $nrcCurso = 99998;
+$usernameAlumno = "563c1a99a20c8c06c7918ba6";
+$nrcCurso = 99998;
 
-$usernameAlumno = "testuser1";
-$nrcCurso = 14352;
+// $usernameAlumno = "testuser1";
+// $nrcCurso = 14352;
 
 // #################### INSCRIBIR RAMO ####################
 $equivalentesintercambio = "";
 $queryVerSiExtranjero = "SELECT COUNT(*)
 						FROM alumnointercambio
 						WHERE username = '{$usernameAlumno}';";
-$esIntercambio = (count($dbp->query($queryVerSiExtranjero)->fetchAll()) > 0);
+$esIntercambio = (count($dbp->query($queryVerSiExtranjero)->fetchAll()) > 1);
 echo count($dbp->query($queryVerSiExtranjero)->fetchAll());
 echo "esIntercambio: {$esIntercambio}";
 
