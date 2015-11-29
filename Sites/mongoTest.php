@@ -113,7 +113,7 @@ foreach (iterator_to_array($alumnos->find()) as $alumno)
 	foreach ($cursosAlumno as $cursoAlumno)
 	{
 		var_dump($cursoAlumno);
-		$id = $cursoAlumno["_id"];
+		$id = $cursoAlumno["id"];
 		$mongoid = new MongoId($id);
 		$idQuery = array("_id" => $mongoid);
 		$cursosMatch = $cursos->find($idQuery);
