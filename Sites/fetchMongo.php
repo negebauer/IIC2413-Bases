@@ -31,8 +31,14 @@ foreach (iterator_to_array($alumnos) as $alumno)
 			VALUES ('{$id}', '{$universidad}');"
 
 	// Agregamos el alumno a la base de datos
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-	$dbp->query($query);
+	try {
+		$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
+		$dbp->query($query);
+	}
+	catch(PDOException $e) {
+		echo $e->getMessage();
+	}
+	
 }
 
 // #################### AGREGAR CURSOS EQUIVALENTES A LA BASE DE DATOS CON NOMBRE EXTRANJERO ####################
