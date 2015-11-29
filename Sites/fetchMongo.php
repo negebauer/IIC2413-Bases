@@ -1,10 +1,17 @@
 <?php
 
-// #################### DELCARACION BASES DE DATOS MONGO ####################
+// #################### DELCARACION BASES DE DATOS ####################
 $dbhost = "localhost";
 $dbname = "test";
 $mongo = new MongoClient("mongodb://$dbhost");
 $dbm = $mongo->$dbname;
+
+try {
+	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
+}
+catch(PDOException $e) {
+	echo $e->getMessage();
+}
 
 // #################### AGREGAR ALUMNOS DE INTERCAMBIO A BASE DE DATOS ####################
 $alumnos = $dbm->alumnos->find();
@@ -28,16 +35,10 @@ foreach (iterator_to_array($alumnos) as $alumno)
 			(username, mailuc, anoadmin)
 			VALUES ();
 			INSERT INTO alumnointercambio
-			VALUES ('{$id}', '{$universidad}');"
+			VALUES ('{$id}', '{$universidad}');";
 
 	// Agregamos el alumno a la base de datos
-	try {
-		$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-		$dbp->query($query);
-	}
-	catch(PDOException $e) {
-		echo $e->getMessage();
-	}
+	$dbp->query($query);
 	
 }
 
