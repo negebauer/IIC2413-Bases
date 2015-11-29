@@ -40,12 +40,32 @@ foreach (iterator_to_array($alumnos) as $alumno)
 	echo "Query2: {$query2}<br>";
 	echo "Query3: {$query3}<br>";
 	echo "<br>";
-	$dbp->query($query1);
-	$dbp->query($query2);
-	$dbp->query($query3);
+	echo $dbp->query($query1);
+	echo $dbp->query($query2);
+	echo $dbp->query($query3);
 
 }
 
 // #################### AGREGAR CURSOS EQUIVALENTES A LA BASE DE DATOS CON NOMBRE EXTRANJERO ####################
-
+$cursos = $dbm->cursos->find();
+$cursosQueFaltan = "";
+foreach (iterator_to_array($cursos) as $curso)
+{
+	$sigla = $curso["sigla"];
+	$nombre = $curso["nombre"];
+	$query = "SELECT *
+			FROM ramo
+			WHERE sigla = '{$sigla}';"
+	$count = $dbp->query($query1)->count();
+	if ($count == 0) {
+		$cursosQueFaltan .= $sigla . ": " . $nombre;
+	}
+}
+if (count($cursosQueFaltan) > 0) {
+	echo "Hay cursos que no tenemos en nuetras base de datos:<br>"
+	foreach ($cursosQueFaltan as $curso)
+	{
+		echo "&emsp;$curso<br>";
+	}
+}
 ?>
