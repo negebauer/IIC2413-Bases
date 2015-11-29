@@ -14,11 +14,11 @@ catch(PDOException $e) {
 }
 
 // #################### VARIABLES POR DESIGNAR ####################
-// $usernameAlumno = "563c1a99a20c8c06c7918ba6";
-// $nrcCurso = 99998;
+$usernameAlumno = "563c1a99a20c8c06c7918ba6";
+$nrcCurso = 99998;
 
-$usernameAlumno = "testuser1";
-$nrcCurso = 14352;
+// $usernameAlumno = "testuser1";
+// $nrcCurso = 14352;
 
 // #################### INSCRIBIR RAMO ####################
 $equivalentesintercambio = "";
