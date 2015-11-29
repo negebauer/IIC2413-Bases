@@ -13,18 +13,21 @@ catch(PDOException $e) {
 	echo $e->getMessage();
 }
 
-// #################### INSCRIBIR RAMO ####################
-$usernameAlumno = "563c1a99a20c8c06c7918ba6";
-$nrcCurso = 99998;
-$equivalentesintercambio = "";
+// #################### VARIABLES POR DESIGNAR ####################
+// $usernameAlumno = "563c1a99a20c8c06c7918ba6";
+// $nrcCurso = 99998;
 
+$usernameAlumno = "testuser1";
+$nrcCurso = 14352;
+
+// #################### INSCRIBIR RAMO ####################
+$equivalentesintercambio = "";
 $queryVerSiExtranjero = "SELECT *
 						FROM alumnointercambio
 						WHERE username = '{$usernameAlumno}';";
 $esIntercambio = count($dbp->query($queryVerSiExtranjero));
 
 if ($esIntercambio) {
-	echo "Es intercambio<br>";
 	$alumnos = $dbm->alumnos;
 	$cursos = $dbm->cursos;
 	$mongoid = new MongoId($usernameAlumno);
@@ -38,14 +41,12 @@ if ($esIntercambio) {
 	foreach (iterator_to_array($cursosAlumno) as $curso)
 	{
 		$equivalencia = $curso["equivalencia"];
-		echo "Curso encontrado: {$equivalencia}<br>";
 		if ($equivalentesintercambio == "") {
 			$equivalentesintercambio = "'" . $equivalencia . "'";
 		} else {
 			$equivalentesintercambio .= ", " . "'" . $equivalencia . "'";
 		}
 	}
-	echo $equivalentesintercambio . "<br>";
 }
 
 $queryInscribirRamo = "INSERT INTO nota(username, nrc)
@@ -57,7 +58,7 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 						AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]::text[])) = true
 						AND (select * from CuposRestantes(curso.nrc)) > 0
 					);";
-echo $queryInscribirRamo . "<br>";
+$queryInscribirRamo . "<br>";
 
 $dbp->query($queryInscribirRamo);
 
