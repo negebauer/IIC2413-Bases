@@ -28,16 +28,17 @@ foreach (iterator_to_array($alumnos) as $alumno)
 	$id = $alumno["_id"];
 
 	// Nos preparamos para agregar al alumno a nuestra base de datos
-	$query = "INSERT INTO usuario
-			VALUES ('{$id}', 1234, '{$direccion}', '{$email}', '', '', '', '{$nombre}', '{$apellido}'), '', 0, null;
-			INSERT INTO alumno
-			(username, mailuc, anoadmin)
-			VALUES ();
-			INSERT INTO alumnointercambio
+	$query1 = "INSERT INTO usuario
+			VALUES ('{$id}', 1234, '{$direccion}', '{$email}', '', '', '', '{$nombre}', '{$apellido}'), '', 0, null;";
+	$query2 = "INSERT INTO alumno
+			VALUES ('{$id}', '', 0, 2015, false);";
+	$query3 = "INSERT INTO alumnointercambio
 			VALUES ('{$id}', '{$universidad}');";
 
 	// Agregamos el alumno a la base de datos
-	echo $dbp->query($query);
+	echo $dbp->query($query1);
+	echo $dbp->query($query2);
+	echo $dbp->query($query3);
 
 }
 
