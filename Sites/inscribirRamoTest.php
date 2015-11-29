@@ -61,16 +61,32 @@ echo $queryInscribirRamo . "<br>";
 
 $dbp->query($queryInscribirRamo);
 
+// TEST 2
+$queryRequisitos = "select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]);";
+$queryRestantes = "select * from CuposRestantes(curso.nrc);";
+foreach($dbp->query($queryRequisitos) as $row)
+{
+	echo "<tr>";
+	echo "<td>" . $row[0] . "</td>";
+	echo "</tr>";
+}
+foreach($dbp->query($queryRestantes) as $row)
+{
+	echo "<tr>";
+	echo "<td>" . $row[0] . "</td>";
+	echo "</tr>";
+}
+
 // TEST
 $query2 = "select curso.nrc, sigla, seccion from curso, nota where username = '563c1a99a20c8c06c7918ba6' and curso.nrc = 99998 and nota.nrc = curso.nrc;";
 foreach($dbp->query($query2) as $row)
-	{
-		echo "<tr>";
-		echo "<td>" . $row[0] . "</td>";
-		echo "<td>" . $row[1] . "</td>";
-		echo "<td>" . $row[2] . "</td>";
-		echo "</tr>";
-	}
+{
+	echo "<tr>";
+	echo "<td>" . $row[0] . "</td>";
+	echo "<td>" . $row[1] . "</td>";
+	echo "<td>" . $row[2] . "</td>";
+	echo "</tr>";
+}
 
 ?>
 
@@ -80,6 +96,13 @@ foreach($dbp->query($query2) as $row)
 <br>
 <br>
 <h1>Stuff</h1>
+
+select count(*) from (SELECT MAX(nota.notafinal)
+FROM nota, curso
+WHERE nota.nrc = curso.nrc
+AND nota.username = '563c1a99a20c8c06c7918ba6'
+AND curso.sigla = 'ICC2304') >=4
+OR ('ICC2304' = ANY(ARRAY['LET2437', 'ICC2453', 'LET2256', 'IIC2478', 'ICC2351', 'ICC2182', 'DPT2171', 'ICC2304']));
 
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2304, ICC2304, ICC2104, IIC2173}'::text[]);
 select nrc, ramo.sigla, nombre from curso, ramo where curso.sigla = ramo.sigla and ramo.sigla = ANY('{ICC2913}'::text[]);
