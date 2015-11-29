@@ -64,7 +64,7 @@ $queryInscribirRamo = "INSERT INTO nota(username, nrc)
 					);";
 $queryInscribirRamo . "<br>";
 
-if ($dbp->query($queryInscribirRamo)->rowCount() > 0) {
+if ($dbp->query($queryInscribirRamo) !instanceof PDO ) {
 	// No cumple requisitos
 	echo "No cumple requisitos";
 } else {
