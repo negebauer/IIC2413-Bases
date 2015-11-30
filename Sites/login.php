@@ -12,7 +12,7 @@ function verificar_login($user,$password,&$result)
         while ($data = pg_fetch_assoc($q)){
             $exito++;
         }
-        $result = $data['password'];
+        $result = $data;
         if ($exito > 0) {
             return True;
         } else {
