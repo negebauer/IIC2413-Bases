@@ -1,12 +1,7 @@
 <?php
-
-    try {
-        // $db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
-        $conn = pg_connect("dbname=grupo5 host=localhost port=5432 user=grupo5 password=gruponico");
-        }
-    catch(PDOException $e) {
-        echo $e->getMessage();
-        }
+    
+    $params = "dbname=grupo5 host=localhost port=5432 user=grupo5 password=gruponico";
+    $conn = pg_connect($params) or die('Hubo un problema con la conexión');
 
 function verificar_login($user,$password,&$result) 
     { 
@@ -15,7 +10,7 @@ function verificar_login($user,$password,&$result)
 
         $exito = 0;
         while ($data = pg_fetch_row($q)){
-            // echo "<script type='text/javascript'>alert('$user');</script>";
+            echo "<script type='text/javascript'>alert('$user');</script>";
             $exito++;
         }
         echo $exito;
@@ -36,6 +31,7 @@ if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de se
     { 
         if(verificar_login($_POST['user'],$_POST['password'],$result)) //Si el boton fue presionado llamamos a la función verificar_login() dentro de otra condición preguntando si resulta verdadero y le pasamos los valores ingresados como parámetros.
         { 
+            session_start();
             /*Si el login fue correcto, registramos la variable de sesión y al mismo tiempo refrescamos la pagina index.php.*/ 
             $_SESSION['userid'] = $result->idusuario; 
             $_SESSION['user'] = 'Holaa!!!!!';

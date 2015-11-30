@@ -1,6 +1,7 @@
 <h1>Hola</h1>
-<?php
 
-	echo $_SESSION['user']
+<?php
+	session_start();
+	echo $_SESSION['user'];
 
 ?>
