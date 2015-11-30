@@ -2,7 +2,7 @@
 
     try {
         // $db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
-        $conn = pg_connect("dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
+        $conn = pg_connect("dbname=grupo5 host=localhost port=5432 user=grupo5 password=gruponico");
         }
     catch(PDOException $e) {
         echo $e->getMessage();
