@@ -5,16 +5,14 @@
 
 function verificar_login($user,$password,&$result) 
     { 
-        $sql = "SELECT username FROM usuario WHERE username = '$user'"; 
+        $sql = "SELECT username, password FROM usuario WHERE username = '$user'"; 
         $q = pg_query($sql); 
 
         $exito = 0;
-        while ($data = pg_fetch_row($q)){
-            echo "<script type='text/javascript'>alert('$user');</script>";
+        while ($data = pg_fetch_assoc($q)){
             $exito++;
         }
-        echo $exito;
-        $result = $user;
+        $result = $data['password'];
         if ($exito > 0) {
             return True;
         } else {
@@ -33,7 +31,7 @@ if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de se
         { 
             session_start();
             /*Si el login fue correcto, registramos la variable de sesión y al mismo tiempo refrescamos la pagina index.php.*/ 
-            $_SESSION['userid'] = $result; 
+            $_SESSION['userid'] = $result;
             header("location:saludo.php"); 
         } 
         else 
