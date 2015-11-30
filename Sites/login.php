@@ -32,7 +32,6 @@ if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de se
         if(verificar_login($_POST['user'],$_POST['password'],$result)) //Si el boton fue presionado llamamos a la función verificar_login() dentro de otra condición preguntando si resulta verdadero y le pasamos los valores ingresados como parámetros.
         { 
             session_start();
-            session_destroy();
             /*Si el login fue correcto, registramos la variable de sesión y al mismo tiempo refrescamos la pagina index.php.*/ 
             $_SESSION['userid'] = $result; 
             header("location:saludo.php"); 
