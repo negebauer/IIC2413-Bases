@@ -1,13 +1,13 @@
 <?php
 
     try {
-        $db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
+        // $db = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico"); 
+        $conn = pg_connect("dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
         }
     catch(PDOException $e) {
         echo $e->getMessage();
         }
 
-        echo "<script type='text/javascript'>alert('Holaaaa!!!!');</script>";
 function verificar_login($user,$password, $db,&$result) 
     { 
         $sql = 'SELECT * FROM usuario WHERE username = \'$user\' and password = \'$password\''; 
