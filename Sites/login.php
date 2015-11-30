@@ -5,14 +5,17 @@
 
 function verificar_login($user,$password,&$result) 
     { 
-        $sql = "SELECT username, password FROM usuario WHERE username = '$user'"; 
+        $sql = "SELECT username,password FROM usuario WHERE username = '$user'"; 
         $q = pg_query($sql); 
 
         $exito = 0;
         while ($data = pg_fetch_assoc($q)){
             $exito++;
+            if ($data) {
+                $result = $data['password'];
+            }
         }
-        $result = $data;
+        // $result = $data;
         if ($exito > 0) {
             return True;
         } else {
