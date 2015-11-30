@@ -36,8 +36,8 @@ if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de se
         { 
             /*Si el login fue correcto, registramos la variable de sesión y al mismo tiempo refrescamos la pagina index.php.*/ 
             $_SESSION['userid'] = $result->idusuario; 
-            $_SESSION['user'] = 'Holaa!!!!!'
-            // header("location:saludo.php"); 
+            $_SESSION['user'] = 'Holaa!!!!!';
+            header("location:saludo.php"); 
         } 
         else 
         { 
