@@ -18,6 +18,7 @@ function verificar_login($user,$password,&$result)
             echo "<script type='text/javascript'>alert('$user');</script>";
             $exito++;
         }
+        echo $exito;
         $result = $user;
         if ($exito > 0) {
             return True;
