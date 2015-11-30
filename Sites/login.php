@@ -11,7 +11,7 @@
 function verificar_login($user,$password,&$result) 
     { 
         $sql = 'SELECT username FROM usuario WHERE username = \'$user\''; 
-        $q = $db -> pg_query($sql); 
+        $q = pg_query($sql); 
 
 
         while ($user = pg_fetch_row($q)){
