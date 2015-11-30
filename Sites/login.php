@@ -10,12 +10,12 @@
 
 function verificar_login($user,$password,&$result) 
     { 
-        $sql = 'SELECT username FROM usuario WHERE username = \'$user\''; 
+        $sql = "SELECT username FROM usuario WHERE username = '$user'"; 
         $q = pg_query($sql); 
 
         $exito = 0;
-        while ($user = pg_fetch_row($q)){
-            echo "<script type='text/javascript'>alert('$user');</script>";
+        while ($data = pg_fetch_row($q)){
+            // echo "<script type='text/javascript'>alert('$user');</script>";
             $exito++;
         }
         echo $exito;
