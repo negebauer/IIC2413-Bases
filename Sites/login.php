@@ -8,13 +8,13 @@
         echo $e->getMessage();
         }
 
-function verificar_login($user,$password, $db,&$result) 
+function verificar_login($user,$password,&$result) 
     { 
-        $sql = 'SELECT * FROM usuario WHERE username = \'$user\' and password = \'$password\''; 
-        $rec = $db -> query($sql); 
+        $sql = 'SELECT username FROM usuario WHERE username = \'$user\''; 
+        $q = $db -> pg_query($sql); 
 
 
-        foreach ($rec as $user) {
+        while ($user = pg_fetch_row($q)){
             echo "<script type='text/javascript'>alert('$user');</script>";
         }
 
@@ -32,7 +32,7 @@ if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de se
 { 
     if(isset($_POST['login'])) //Si la primera condición no pasa, haremos otra preguntando si el boton de login     fue presionado
     { 
-        if(verificar_login($_POST['user'],$_POST['password'],$db,$result) == 1) //Si el boton fue presionado llamamos a la función verificar_login() dentro de otra condición preguntando si resulta verdadero y le pasamos los valores ingresados como parámetros.
+        if(verificar_login($_POST['user'],$_POST['password'],$result) == 1) //Si el boton fue presionado llamamos a la función verificar_login() dentro de otra condición preguntando si resulta verdadero y le pasamos los valores ingresados como parámetros.
         { 
             /*Si el login fue correcto, registramos la variable de sesión y al mismo tiempo refrescamos la pagina index.php.*/ 
             $_SESSION['userid'] = $result->idusuario; 
