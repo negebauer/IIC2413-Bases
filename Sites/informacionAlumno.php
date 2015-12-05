@@ -40,7 +40,7 @@ echo "Es admin: {$esAdmin}";
 
 // #################### AHORA A HACER MAGIA ####################
 
-if (esAlumno || esAdmin) {
+if ($esAlumno || $esAdmin) {
 	// Declaramos las consultas
 	$queryInfoAlumno = "SELECT usuario.rut, usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, usuario.paisorigen,
 							usuario.sexo, usuario.estadocivil, usuario.fnacimiento, alumno.anoadmin, alumno.encausal 
