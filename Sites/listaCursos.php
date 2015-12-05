@@ -28,7 +28,7 @@ $queryInfoCursos = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, c
 					FROM curso, ramo
 					WHERE ramo.sigla = curso.sigla;";
 
-$informacionCursosRowArray = $dbp->query($queryInfoCurso)->fetchAll();
+$informacionCursosRowArray = $dbp->query($queryInfoCursos)->fetchAll();
 
 // ##### Mostrar info curso #####
 $columnas = array(
