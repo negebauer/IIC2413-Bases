@@ -32,12 +32,15 @@ $alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
 $admins = [];
 $alumnos = [];
 
-foreach ($admin as $adminsRowArray) {
-	array_push($admins, $admin);
+foreach ($adminsRowArray as $admin) {
+	array_push($admins, $admin[0]);
 }
-foreach ($alumno as $alumnosRowArray) {
-	array_push($alumnos, $admin);
+foreach ($alumnosRowArray as $alumno) {
+	array_push($alumnos, $alumno[0]);
 }
+
+echo "Admins: $admins<br><br>";
+echo "Alumnos: $alumnos<br><br>";
 
 if (in_array($username, $admins)) {
 	$esAdmin = true;
