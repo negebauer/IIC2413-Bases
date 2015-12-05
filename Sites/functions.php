@@ -106,10 +106,6 @@ catch(PDOException $e) {
 				}
 				if (!($output == "") && $i == $indexURL)
 				{
-					echo "<td>" . $output . "</td>";
-				}
-				elseif (!($output == ""))
-				{
 					// $url = $url == "DATA" ? $output : $url;
 					// $target = "_blank";
 					// echo "<form name='myForm' target=$target action=$url method='post'>";
@@ -119,6 +115,10 @@ catch(PDOException $e) {
 					echo "<button type='submit' name=$programa value=$programa>$output</button>";
 					echo "</form>";
 					// echo "<td>" . $output . "</td>";
+				}
+				elseif (!($output == ""))
+				{
+					echo "<td>" . $output . "</td>";
 				}
 			}
 			echo "</tr>";
