@@ -23,7 +23,7 @@ catch(PDOException $e) {
 }
 
 // #################### VARIABLES GENERALES ####################
-$username = "testuser1";			// username de quien hace la consulta
+$username = $_SESSION['username'];	// username de quien hace la consulta
 $esAdmin = false;					// si la consulta la hace un admin
 $esAlumno = false;					// si la consulta la hace un alumno
 $esAlumnoIntercambio = false;		// si la consulta la hace un alumno de intercambio
