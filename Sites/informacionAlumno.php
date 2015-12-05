@@ -35,8 +35,8 @@ if (in_array($username, $admins)) {
 	$esAlumno = true;
 }
 
-echo "Es alumno: {$esAlumno}";
-echo "Es admin: {$esAdmin}";
+echo "Es alumno: $esAlumno";
+echo "Es admin: $esAdmin";
 
 // #################### AHORA A HACER MAGIA ####################
 
