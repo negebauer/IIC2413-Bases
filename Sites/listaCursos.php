@@ -43,6 +43,6 @@ $columnas = array(
 	"Cupos",
 	"Programa"
 	);
-imprimirTabla($columnas, $informacionCursosRowArray, 0, "informacionCurso.php");
+imprimirTabla($columnas, $informacionCursosRowArray, 0, "informacionCurso.php", "nrcCurso");
 
 ?>
