@@ -115,7 +115,10 @@ catch(PDOException $e) {
 					// echo "<form name='myForm' target=$target action=$url method='post'>";
 					// echo "<input type='hidden' name=$output' value='$output'/>";
 					// echo "</form>";
-					echo "<td>" . $output . "</td>";
+					echo "<form action='showMessage.jsp' method='post'>";
+					echo "<button type='submit' name=$output value=$url>$output</button>";
+					echo "</form>";
+					// echo "<td>" . $output . "</td>";
 				}
 			}
 			echo "</tr>";
