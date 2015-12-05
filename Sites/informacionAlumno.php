@@ -77,43 +77,8 @@ if ($esAlumno || $esAdmin) {
 		"Nota"
 		);
 	imprimirTabla($columnas, $cursosRowArray);
-	
+
 }
 
 
 ?>
-
-
-<!-- ADMIN
-[SQL] Ver informacion alumno #1: Informacion personal
-SELECT usuario.rut, usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, usuario.paisorigen, usuario.sexo, usuario.estadocivil, usuario.fnacimiento, alumno.anoadmin, alumno.encausal
-FROM usuario, alumno
-WHERE usuario.username = alumno.username
-AND alumno.username = '{$usernameAlumno}'
-AND '{$usernameAdministrador}' IN (SELECT administrador.username FROM administrador)
-
-[SQL] Ver informacion alumno #2: Historial ramos
-SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.ano, curso.semestre, nota.notafinal
-FROM nota, ramo, curso
-WHERE nota.username = '{$usernameAlumno}'
-AND nota.nrc = curso.nrc
-AND ramo.sigla = curso.sigla
-ORDER BY curso.ano, curso.semestre, curso.sigla, ramo.nombre
-AND '{$usernameAdministrador}' IN (SELECT administrador.username FROM administrador)
--->
-
-<!-- ALUMNO
-Ver informacion alumno #1: Informacion personal
-SELECT usuario.rut, usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, usuario.paisorigen, usuario.sexo, usuario.estadocivil, usuario.fnacimiento, alumno.anoadmin, alumno.encausal
-FROM usuario, alumno
-WHERE usuario.username = alumno.username
-AND alumno.username = '{$usernameAlumno}'
-
-Ver informacion alumno #2: Historial ramos
-SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.ano, curso.semestre, nota.notafinal
-FROM nota, ramo, curso
-WHERE nota.username = '{$usernameAlumno}'
-AND nota.nrc = curso.nrc
-AND ramo.sigla = curso.sigla
-ORDER BY curso.ano, curso.semestre, curso.sigla, ramo.nombre
--->
