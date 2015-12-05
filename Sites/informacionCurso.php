@@ -46,7 +46,16 @@ $queryInfoCurso = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, cu
 					WHERE ramo.sigla = curso.sigla
 					AND curso.nrc = $nrcCurso;";
 
+$queryProfesoresCurso = "SELECT nombres, apellidop, apellidom, mailuc, departamento, facultad
+					FROM usuario, profesor, profesorcurso
+					WHERE usuario.username = profesor.username
+					AND profesor.username = profesorcurso.username
+					AND profesorcurso.nrc = $nrcCurso;";
+
 $informacionCursoRowArray = $dbp->query($queryInfoCurso)->fetchAll();
+$profesoresCursoRowArray = $dbp->query($queryProfesoresCurso)->fetchAll();
+
+// ##### Mostrar info curso #####
 $columnas = array(
 	"NRC",
 	"Sigla",
@@ -60,6 +69,17 @@ $columnas = array(
 	"Programa"
 	);
 imprimirTabla($columnas, $informacionCursoRowArray);
+
+// ##### Mostrat info profesores curso #####
+$columnas = array(
+	"Nombre",
+	"Apellido Paterno",
+	"Apellido Materno",
+	"Mail UC",
+	"Departamento",
+	"Facultad"
+	);
+imprimirTabla($columnas, $profesoresCursoRowArray);
 
 // ##### Veamos si es profesor del curso (para poder cambiar notas) #####
 if ($esProfesor)
