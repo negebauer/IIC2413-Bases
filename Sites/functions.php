@@ -104,7 +104,7 @@ catch(PDOException $e) {
 				{
 					$output = $row[$i];
 				}
-				if (!($output == "") && $i == $indexExtra)
+				if (!($output == "") && $i == $indexURL)
 				{
 					echo "<td>" . $output . "</td>";
 				}
