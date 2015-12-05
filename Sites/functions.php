@@ -56,26 +56,32 @@ catch(PDOException $e) {
 		}
 		foreach ($profesoresRowArray as $profesor)
 		{
-			$username = $_SESSION['username'];
-			echo "El suario actual es $username y el profesor que estoy viendo ahora es $profesor[0]<br>";
 			array_push($profesores, $profesor[0]);
 		}
 		
 		if (in_array($username, $admins))
 		{
+			echo "Es esAdmin";
 			$esAdmin = true;
 		}
 		elseif (in_array($username, $alumnos))
 		{
+			echo "Es esAlumno";
 			$esAlumno = true;
 		}
 		elseif (in_array($username, $alumnosIntercambio))
 		{
+			echo "Es esAlumnoIntercambio";
 			$esAlumnoIntercambio = true;
 		}
 		elseif (in_array($username, $profesores))
 		{
+			echo "Es esProfesor";
 			$esProfesor = true;
+		}
+		else
+		{
+			echo "No es nada";
 		}
 
 		return array ($esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor);
