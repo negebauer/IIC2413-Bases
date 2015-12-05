@@ -95,7 +95,7 @@ if ($esAlumno || $esAdmin) {
 		echo "<td>" . $informacionAlumno[4] . "</td>";
 		echo "<td>" . $informacionAlumno[5] . "</td>";
 		echo "<td>" . $informacionAlumno[6] . "</td>";
-		$enCausal = $informacionAlumno[7] ? 'true' : 'false';
+		$enCausal = $informacionAlumno[7] ? 'Si' : 'No';
 		echo "<td>" . $enCausal . "</td>";
 		echo "</tr>";
 	}
