@@ -14,8 +14,58 @@ catch(PDOException $e) {
 }
 
 // #################### VARIABLES POR DESIGNAR ####################
+$username = "testuser1";			// username de quien hace la consulta
+$usernameAlumno = "testuser1";		// username del alumno sobre el cual se hace la consulta. Si user es alumno entonces (username = usernameAlumno).
+$esAdmin = false;					// si la consulta la hace un admin
+$esAlumno = false;					// si la consulta la hace un alumno
+$esAlumnoIntercambio = false;		// si la consulta la hace un alumno de intercambio
+$esProfesor = false;				// si la consulta la hace un profesor
 
 
-// #################### AHORA A HACER MAGIA ####################
+// #################### VERIFICAR USUARIO ####################
+$queryAdmins = "SELECT username
+				FROM administrador;";
+
+$queryAlumnos = "SELECT username
+				FROM alumno;";
+
+$queryAlumnosIntercambio = "SELECT username
+							FROM alumnointercambio;";
+
+$queryProfesores = "SELECT username
+					FROM profesor;";
+
+$adminsRowArray = $dbp->query($queryAdmins)->fetchAll();
+$alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
+$alumnosIntercambioRowArray = $dbp->query($queryAlumnosIntercambio)->fetchAll();
+$profesoresRowArray = $dbp->query($queryProfesores)->fetchAll();
+
+$admins = [];
+$alumnos = [];
+$alumnosIntercambio = [];
+$profesores = [];
+
+foreach ($adminsRowArray as $admin) {
+	array_push($admins, $admin[0]);
+}
+foreach ($alumnosRowArray as $alumno) {
+	array_push($alumnos, $alumno[0]);
+}
+foreach ($alumnosIntercambioRowArray as $alumnoIntercambio) {
+	array_push($alumnosIntercambio, $alumnoIntercambio[0]);
+}
+foreach ($profesoresRowArray as $profesor) {
+	array_push($profesores, $profesor[0]);
+}
+
+if (in_array($username, $admins)) {
+	$esAdmin = true;
+} elseif (in_array($username, $alumnos)) {
+	$esAlumno = true;
+} elseif (in_array($username, $alumnosIntercambio)) {
+	$esAlumnoIntercambio = true;
+} elseif (in_array($username, $profesores)) {
+	$esProfesor = true;
+}
 
 ?>
