@@ -87,8 +87,8 @@ catch(PDOException $e) {
 		}
 		echo "</tr>";
 		foreach($data as $row) {
-			for ($i=0; $i < sizeof($row); $i++) {
-				echo "<tr>";
+			echo "<tr>";
+			for ($i=0; $i < count($row); $i++) {
 				if (is_bool($row[$i]))
 				{
 					echo "<td>" . $row[$i] ? 'Si' : 'No' . "</td>";
@@ -97,8 +97,8 @@ catch(PDOException $e) {
 				{
 					echo "<td>" . $row[$i] . "</td>";
 				}
-				echo "</tr>";
 			}
+			echo "</tr>";
 		}
 	}
 
