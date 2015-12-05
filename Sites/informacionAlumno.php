@@ -35,8 +35,10 @@ if (in_array($username, $admins)) {
 	$esAlumno = true;
 }
 
-echo "Es alumno: $esAlumno";
-echo "Es admin: $esAdmin";
+$boolAlumnoRaw = $esAlumno ? 'true' : 'false';
+$boolAdminRaw = $esAdmin ? 'true' : 'false';
+echo "Es alumno: $boolAlumnoRaw";
+echo "Es admin: $boolAdminRaw";
 
 // #################### AHORA A HACER MAGIA ####################
 
