@@ -30,7 +30,7 @@ $esAdmin = false;					// si la consulta la hace un admin
 $esAlumno = false;					// si la consulta la hace un alumno
 
 // #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario();
+$arrayEsUsuario = verificarUsuario($username);
 $esAdmin = $arrayEsUsuario[0];
 $esAlumno = $arrayEsUsuario[1];
 $esAlumnoIntercambio = $arrayEsUsuario[2];
