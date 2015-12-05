@@ -43,4 +43,7 @@ $esAlumno = $arrayEsUsuario[1];
 $esAlumnoIntercambio = $arrayEsUsuario[2];
 $esProfesor = $arrayEsUsuario[3];
 
+// #################### AHORA A HACER MAGIA ####################
+
+
 ?>
