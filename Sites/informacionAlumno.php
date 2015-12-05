@@ -22,8 +22,8 @@ catch(PDOException $e) {
 }
 
 // #################### VARIABLES POR DESIGNAR ####################
-$username = "testuser1";			// username de quien hace la consulta
-$usernameAlumno = "testuser1";		// username del alumno sobre el cual se hace la consulta. Si user es alumno entonces (username = usernameAlumno).
+$username = "negebauer";			// username de quien hace la consulta
+$usernameAlumno = "negebauer";		// username del alumno sobre el cual se hace la consulta. Si user es alumno entonces (username = usernameAlumno).
 $esAdmin = false;					// si la consulta la hace un admin
 $esAlumno = false;					// si la consulta la hace un alumno
 
