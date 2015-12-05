@@ -13,4 +13,9 @@ catch(PDOException $e) {
 	echo $e->getMessage();
 }
 
+// #################### VARIABLES POR DESIGNAR ####################
+
+
+// #################### AHORA A HACER MAGIA ####################
+
 ?>
