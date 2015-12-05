@@ -53,26 +53,37 @@ $alumnos = [];
 $alumnosIntercambio = [];
 $profesores = [];
 
-foreach ($adminsRowArray as $admin) {
+foreach ($adminsRowArray as $admin)
+{
 	array_push($admins, $admin[0]);
 }
-foreach ($alumnosRowArray as $alumno) {
+foreach ($alumnosRowArray as $alumno)
+{
 	array_push($alumnos, $alumno[0]);
 }
-foreach ($alumnosIntercambioRowArray as $alumnoIntercambio) {
+foreach ($alumnosIntercambioRowArray as $alumnoIntercambio)
+{
 	array_push($alumnosIntercambio, $alumnoIntercambio[0]);
 }
-foreach ($profesoresRowArray as $profesor) {
+foreach ($profesoresRowArray as $profesor)
+{
 	array_push($profesores, $profesor[0]);
 }
 
-if (in_array($username, $admins)) {
+if (in_array($username, $admins))
+{
 	$esAdmin = true;
-} elseif (in_array($username, $alumnos)) {
+}
+elseif (in_array($username, $alumnos))
+{
 	$esAlumno = true;
-} elseif (in_array($username, $alumnosIntercambio)) {
+}
+elseif (in_array($username, $alumnosIntercambio))
+{
 	$esAlumnoIntercambio = true;
-} elseif (in_array($username, $profesores)) {
+}
+elseif (in_array($username, $profesores))
+{
 	$esProfesor = true;
 }
 
