@@ -61,22 +61,18 @@ catch(PDOException $e) {
 		
 		if (in_array($username, $admins))
 		{
-			echo "Es esAdmin";
 			$esAdmin = true;
 		}
 		if (in_array($username, $alumnos))
 		{
-			echo "Es esAlumno";
 			$esAlumno = true;
 		}
 		if (in_array($username, $alumnosIntercambio))
 		{
-			echo "Es esAlumnoIntercambio";
 			$esAlumnoIntercambio = true;
 		}
 		if (in_array($username, $profesores))
 		{
-			echo "Es esProfesor";
 			$esProfesor = true;
 		}
 
