@@ -34,7 +34,7 @@ $esProfesorCurso =false;
 $nrcCurso = 14347;
 
 // #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario();
+$arrayEsUsuario = verificarUsuario($username);
 $esAdmin = $arrayEsUsuario[0];
 $esAlumno = $arrayEsUsuario[1];
 $esProfesor = $arrayEsUsuario[3];
