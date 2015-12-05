@@ -1,24 +1,31 @@
 <?php
 
-	function setDBReferences()
+	class DB 
 	{
 		// #################### DECLARACION BASES DE DATOS ####################
-		$dbhost = "localhost";
-		$dbname = "test";
-		$mongo = new MongoClient("mongodb://$dbhost");
-		$dbm = $mongo->$dbname;
-		
-		try {
-			$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-		}
-		catch(PDOException $e) {
-			echo $e->getMessage();
+		public static $dbhost;
+		public static $dbname;
+		public static $mongo;
+		public static $dbm;
+		public static $dbp;
+
+		static function init()
+		{
+			self::$dbhost = "localhost";
+			self::$dbname = "test";
+			self::$mongo = new MongoClient("mongodb://$dbhost");
+			self::$dbm = $mongo->$dbname;
+			try {
+				self::$$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
+			}
+			catch(PDOException $e) {
+				echo $e->getMessage();
+			}
 		}
 	}
 
 	function verificarUsuario()
     {
-    	setDBReferences();
     	$esAdmin = false;
 		$esAlumno = false;
 		$esAlumnoIntercambio = false;
@@ -36,10 +43,10 @@
 		$queryProfesores = "SELECT username
 							FROM profesor;";
 		
-		$adminsRowArray = $dbp->query($queryAdmins)->fetchAll();
-		$alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
-		$alumnosIntercambioRowArray = $dbp->query($queryAlumnosIntercambio)->fetchAll();
-		$profesoresRowArray = $dbp->query($queryProfesores)->fetchAll();
+		$adminsRowArray = DB::$dbp->query($queryAdmins)->fetchAll();
+		$alumnosRowArray = DB::$dbp->query($queryAlumnos)->fetchAll();
+		$alumnosIntercambioRowArray = DB::$dbp->query($queryAlumnosIntercambio)->fetchAll();
+		$profesoresRowArray = DB::$dbp->query($queryProfesores)->fetchAll();
 		
 		$admins = [];
 		$alumnos = [];
