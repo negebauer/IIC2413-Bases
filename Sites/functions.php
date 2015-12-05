@@ -90,7 +90,11 @@ catch(PDOException $e) {
 			$size = count($row);
 			echo "<tr>";
 			for ($i=0; $i < $size; $i++) {
-				if (is_bool($row[$i]))
+				if (!array_key_exists ($i, $row))
+				{
+
+				}
+				elseif (is_bool($row[$i]))
 				{
 					$boolString = $row[$i] ? 'Si' : 'No';
 					echo "<td>" . $boolString . "</td>";
