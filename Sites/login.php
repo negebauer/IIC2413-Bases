@@ -26,7 +26,7 @@ function verificar_login($user,$password,&$result)
 
 /*Luego haremos una serie de condicionales que identificaran el momento en el boton de login es presionado y cuando este sea presionado llamaremos a la función verificar_login() pasandole los parámetros ingresados:*/
 
-if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de sesión que se va a crear cuando el usuario se logee
+if(!isset($_SESSION['username'])) //para saber si existe o no ya la variable de sesión que se va a crear cuando el usuario se logee
 { 
     if(isset($_POST['login'])) //Si la primera condición no pasa, haremos otra preguntando si el boton de login     fue presionado
     { 
@@ -34,7 +34,7 @@ if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de se
         { 
             session_start();
             /*Si el login fue correcto, registramos la variable de sesión y al mismo tiempo refrescamos la pagina index.php.*/ 
-            $_SESSION['userid'] = $result;
+            $_SESSION['username'] = $_POST['user'];
             header("location:saludo.php"); 
         } 
         else 
@@ -50,7 +50,7 @@ if(!isset($_SESSION['userid'])) //para saber si existe o no ya la variable de se
 </form> 
 <?php 
 } else { 
-    // Si la variable de sesión ‘userid’ ya existe, que muestre el mensaje de saludo. 
+    // Si la variable de sesión ‘username’ ya existe, que muestre el mensaje de saludo. 
     echo 'Su usuario ingreso correctamente.'; 
     echo '<a href="logout.php">Logout</a>'; 
 } 
