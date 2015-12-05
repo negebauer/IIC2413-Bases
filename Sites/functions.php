@@ -79,7 +79,7 @@ catch(PDOException $e) {
 		return array ($esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor);
     }
 
-    function imprimirTabla($columnas, $data)
+    function imprimirTabla($columnas, $data, $indexURL = 0, $url = "")
     {
     	echo '<table border="1" class="table">';
 		echo '<tr>';
@@ -91,18 +91,31 @@ catch(PDOException $e) {
 			$size = count($row);
 			echo "<tr>";
 			for ($i=0; $i < $size; $i++) {
+				$output = "";
 				if (!array_key_exists ($i, $row))
 				{
-
+					continue;
 				}
 				elseif (is_bool($row[$i]))
 				{
-					$boolString = $row[$i] ? 'Si' : 'No';
-					echo "<td>" . $boolString . "</td>";
+					$output = $row[$i] ? 'Si' : 'No';
 				}
 				else
 				{
-					echo "<td>" . $row[$i] . "</td>";
+					$output = $row[$i];
+				}
+				if (!($output == "") && $i == $indexExtra)
+				{
+					echo "<td>" . $output . "</td>";
+				}
+				elseif (!($output == ""))
+				{
+					$url = $url == "DATA" ? $output : $url;
+					$target = "_blank";
+					echo "<form name='myForm' target=$target action=$url method='post'>";
+					echo "<input type='hidden' name=$output' value='$output'/>";
+					echo "</form>";
+					echo "<td>" . $extra1 . $output . $extra2 . "</td>";	
 				}
 			}
 			echo "</tr>";
