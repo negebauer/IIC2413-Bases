@@ -1,3 +1,11 @@
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>RENNAB</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>	
+
 <?php
 
 // #################### DECLARACION BASES DE DATOS ####################
@@ -61,8 +69,8 @@ if ($esAlumno || $esAdmin) {
 						ORDER BY curso.ano, curso.semestre, curso.sigla, ramo.nombre;";
 
 	// ##### Hacemos las consultas #####
-	$informacionAlumnoRowArray = $dbp->query($queryAdmins)->fetchAll();
-	$cursosRowArray = $dbp->query($queryAlumnos)->fetchAll();
+	$informacionAlumnoRowArray = $dbp->query($queryInfoAlumno)->fetchAll();
+	$cursosRowArray = $dbp->query($queryCursosAlumno)->fetchAll();
 
 	// ##### Tabla información alumno #####
 	echo '<table border="1" class="table">';
@@ -118,7 +126,7 @@ if ($esAlumno || $esAdmin) {
 		echo "<td>" . $curso[6] . "</td>";
 		echo "</tr>";
 	}
-	
+
 	echo "</table>";
 	echo "<br><br>";
 
