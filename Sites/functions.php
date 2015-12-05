@@ -16,7 +16,7 @@
 			self::$mongo = new MongoClient("mongodb://$dbhost");
 			self::$dbm = $mongo->$dbname;
 			try {
-				self::$$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
+				self::$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
 			}
 			catch(PDOException $e) {
 				echo $e->getMessage();
