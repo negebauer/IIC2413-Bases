@@ -111,9 +111,11 @@ catch(PDOException $e) {
 					// echo "<form name='myForm' target=$target action=$url method='post'>";
 					// echo "<input type='hidden' name=$output' value='$output'/>";
 					// echo "</form>";
+					echo "<td>";
 					echo "<form action='$url' method='post'>";
-					echo "<button type='submit' name=$programa value=$programa>$output</button>";
+					echo "<button type='submit' name='asd' value='asd2'>$output</button>";
 					echo "</form>";
+					echo "</td>";
 					// echo "<td>" . $output . "</td>";
 				}
 				elseif (!($output == ""))
