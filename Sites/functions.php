@@ -56,6 +56,8 @@ catch(PDOException $e) {
 		}
 		foreach ($profesoresRowArray as $profesor)
 		{
+			$username = $_SESSION['username'];
+			echo "El suario actual es $username y el profesor que estoy viendo ahora es $profesor[0]<br>";
 			array_push($profesores, $profesor[0]);
 		}
 		
