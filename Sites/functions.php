@@ -79,7 +79,7 @@ catch(PDOException $e) {
 		return array ($esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor);
     }
 
-    function imprimirTabla($columnas, $data, $indexURL = -1, $url = "")
+    function imprimirTabla($columnas, $data, $indexURL = -1, $url = "", $postVarName = "")
     {
     	echo '<table border="1" class="table">';
 		echo '<tr>';
@@ -109,7 +109,7 @@ catch(PDOException $e) {
 					$url = $url == "PROGRAMURL" ? "http://" . $output : $url;
 					echo "<td>";
 					echo "<form action='$url' method='post'>";
-					echo "<input class=hidden name='programa' value='programa'>";
+					echo "<input class=hidden name=$postVarName value=$output>";
 					echo "<button type='submit' name='delete' value='Delete'>$output</button>";
 					echo "</form>";
 					echo "</td>";
