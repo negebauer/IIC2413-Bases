@@ -106,9 +106,9 @@ catch(PDOException $e) {
 				}
 				if (!($output == "") && $i == $indexURL)
 				{
-					$url = $url == "DATA" ? $output : $url;
+					$url = $url == "PROGRAMURL" ? "http://" . $output : $url;
 					echo "<td>";
-					echo "<form action='http://$url' method='post'>";
+					echo "<form action='$url' method='post'>";
 					echo "<input class=hidden name='programa' value='programa'>";
 					echo "<button type='submit' name='delete' value='Delete'>$output</button>";
 					echo "</form>";
