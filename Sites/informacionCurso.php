@@ -31,7 +31,7 @@ $esProfesor = false;				// si la consulta la hace un profesor
 
 // #################### VARIABLES ESPECIFICAS ####################
 $esProfesorCurso =false;
-$nrcCurso = 14347;
+$nrcCurso = intval($_POST['nrcCurso']);
 
 // #################### VERIFICAR USUARIO ####################
 $arrayEsUsuario = verificarUsuario($username);
@@ -68,7 +68,7 @@ $columnas = array(
 	"Cupos",
 	"Programa"
 	);
-imprimirTabla($columnas, $informacionCursoRowArray, 9, "DATA");
+imprimirTabla($columnas, $informacionCursoRowArray, 9, "PROGRAMURL");
 
 // ##### Mostrat info profesores curso #####
 $columnas = array(
