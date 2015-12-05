@@ -79,7 +79,7 @@ catch(PDOException $e) {
 		return array ($esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor);
     }
 
-    function imprimirTabla($columnas, $data, $indexURL = 0, $url = "")
+    function imprimirTabla($columnas, $data, $indexURL = -1, $url = "")
     {
     	echo '<table border="1" class="table">';
 		echo '<tr>';
