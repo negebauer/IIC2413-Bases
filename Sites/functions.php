@@ -110,11 +110,12 @@ catch(PDOException $e) {
 				}
 				elseif (!($output == ""))
 				{
-					$url = $url == "DATA" ? $output : $url;
-					$target = "_blank";
-					echo "<form name='myForm' target=$target action=$url method='post'>";
-					echo "<input type='hidden' name=$output' value='$output'/>";
-					echo "</form>";
+					// $url = $url == "DATA" ? $output : $url;
+					// $target = "_blank";
+					// echo "<form name='myForm' target=$target action=$url method='post'>";
+					// echo "<input type='hidden' name=$output' value='$output'/>";
+					// echo "</form>";
+					echo "<td>" . $output . "</td>";
 				}
 			}
 			echo "</tr>";
