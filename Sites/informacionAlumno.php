@@ -31,8 +31,8 @@ $esAlumno = false;					// si la consulta la hace un alumno
 
 // #################### VERIFICAR USUARIO ####################
 $arrayEsUsuario = verificarUsuario($username);
-$esAdmin = $arrayEsUsuario[0];
-$esAlumno = $arrayEsUsuario[1];
+// $esAdmin = $arrayEsUsuario[0];
+// $esAlumno = $arrayEsUsuario[1];
 
 // #################### AHORA A HACER MAGIA ####################
 if ($esAlumno || $esAdmin) {
