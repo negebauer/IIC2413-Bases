@@ -96,7 +96,6 @@ if ($esProfesor)
 		
 	foreach ($profesoresCursoRowArray as $profesorCurso)
 	{
-		echo "Yo soy: $username y un profesor del curso es $profesorcurso[0]<br>";
 		array_push($profesoresCurso, $profesorCurso[0]);
 	}
 
@@ -109,12 +108,11 @@ if ($esProfesor)
 
 if ($esProfesorCurso)
 {
-	echo "Es profesorcurso<br>";
 	// ##### Declaramos consulta para ver informacion del curso #####
 }
 elseif ($esAdmin)
 {
-	echo "Es admin<br>";
+	
 }
 
 ?>
