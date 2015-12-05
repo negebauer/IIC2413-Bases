@@ -29,7 +29,6 @@ catch(PDOException $e) {
 
 // #################### VARIABLES ####################
 $username = $_SESSION['username'];	// username de quien hace la consulta
-echo "Username: $username";
 $usernameAlumno = "negebauer";		// username del alumno sobre el cual se hace la consulta. Si user es alumno entonces (username = usernameAlumno).
 $esAdmin = false;					// si la consulta la hace un admin
 $esAlumno = false;					// si la consulta la hace un alumno
@@ -40,7 +39,12 @@ $esAdmin = $arrayEsUsuario[0];
 $esAlumno = $arrayEsUsuario[1];
 
 // #################### AHORA A HACER MAGIA ####################
-if ($esAlumno || $esAdmin) {
+if ($esAlumno)
+{
+	$usernameAlumno = $username;
+}
+if ($esAlumno || $esAdmin)
+{
 	// ##### Declaramos las consultas #####
 	$queryInfoAlumno = "SELECT usuario.rut, usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, alumno.anoadmin, alumno.encausal 
 						FROM usuario, alumno
