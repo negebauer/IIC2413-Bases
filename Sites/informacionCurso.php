@@ -31,28 +31,69 @@ $esProfesor = false;				// si la consulta la hace un profesor
 
 // #################### VARIABLES ESPECIFICAS ####################
 $esProfesorCurso =false;
-$
+$nrcCurso = 14347;
 
 // #################### VERIFICAR USUARIO ####################
 $arrayEsUsuario = verificarUsuario();
 $esAdmin = $arrayEsUsuario[0];
+$esAlumno = $arrayEsUsuario[1];
 $esProfesor = $arrayEsUsuario[3];
 
 // #################### AHORA A HACER MAGIA ####################
+$queryInfoCurso = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.semestre, curso.ano, ramo.escuela,
+						ramo.ncreditos, curso.cupos, curso.programa
+					FROM curso, ramo
+					WHERE ramo.sigla = curso.sigla
+					AND curso.nrc = {$nrcCurso};";
+
+$informacionCursoRowArray = $dbp->query($queryInfoCurso)->fetchAll();
+$columnas = array(
+	"NRC",
+	"Sigla",
+	"Seccion",
+	"Nombre",
+	"Semestre",
+	"Año",
+	"Escuela",
+	"Creditos",
+	"Cupos",
+	"Programa"
+	);
+imprimirTabla($columnas, $informacionCursoRowArray);
+
+// ##### Veamos si es profesor del curso (para poder cambiar notas) #####
 if ($esProfesor)
 {
+	// ##### Declaramos consulta para ver si es profesor del ramo #####
 	$queryProfesoresCurso = "SELECT username
 							FROM profesorcurso
-							WHERE "
+							WHERE nrc = $nrcCurso;";
+
+	// ##### Ejecutamos la consulta #####
+	$profesoresCursoRowArray = $dbp->query($queryProfesoresCurso)->fetchAll();
+	
+	$profesoresCurso = [];
+		
+	foreach ($profesoresCursoRowArray as $profesorCurso)
+	{
+		array_push($admins, $profesorCurso[0]);
+	}
+
+	// ##### Vemos si es profe del curso #####
+	if (in_array($username, $profesoresCurso))
+	{
+		$esProfesorCurso = true;
+	}
 }
 
 if ($esProfesorCurso)
 {
-
+	echo "Es profesorcurso<br>";
+	// ##### Declaramos consulta para ver informacion del curso #####
 }
 elseif ($esAdmin)
 {
-
+	echo "Es admin<br>";
 }
 
 ?>
