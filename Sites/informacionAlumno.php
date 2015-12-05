@@ -23,16 +23,16 @@ catch(PDOException $e) {
 	echo $e->getMessage();
 }
 
-// #################### VARIABLES POR DESIGNAR ####################
+// #################### VARIABLES ####################
 $username = "negebauer";			// username de quien hace la consulta
 $usernameAlumno = "negebauer";		// username del alumno sobre el cual se hace la consulta. Si user es alumno entonces (username = usernameAlumno).
 $esAdmin = false;					// si la consulta la hace un admin
 $esAlumno = false;					// si la consulta la hace un alumno
+$esAlumnoIntercambio = false;		// si la consulta la hace un alumno de intercambio
+$esProfesor = false;				// si la consulta la hace un profesor
 
 // #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario($username, $esAlumno);
-$esAdmin = $arrayEsUsuario[0];
-// $esAlumno = $arrayEsUsuario[1];
+verificarUsuario($username, $esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor);
 
 // #################### AHORA A HACER MAGIA ####################
 if ($esAlumno || $esAdmin) {

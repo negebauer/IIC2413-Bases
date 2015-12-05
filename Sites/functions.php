@@ -12,14 +12,9 @@ catch(PDOException $e) {
 	echo $e->getMessage();
 }
 
-	function verificarUsuario($username, $esAlumno)
+	function verificarUsuario($username, $esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor)
     {
-    	$esAdmin = false;
-		// $esAlumno = false;
-		$esAlumnoIntercambio = false;
-		$esProfesor = false;
-
-        $queryAdmins = "SELECT username
+    	$queryAdmins = "SELECT username
 						FROM administrador;";
 		
 		$queryAlumnos = "SELECT username
