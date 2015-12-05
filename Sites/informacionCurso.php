@@ -108,11 +108,47 @@ if ($esProfesor)
 
 if ($esProfesorCurso)
 {
-	// ##### Declaramos consulta para ver informacion del curso #####
+	// ##### Declaramos consulta para ver alumnos del curso #####
+	$queryAlumnosCurso = "SELECT usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, nota.notafinal
+						FROM usuario, alumno, nota
+						WHERE usuario.username = alumno.username
+						AND nota.nrc = {$nrcCurso};";
+
+	// ##### Ejecutamos la consulta #####
+	$alumnosCursoRowArray = $dbp->query($queryAlumnosCurso)->fetchAll();
+
+	// ##### Mostrar info alumnos curso #####
+	$columnas = array(
+		"Usuario",
+		"Nombres",
+		"Apellido Paterno",
+		"Apellido Materno",
+		"Mail UC",
+		"Nota final"
+		);
+	imprimirTabla($columnas, $alumnosCursoRowArray);
 }
 elseif ($esAdmin)
 {
-	
+	// ##### Declaramos consulta para ver alumnos del curso #####
+	$queryAlumnosCurso = "SELECT usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, nota.notafinal
+						FROM usuario, alumno, nota
+						WHERE usuario.username = alumno.username
+						AND nota.nrc = {$nrcCurso};";
+
+	// ##### Ejecutamos la consulta #####
+	$alumnosCursoRowArray = $dbp->query($queryAlumnosCurso)->fetchAll();
+
+	// ##### Mostrar info alumnos curso #####
+	$columnas = array(
+		"Usuario",
+		"Nombres",
+		"Apellido Paterno",
+		"Apellido Materno",
+		"Mail UC",
+		"Nota final"
+		);
+	imprimirTabla($columnas, $alumnosCursoRowArray);
 }
 
 ?>
