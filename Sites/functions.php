@@ -78,4 +78,28 @@ catch(PDOException $e) {
 		return array ($esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor);
     }
 
+    function imprimirTabla($columnas, $data)
+    {
+    	echo '<table border="1" class="table">';
+		echo '<tr>';
+		foreach ($columnas as $columna) {
+			echo "<th>" . $columna . "</th>";
+		}
+		echo "</tr>";
+		foreach($data as $row) {
+			for ($i=0; $i < sizeof($row); $i++) {
+				echo "<tr>";
+				if (is_bool($row[$i]))
+				{
+					echo "<td>" . $row[7] ? 'Si' : 'No' . "</td>";
+				}
+				else
+				{
+					echo "<td>" . $row[$i] . "</td>";
+				}
+				echo "</tr>";
+			}
+		}
+	}
+
 ?>

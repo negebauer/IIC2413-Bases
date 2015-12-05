@@ -54,34 +54,42 @@ if ($esAlumno || $esAdmin) {
 	$cursosRowArray = $dbp->query($queryCursosAlumno)->fetchAll();
 
 	// ##### Tabla información alumno #####
-	echo '<table border="1" class="table">';
-	echo '<tr>';
-	echo "<th>RUT</th>";
-	echo "<th>Usuario</th>";
-	echo "<th>Nombres</th>";
-	echo "<th>Apellido Paterno</th>";
-	echo "<th>Apellido Materno</th>";
-	echo "<th>Mail UC</th>";
-	echo "<th>Año admision</th>";
-	echo "<th>En causal</th>";
-	echo "</tr>";
+	$columnas = array (
+		"Apellido Paterno",
+		"Apellido Materno",
+		"Mail UC",
+		"Año admision",
+		"En causal"
+		);
+	imprimirTabla($columnas, $informacionAlumnoRowArray);
+	// echo '<table border="1" class="table">';
+	// echo '<tr>';
+	// echo "<th>RUT</th>";
+	// echo "<th>Usuario</th>";
+	// echo "<th>Nombres</th>";
+	// echo "<th>Apellido Paterno</th>";
+	// echo "<th>Apellido Materno</th>";
+	// echo "<th>Mail UC</th>";
+	// echo "<th>Año admision</th>";
+	// echo "<th>En causal</th>";
+	// echo "</tr>";
 	
-	foreach($informacionAlumnoRowArray as $informacionAlumno) {
-		echo "<tr>";
-		echo "<td>" . $informacionAlumno[0] . "</td>";
-		echo "<td>" . $informacionAlumno[1] . "</td>";
-		echo "<td>" . $informacionAlumno[2] . "</td>";
-		echo "<td>" . $informacionAlumno[3] . "</td>";
-		echo "<td>" . $informacionAlumno[4] . "</td>";
-		echo "<td>" . $informacionAlumno[5] . "</td>";
-		echo "<td>" . $informacionAlumno[6] . "</td>";
-		$enCausal = $informacionAlumno[7] ? 'Si' : 'No';
-		echo "<td>" . $enCausal . "</td>";
-		echo "</tr>";
-	}
+	// foreach($informacionAlumnoRowArray as $informacionAlumno) {
+	// 	echo "<tr>";
+	// 	echo "<td>" . $informacionAlumno[0] . "</td>";
+	// 	echo "<td>" . $informacionAlumno[1] . "</td>";
+	// 	echo "<td>" . $informacionAlumno[2] . "</td>";
+	// 	echo "<td>" . $informacionAlumno[3] . "</td>";
+	// 	echo "<td>" . $informacionAlumno[4] . "</td>";
+	// 	echo "<td>" . $informacionAlumno[5] . "</td>";
+	// 	echo "<td>" . $informacionAlumno[6] . "</td>";
+	// 	$enCausal = $informacionAlumno[7] ? 'Si' : 'No';
+	// 	echo "<td>" . $enCausal . "</td>";
+	// 	echo "</tr>";
+	// }
 	
-	echo "</table>";
-	echo "<br><br>";
+	// echo "</table>";
+	// echo "<br><br>";
 
 	// ##### Tabla información cursos del alumno #####
 	echo '<table border="1" class="table">';
