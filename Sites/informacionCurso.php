@@ -44,7 +44,7 @@ $queryInfoCurso = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, cu
 						ramo.ncreditos, curso.cupos, curso.programa
 					FROM curso, ramo
 					WHERE ramo.sigla = curso.sigla
-					AND curso.nrc = {$nrcCurso};";
+					AND curso.nrc = $nrcCurso;";
 
 $informacionCursoRowArray = $dbp->query($queryInfoCurso)->fetchAll();
 $columnas = array(
