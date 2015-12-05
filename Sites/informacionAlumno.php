@@ -8,6 +8,10 @@
 
 <?php
 
+// #################### PARA USAR INFO DE SESION ####################
+session_start();
+
+// #################### LIBRERIAS ####################
 require_once('functions.php');
 
 // #################### DECLARACION BASES DE DATOS ####################
