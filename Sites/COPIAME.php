@@ -38,7 +38,7 @@ $esProfesor = false;				// si la consulta la hace un profesor
 
 
 // #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario();
+$arrayEsUsuario = verificarUsuario($username);
 $esAdmin = $arrayEsUsuario[0];
 $esAlumno = $arrayEsUsuario[1];
 $esAlumnoIntercambio = $arrayEsUsuario[2];
