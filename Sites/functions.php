@@ -91,7 +91,7 @@ catch(PDOException $e) {
 			$size = count($row);
 			echo "<tr>";
 			for ($i=0; $i < $size; $i++) {
-				$output = "";
+				$output = "SKIPME";
 				if (!array_key_exists ($i, $row))
 				{
 					continue;
@@ -104,7 +104,7 @@ catch(PDOException $e) {
 				{
 					$output = $row[$i];
 				}
-				if (!($output == "") && $i == $indexURL)
+				if (!($output == "SKIPME") && $i == $indexURL)
 				{
 					$url = $url == "PROGRAMURL" ? "http://" . $output : $url;
 					echo "<td>";
@@ -114,7 +114,7 @@ catch(PDOException $e) {
 					echo "</form>";
 					echo "</td>";
 				}
-				elseif (!($output == ""))
+				elseif (!($output == "SKIPME"))
 				{
 					echo "<td>" . $output . "</td>";
 				}
