@@ -14,6 +14,7 @@ catch(PDOException $e) {
 
 	function verificarUsuario($username)
     {
+    	$dbp = $GLOBALS["dbp"];
     	$esAdmin = false;
 		$esAlumno = false;
 		$esAlumnoIntercambio = false;
@@ -31,10 +32,10 @@ catch(PDOException $e) {
 		$queryProfesores = "SELECT username
 							FROM profesor;";
 		
-		$adminsRowArray = $GLOBALS["dbp"]->query($queryAdmins)->fetchAll();
-		$alumnosRowArray = $GLOBALS["dbp"]->query($queryAlumnos)->fetchAll();
-		$alumnosIntercambioRowArray = $GLOBALS["dbp"]->query($queryAlumnosIntercambio)->fetchAll();
-		$profesoresRowArray = $GLOBALS["dbp"]->query($queryProfesores)->fetchAll();
+		$adminsRowArray = $dbp->query($queryAdmins)->fetchAll();
+		$alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
+		$alumnosIntercambioRowArray = $dbp->query($queryAlumnosIntercambio)->fetchAll();
+		$profesoresRowArray = $dbp->query($queryProfesores)->fetchAll();
 		
 		$admins = [];
 		$alumnos = [];
