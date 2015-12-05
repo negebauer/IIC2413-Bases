@@ -97,7 +97,7 @@ if ($esProfesor)
 	foreach ($profesoresCursoRowArray as $profesorCurso)
 	{
 		echo "Yo soy: $username y un profesor del curso es $profesorcurso[0]<br>";
-		array_push($admins, $profesorCurso[0]);
+		array_push($profesoresCurso, $profesorCurso[0]);
 	}
 
 	// ##### Vemos si es profe del curso #####
