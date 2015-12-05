@@ -112,6 +112,7 @@ if ($esProfesorCurso)
 	$queryAlumnosCurso = "SELECT usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, nota.notafinal
 						FROM usuario, alumno, nota
 						WHERE usuario.username = alumno.username
+						AND nota.username = alumno.username
 						AND nota.nrc = {$nrcCurso};";
 
 	// ##### Ejecutamos la consulta #####
@@ -134,6 +135,7 @@ elseif ($esAdmin)
 	$queryAlumnosCurso = "SELECT usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, nota.notafinal
 						FROM usuario, alumno, nota
 						WHERE usuario.username = alumno.username
+						AND nota.username = alumno.username
 						AND nota.nrc = {$nrcCurso};";
 
 	// ##### Ejecutamos la consulta #####
