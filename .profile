@@ -13,7 +13,6 @@ gad () {
         then
         git add -A;
     else
-        echo "Adding all modified and untracked files that match ($1) to index";
         git add "$1";
     fi
 }
@@ -36,33 +35,39 @@ gcm () {
 glcm () {
     if [ -z "$1" ];
         then
-        echo "You must specify a message for the local commit";
-    else
+        echo "You must specify a message for the local commit, or a file and message";
+    elif [ -z "$2" ];
+        then
         gad;
         gcm "$1";
+    else
+        gad "$1";
+        gcm "$2";
     fi
 }
 gfcm () {
     if [ -z "$1" ];
         then
-        echo "You must specify a message for the full commit";
-    else
+        echo "You must specify a message for the full commit, or a file and message";
+    elif [ -z "$2" ];
+        then
         gad;
         gcm "$1";
+        gps;
+    else
+        gad "$1";
+        gcm "$2";
         gps;
     fi
 }
 gtg () {
     if [ -z "$1" -a -z "$2" ];
         then
-        echo "Showing all tags:";
         git tag;
     elif [ -z "$2" ];
         then
-        echo "Showing information of tag ($1):";
         git show "$1";
     else
-        echo "Creating and pushing tag ($1) with message ($2)";
         git tag -a "$1" -m "$2";
         git push origin "$1";
     fi
