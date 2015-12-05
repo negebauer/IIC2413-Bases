@@ -68,7 +68,7 @@ $columnas = array(
 	"Cupos",
 	"Programa"
 	);
-imprimirTabla($columnas, $informacionCursoRowArray);
+imprimirTabla($columnas, $informacionCursoRowArray, 9, "DATA");
 
 // ##### Mostrat info profesores curso #####
 $columnas = array(
