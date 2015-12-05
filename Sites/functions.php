@@ -64,24 +64,20 @@ catch(PDOException $e) {
 			echo "Es esAdmin";
 			$esAdmin = true;
 		}
-		elseif (in_array($username, $alumnos))
+		if (in_array($username, $alumnos))
 		{
 			echo "Es esAlumno";
 			$esAlumno = true;
 		}
-		elseif (in_array($username, $alumnosIntercambio))
+		if (in_array($username, $alumnosIntercambio))
 		{
 			echo "Es esAlumnoIntercambio";
 			$esAlumnoIntercambio = true;
 		}
-		elseif (in_array($username, $profesores))
+		if (in_array($username, $profesores))
 		{
 			echo "Es esProfesor";
 			$esProfesor = true;
-		}
-		else
-		{
-			echo "No es nada";
 		}
 
 		return array ($esAdmin, $esAlumno, $esAlumnoIntercambio, $esProfesor);
