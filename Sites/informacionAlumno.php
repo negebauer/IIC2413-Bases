@@ -8,6 +8,8 @@
 
 <?php
 
+require_once('functions.php');
+
 // #################### DECLARACION BASES DE DATOS ####################
 $dbhost = "localhost";
 $dbname = "test";
@@ -28,30 +30,11 @@ $esAdmin = false;					// si la consulta la hace un admin
 $esAlumno = false;					// si la consulta la hace un alumno
 
 // #################### VERIFICAR USUARIO ####################
-$queryAdmins = "SELECT username
-				FROM administrador;";
-
-$queryAlumnos = "SELECT username
-				FROM alumno;";
-
-$adminsRowArray = $dbp->query($queryAdmins)->fetchAll();
-$alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
-
-$admins = [];
-$alumnos = [];
-
-foreach ($adminsRowArray as $admin) {
-	array_push($admins, $admin[0]);
-}
-foreach ($alumnosRowArray as $alumno) {
-	array_push($alumnos, $alumno[0]);
-}
-
-if (in_array($username, $admins)) {
-	$esAdmin = true;
-} elseif (in_array($username, $alumnos)) {
-	$esAlumno = true;
-}
+$arrayEsUsuario = verificarUsuario();
+$esAdmin = $arrayEsUsuario[0];
+$esAlumno = $arrayEsUsuario[1];
+$esAlumnoIntercambio = $arrayEsUsuario[2];
+$esProfesor = $arrayEsUsuario[3];
 
 // #################### AHORA A HACER MAGIA ####################
 if ($esAlumno || $esAdmin) {
@@ -85,8 +68,7 @@ if ($esAlumno || $esAdmin) {
 	echo "<th>En causal</th>";
 	echo "</tr>";
 	
-	foreach($informacionAlumnoRowArray as $informacionAlumno)
-	{
+	foreach($informacionAlumnoRowArray as $informacionAlumno) {
 		echo "<tr>";
 		echo "<td>" . $informacionAlumno[0] . "</td>";
 		echo "<td>" . $informacionAlumno[1] . "</td>";
@@ -115,8 +97,7 @@ if ($esAlumno || $esAdmin) {
 	echo "<th>Nota</th>";
 	echo "</tr>";
 	
-	foreach($cursosRowArray as $curso)
-	{
+	foreach($cursosRowArray as $curso) {
 		echo "<tr>";
 		echo "<td>" . $curso[0] . "</td>";
 		echo "<td>" . $curso[1] . "</td>";
