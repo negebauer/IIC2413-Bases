@@ -91,7 +91,7 @@ catch(PDOException $e) {
 				echo "<tr>";
 				if (is_bool($row[$i]))
 				{
-					echo "<td>" . $row[7] ? 'Si' : 'No' . "</td>";
+					echo "<td>" . $row[$i] ? 'Si' : 'No' . "</td>";
 				}
 				else
 				{

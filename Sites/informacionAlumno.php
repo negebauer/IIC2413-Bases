@@ -55,6 +55,9 @@ if ($esAlumno || $esAdmin) {
 
 	// ##### Tabla información alumno #####
 	$columnas = array (
+		"RUT",
+		"Usuario",
+		"Nombres",
 		"Apellido Paterno",
 		"Apellido Materno",
 		"Mail UC",
