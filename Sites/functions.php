@@ -87,8 +87,9 @@ catch(PDOException $e) {
 		}
 		echo "</tr>";
 		foreach($data as $row) {
+			$size = count($row);
 			echo "<tr>";
-			for ($i=0; $i < count($row); $i++) {
+			for ($i=0; $i < $size; $i++) {
 				if (is_bool($row[$i]))
 				{
 					$boolString = $row[$i] ? 'Si' : 'No';
