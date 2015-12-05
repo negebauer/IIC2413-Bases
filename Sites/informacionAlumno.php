@@ -26,8 +26,18 @@ $queryAdmins = "SELECT username
 $queryAlumnos = "SELECT username
 				FROM alumno;";
 
-$admins = $dbp->query($queryAdmins)->fetchAll();
-$alumnos = $dbp->query($queryAlumnos)->fetchAll();
+$adminsRowArray = $dbp->query($queryAdmins)->fetchAll();
+$alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
+
+$admins = [];
+$alumnos = [];
+
+foreach ($admin as $adminsRowArray) {
+	array_push($admins, $admin);
+}
+foreach ($alumno as $alumnosRowArray) {
+	array_push($alumnos, $admin);
+}
 
 if (in_array($username, $admins)) {
 	$esAdmin = true;
