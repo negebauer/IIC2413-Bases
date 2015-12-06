@@ -87,32 +87,21 @@ if ($esProfesorCurso)
 	// ##### Primero veamos si hay notas que actualizar #####
 	$actualizarNotas = isset($_POST['actualizarNotas']) ? $_POST['actualizarNotas'] : 0;
 
-	echo $_POST['actualizarNotas'] . "<br>";
-	echo $_POST['cantidadAlumnos'] . "<br>";
-
 	if ($actualizarNotas == 1)
 	{
-		echo "Actualizando notas<br>";
 		$cantidadAlumnos = $_POST["cantidadAlumnos"];
 		for ($i=0; $i < $cantidadAlumnos; $i++)
 		{
-			echo "actualizando nota alumno<br>";
 			$identificadorNota = "nota" . $i;
 			$indentificadorAlumno = "alumno" . $i;
-			echo $identificadorNota . "<br>";
-			echo $indentificadorAlumno . "<br>";
 			$usernameAlumno = $_POST[$indentificadorAlumno];
 			$notaAlumno = $_POST[$identificadorNota] != "" ? $_POST[$identificadorNota] : -1;
-			echo $usernameAlumno . "<br>";
-			echo $notaAlumno . "<br>";
 			if ($notaAlumno != -1)
 			{
 				$queryActualizarNota = "UPDATE nota
 										SET notafinal = $notaAlumno
 										WHERE username = '$usernameAlumno';";
-
-				echo $queryActualizarNota . "<br>";
-
+				
 				$dbp->query($queryActualizarNota);
 			}
 		}
