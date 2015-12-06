@@ -25,7 +25,7 @@ if ($esAlumno)
 	$usernameAlumno = $username;
 }
 
-if ($esAlumno || $esAdmin)
+if ($esAlumno || $esAdmin || $esProfesor)
 {
 	// ##### Declaramos las consultas #####
 	$queryInfoAlumno = "SELECT usuario.rut, usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, alumno.anoadmin, alumno.encausal 
