@@ -125,7 +125,7 @@ if ($esProfesorCurso)
 
 	// ##### Mostrar info alumnos curso #####
 	$columnas = array(
-		"Usuario",
+		"Alumno",
 		"Nombres",
 		"Apellido Paterno",
 		"Apellido Materno",
