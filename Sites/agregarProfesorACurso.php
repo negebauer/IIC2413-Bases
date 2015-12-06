@@ -21,7 +21,7 @@ if ($esAdmin)
 	$formularioAgregarProfe = array(
 		"<form action='agregarProfesorACurso.php' method='post'>",
 			"<input class=hidden name=nrcCurso value=$nrcCurso>",
-			"<select name=profesorSeleccionado"
+			"<select name=usernameProfesor"
 	);
 
 	$cierreFormulario = array(
@@ -38,18 +38,26 @@ if ($esAdmin)
 	$profesoresRowArray = $dbp->query($queryProfesores)->fetchAll();
 
 	foreach ($profesoresRowArray as $profesorRow) {
-		$username = $profesorRow[0];
-		$nombres = $profesorRow[1];
-		$apellidop = $profesorRow[2];
-		$apellidom = $profesorRow[3];
-		$infoProfe = $nombres . " " . $apellidop . " " . $apellidom;
-		$option = "<option value=$username>$infoProfe</option>";
+		$usernameProfesor = $profesorRow[0];
+		$nombresProfesor = $profesorRow[1];
+		$apellidopProfesor = $profesorRow[2];
+		$apellidomProfesor = $profesorRow[3];
+		$infoProfesor = $nombresProfesor . " " . $apellidopProfesor . " " . $apellidomProfesor;
+		$option = "<option value=$usernameProfesor>$infoProfesor</option>";
 		array_push($formularioAgregarProfe, $option);
 	}
 
 	$formularioAgregarProfe = array_merge($formularioAgregarProfe, $cierreFormulario);
 
 	imprimirLineas($formularioAgregarProfe);
+
+
+	$usernameProfesorAgregado = isset($_POST['usernameProfesor']) ? $_POST['usernameProfesor'] : "";
+
+	if ($usernameProfesorAgregado != "")
+	{
+		echo "<h5>Se agrego el profesor $usernameProfesorAgregado al curso con nrc $nrcCurso";
+	}
 
 }
 
