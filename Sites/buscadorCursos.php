@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		"Créditos",
 		"Cupos"
 		);
-	imprimirTabla($columnas, $infoBuscadorCursosRowArray);
+	imprimirTabla($columnas, $infoBuscadorCursosRowArray, 0, "informacionCurso.php", "nrcCurso");
 }
 
 ?>
