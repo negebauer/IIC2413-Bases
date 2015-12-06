@@ -87,6 +87,9 @@ if ($esProfesorCurso)
 	// ##### Primero veamos si hay notas que actualizar #####
 	$actualizarNotas = isset($_POST['actualizarNotas']) ? $_POST['actualizarNotas'] : 0;
 
+	echo $_POST['actualizarNotas'];
+	echo $_POST['cantidadAlumnos'];
+
 	if ($actualizarNotas == 1)
 	{
 		$cantidadAlumnos = $_POST["cantidadAlumnos"];
