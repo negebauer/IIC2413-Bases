@@ -27,22 +27,14 @@ require_once('global.php');
 
         $usuarioRowArray = $dbp->query($queryUsuario)->fetchAll();
         
-
-
-        $exito = 0;
-        while ($data = pg_fetch_assoc($q)){
-            $exito++;
-            if ($data) {
-                $result = $data['password'];
-            }
-        }
-        // $result = $data;
-        if ($exito > 0) {
-            return True;
-        } else {
-            return False;
-        }
-        
+        foreach ($usuarioRowArray as $usuario)
+		{
+			if ($user == $usuario[0] && $user == $usuario[1])
+			{
+				return true;
+			}
+		}
+		return false;
     }
 
 	function verificarUsuario($username)
