@@ -109,10 +109,10 @@ if ($esProfesorCurso)
 			{
 				$queryActualizarNota = "UPDATE nota
 										SET notafinal = $notaAlumno
-										WHERE username = $usernameAlumno;";
+										WHERE username = '$usernameAlumno';";
 
 				echo $queryActualizarNota . "<br>";
-				
+
 				$dbp->query($queryActualizarNota);
 			}
 		}
