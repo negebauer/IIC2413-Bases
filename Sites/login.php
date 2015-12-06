@@ -23,8 +23,9 @@ if(!isset($_SESSION['username'])) //para saber si existe o no ya la variable de 
     }
 } else { 
     // Si la variable de sesión ‘username’ ya existe, que muestre el mensaje de saludo. 
-    echo 'Su usuario ingreso correctamente.'; 
-    echo '<a href="logout.php">Logout</a>'; 
+    echo '<p>Su usuario ingreso correctamente.</p>';
+    echo '<a href="index.php">Home</a><br>';
+    echo '<a href="logout.php">Logout</a><br>'; 
 } 
 
 ?>
