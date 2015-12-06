@@ -21,14 +21,14 @@ $nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor =
 $bienvenidaBuscadorCursos = array (
 	"<h2>Buscador de Cursos</h2>",
 	"<form method='post' action='buscadorCursos.php'>",
-		"<p>$emsp;$emsp; Año: <input type='number' name='anoCurso' value=2015></p>",
-		"<p>$emsp;$emsp; Semestre: <input type='number' name='semestreCurso' value=2></p>",
-		"<p>$emsp;$emsp; Nombre del Ramo: <input type='text' name='nombreRamo'></p>",
-		"<p>$emsp;$emsp; Sigla: <input type='text' name='siglaCurso'></p>",
-		"<p>$emsp;$emsp; Escuela: <input type='text' name='escuelaRamo'></p>",
-		"<p>$emsp;$emsp; Nombre del Profesor: <input type='text' name='nombreProfesor'></p>",
-		"<p>$emsp;$emsp; Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'></p>",
-		"<p>$emsp;$emsp; Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'></p>",
+		"<p>&emsp;&emsp; Año: <input type='number' name='anoCurso' value=2015></p>",
+		"<p>&emsp;&emsp; Semestre: <input type='number' name='semestreCurso' value=2></p>",
+		"<p>&emsp;&emsp; Nombre del Ramo: <input type='text' name='nombreRamo'></p>",
+		"<p>&emsp;&emsp; Sigla: <input type='text' name='siglaCurso'></p>",
+		"<p>&emsp;&emsp; Escuela: <input type='text' name='escuelaRamo'></p>",
+		"<p>&emsp;&emsp; Nombre del Profesor: <input type='text' name='nombreProfesor'></p>",
+		"<p>&emsp;&emsp; Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'></p>",
+		"<p>&emsp;&emsp; Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'></p>",
 		"<input type='submit' name='submit' value='Buscar'> ",
 	"</form>"
 	);
@@ -55,7 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		"<p>&emsp;&emsp; Escuela ramo: $escuelaRamo</p>",
 		"<p>&emsp;&emsp; Nombre Profesor: $nombreProfesor</p>",
 		"<p>&emsp;&emsp; Apellido Paterno profesor: $apellidoPProfesor</p>",
-		"<p>&emsp;&emsp; Apellido Materno profesor: $apellidoMProfesor</p>"
+		"<p>&emsp;&emsp; Apellido Materno profesor: $apellidoMProfesor</p>",
+		"<br><br>"
 	);
 	
 	imprimirLineas($ultimaBusqueda);
