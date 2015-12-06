@@ -33,7 +33,7 @@ $bienvenidaBuscadorCursos = array (
 	"</form>"
 	);
 
-imprimirLineasConBRConTabsAPartirDe($bienvenidaBuscadorCursos, 2, 0);
+imprimirLineasConCantidadBRAPartirDeConTabsAPartirDe($bienvenidaBuscadorCursos, 2, 2, 0);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		"Apellido Materno profesor: $apellidoMProfesor"
 	);
 	
-	imprimirLineasConBRConTabsAPartirDe($ultimaBusqueda, 1, 1);
+	imprimirLineasConBRConTabsAPartirDe($ultimaBusqueda, 1, 1, 1);
 	
 	// Nuestras Consultas
 	$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos

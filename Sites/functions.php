@@ -11,7 +11,7 @@ require_once('global.php');
 	   return $data;
 	}
 
-	function imprimirLineasConBRConTabsAPartirDe($lineas, $cantidadBR = 1, $indexTab = -1)
+	function imprimirLineasConCantidadBRAPartirDeConTabsAPartirDe($lineas, $cantidadBR = 1, $indexBR = -1, $indexTab = -1)
 	{
 		$size = count($lineas);
 		for ($i=0; $i < $size; $i++) { 
@@ -19,8 +19,12 @@ require_once('global.php');
 			{
 				echo "&emsp;";
 				echo $lineas[$i];
-				for ($j=0; $j < $cantidadBR; $j++) { 
-					echo "<br>";
+				if ($indexBR > -1 && $i >= $indexBR)
+				{
+					for ($j=0; $j < $cantidadBR; $j++)
+					{ 
+						echo "<br>";
+					}
 				}
 			}
 			elseif (array_key_exists ($i, $lineas)) {
