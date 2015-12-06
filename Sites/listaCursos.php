@@ -15,7 +15,8 @@ require_once('functions.php');
 $queryInfoCursos = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.semestre, curso.ano, ramo.escuela,
 						ramo.ncreditos, curso.cupos, curso.programa
 					FROM curso, ramo
-					WHERE ramo.sigla = curso.sigla;";
+					WHERE ramo.sigla = curso.sigla
+					ORDER BY curso.ano DESC, curso.semestres DESC, curso.sigla ASC, curso.seccion ASC, ramo.nombre ASC;";
 
 $informacionCursosRowArray = $dbp->query($queryInfoCursos)->fetchAll();
 
