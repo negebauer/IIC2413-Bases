@@ -37,12 +37,12 @@ imprimirLineas($bienvenidaBuscadorCursos);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-   $nombreRamo = $_POST["nombreRamo"];
-   $siglaCurso = $_POST["siglaCurso"];
-   $escuelaRamo = $_POST["escuelaRamo"];
-   $nombreProfesor = $_POST["nombreProfesor"];
-   $apellidoPProfesor = $_POST["apellidoPProfesor"];
-   $apellidoMProfesor = $_POST["apellidoMProfesor"];
+   $nombreRamo = isset($_POST["nombreRamo"]) ? $_POST["nombreRamo"] : "";
+   $siglaCurso = isset($_POST["siglaCurso"]) ? $_POST["siglaCurso"] : "";
+   $escuelaRamo = isset($_POST["escuelaRamo"]) ? $_POST["escuelaRamo"] : "";
+   $nombreProfesor = isset($_POST["nombreProfesor"]) ? $_POST["nombreProfesor"] : "";
+   $apellidoPProfesor = isset($_POST["apellidoPProfesor"]) ? $_POST["apellidoPProfesor"] : "";
+   $apellidoMProfesor = isset($_POST["apellidoMProfesor"]) ? $_POST["apellidoMProfesor"] : "";
    $semestreCurso = $_POST["semestreCurso"];
    $anoCurso = $_POST["anoCurso"];
 
