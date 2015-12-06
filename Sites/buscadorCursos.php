@@ -18,16 +18,6 @@ $nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor =
 
 //FUENTE: http://www.w3schools.com/php/php_form_validation.asp
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-   $nombreRamo = test_input($_POST["nombreRamo"]);
-   $siglaCurso = test_input($_POST["siglaCurso"]);
-   $escuelaRamo = test_input($_POST["escuelaRamo"]);
-   $nombreProfesor = test_input($_POST["nombreProfesor"]);
-   $apellidoPProfesor = test_input($_POST["apellidoPProfesor"]);
-   $apellidoMProfesor = test_input($_POST["apellidoMProfesor"]);
-}
-
 $actionEcho = htmlspecialchars($_SERVER['PHP_SELF']);
 $bienvenidaBuscadorCursos = "
 	<h2>Buscador de Cursos</h2>
@@ -50,57 +40,67 @@ $bienvenidaBuscadorCursos = "
 
 echo $bienvenidaBuscadorCursos;
 
-$ultimaBusqueda = "
-	'<h2>Tu última búsqueda:</h2>';
-	$nombreRamo;
-	'<br>';
-	$siglaCurso;
-	'<br>';
-	$escuelaRamo;
-	'<br>';
-	$nombreProfesor;
-	'<br>';
-	$apellidoPProfesor;
-	'<br>';
-	$apellidoMProfesor;
-";
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+   $nombreRamo = test_input($_POST["nombreRamo"]);
+   $siglaCurso = test_input($_POST["siglaCurso"]);
+   $escuelaRamo = test_input($_POST["escuelaRamo"]);
+   $nombreProfesor = test_input($_POST["nombreProfesor"]);
+   $apellidoPProfesor = test_input($_POST["apellidoPProfesor"]);
+   $apellidoMProfesor = test_input($_POST["apellidoMProfesor"]);
 
-echo $ultimaBusqueda;
-
-// Nuestras Consultas
-$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos
-						FROM curso, ramo
-						WHERE ramo.sigla = curso.sigla
-						AND ramo.nombre LIKE CONCAT('{$nombreRamo}', '%')
-						AND curso.sigla LIKE CONCAT('{$siglaCurso}', '%')
-						AND curso.semestre = {$semestreCurso}
-						AND curso.ano = {$anoCurso}
-						AND ramo.escuela LIKE CONCAT('{$escuelaRamo}', '%')
-						AND (curso.sigla, curso.nrc) IN (SELECT curso.sigla, curso.nrc
-														FROM curso, profesorcurso, usuario
-														WHERE curso.nrc = profesorcurso.nrc
-														AND profesorcurso.username = usuario.username
-														AND (usuario.nombres LIKE CONCAT('%', '{$nombreProfesor}', '%'))
-															AND usuario.apellidop LIKE CONCAT('%', '{$apellidoPProfesor}', '%')
-															AND usuario.apellidom LIKE CONCAT('%', '{$apellidoMProfesor}', '%')
-														)
-						ORDER BY curso.sigla, ramo.nombre;";
+	$ultimaBusqueda = "
+		'<h2>Tu última búsqueda:</h2>';
+		$nombreRamo;
+		'<br>';
+		$siglaCurso;
+		'<br>';
+		$escuelaRamo;
+		'<br>';
+		$nombreProfesor;
+		'<br>';
+		$apellidoPProfesor;
+		'<br>';
+		$apellidoMProfesor;
+	";
 	
-// ##### Hacemos las consultas #####
-$infoBuscadorCursosRowArray = $dbp->query($queryBuscadorCursos)->fetchAll();
-
-// ##### Tabla información curso #####
-$columnas = array (
-	"NRC",
-	"Curso",
-	"Sigla",
-	"Sección",
-	"Semestre",
-	"Año",
-	"Escuela",
-	"Créditos",
-	"Cupos"
-	);
-imprimirTabla($columnas, $infoBuscadorCursosRowArray);
+	echo $ultimaBusqueda;
+	
+	// Nuestras Consultas
+	$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos
+							FROM curso, ramo
+							WHERE ramo.sigla = curso.sigla
+							AND ramo.nombre LIKE CONCAT('{$nombreRamo}', '%')
+							AND curso.sigla LIKE CONCAT('{$siglaCurso}', '%')
+							AND curso.semestre = {$semestreCurso}
+							AND curso.ano = {$anoCurso}
+							AND ramo.escuela LIKE CONCAT('{$escuelaRamo}', '%')
+							AND (curso.sigla, curso.nrc) IN (SELECT curso.sigla, curso.nrc
+															FROM curso, profesorcurso, usuario
+															WHERE curso.nrc = profesorcurso.nrc
+															AND profesorcurso.username = usuario.username
+															AND (usuario.nombres LIKE CONCAT('%', '{$nombreProfesor}', '%'))
+																AND usuario.apellidop LIKE CONCAT('%', '{$apellidoPProfesor}', '%')
+																AND usuario.apellidom LIKE CONCAT('%', '{$apellidoMProfesor}', '%')
+															)
+							ORDER BY curso.sigla, ramo.nombre;";
+		
+	// ##### Hacemos las consultas #####
+	$infoBuscadorCursosRowArray = $dbp->query($queryBuscadorCursos)->fetchAll();
+	
+	// ##### Tabla información curso #####
+	$columnas = array (
+		"NRC",
+		"Curso",
+		"Sigla",
+		"Sección",
+		"Semestre",
+		"Año",
+		"Escuela",
+		"Créditos",
+		"Cupos"
+		);
+	imprimirTabla($columnas, $infoBuscadorCursosRowArray);
+}
 
 ?>
