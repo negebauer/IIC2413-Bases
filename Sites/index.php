@@ -11,17 +11,6 @@
 // #################### LIBRERIAS ####################
 require_once('functions.php');
 
-// #################### VARIABLES PREDECLARADAS ####################
-// Son las que puedes usar gracias a la libreria functions.php que importa global.php
-// $dbm 					La base de datos de mongo
-// $dbp 					La base de datos de psql
-// $username 				Username de quien hace la consulta
-// $arrayEsUsuario 			Verifica quien hace consulta
-// $esAdmin 				Si la consulta la hace un admin
-// $esAlumno 				Si la consulta la hace un alumno
-// $esAlumnoIntercambio 	Si la consulta la hace un alumno de intercambio
-// $esProfesor 				Si la consulta la hace un profesor
-
 // #################### VARIABLES ####################
 
 
@@ -36,21 +25,78 @@ echo "<p>Usuario actualmente conectado: $username</p><br>";
 if ($esAdmin)
 {
 	echo "<p>Usuario actual es <b>admin</b></p><br>";
+	$vistasAdmin = array(
+		"<form action='location:listaCursos.php'>",
+    		"<input type='submit' value='Lista cursos'>",
+		"</form>",
+		"<form action='location:buscadorCursos.php'>",
+    		"<input type='submit' value='Buscador cursos'>",
+		"</form>",
+		"<form action='location:listaAlumnos.php'>",
+    		"<input type='submit' value='Lista alumnos'>",
+		"</form>",
+		"<form action='location:listaAlumnosIntercambio.php'>",
+    		"<input type='submit' value='Lista alumnos intercambio'>",
+		"</form>",
+		"<form action='location:crearCurso.php'>",
+    		"<input type='submit' value='Crear curso'>",
+		"</form>",
+		"<form action='location:agregarProfesoresACurso.php'>",
+    		"<input type='submit' value='Agregar profesores a curso'>",
+		"</form>",
+		"<form action='location:eliminarCurso.php'>",
+    		"<input type='submit' value='Eliminar curso'>",
+		"</form>"
+	);
+	imprimirLineas($vistasAdmin);
 }
 
 if ($esAlumno)
 {
 	echo "<p>Usuario actual es <b>alumno</b></p><br>";
+	$vistasAlumno = array(
+		"<form action='location:listaCursos.php'>",
+    		"<input type='submit' value='Lista cursos'>",
+		"</form>",
+		"<form action='location:buscadorCursos.php'>",
+    		"<input type='submit' value='Buscador cursos'>",
+		"</form>",
+		"<form action='location:informacionAlumno.php'>",
+    		"<input type='submit' value='Informacion alumno'>",
+		"</form>",
+		"<form action='location:inscribirCurso.php'>",
+    		"<input type='submit' value='Inscribir curso'>",
+		"</form>"
+	);
+	imprimirLineas($vistasAlumno);
 }
 
 if ($esAlumnoIntercambio)
 {
 	echo "<p>Usuario actual es <b>alumno intercambio</b></p><br>";
+	$vistasAlumnoIntercambio = array(
+		"<form action='location:informacionAlumnoIntercambio.php'>",
+    		"<input type='submit' value='Informacion alumno intercambio'>",
+		"</form>"
+	);
+	imprimirLineas($vistasAlumnoIntercambio);
 }
 
 if ($esProfesor)
 {
 	echo "<p>Usuario actual es <b>profesor</b></p><br>";
+	$vistasProfesor = array(
+		"<form action='location:listaCursos.php'>",
+    		"<input type='submit' value='Lista cursos'>",
+		"</form>",
+		"<form action='location:buscadorCursos.php'>",
+    		"<input type='submit' value='Buscador cursos'>",
+		"</form>",
+		"<form action='location:listaAlumnos.php'>",
+    		"<input type='submit' value='Lista alumnos'>",
+		"</form>"
+	);
+	imprimirLineas($vistasProfesor);
 }
 
 ?>
