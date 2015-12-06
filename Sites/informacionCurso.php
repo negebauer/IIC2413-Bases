@@ -12,7 +12,7 @@
 require_once('functions.php');
 
 // #################### VARIABLES ####################
-$esProfesorCurso =false;
+$esProfesorCurso = false;
 $nrcCurso = intval($_POST['nrcCurso']);
 
 // #################### AHORA A HACER MAGIA ####################
