@@ -8,36 +8,12 @@
 
 <?php
 
-// #################### PARA USAR INFO DE SESION ####################
-session_start();
-
 // #################### LIBRERIAS ####################
 require_once('functions.php');
 
-// #################### DECLARACION BASES DE DATOS ####################
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
-
-// #################### VARIABLES GENERALES ####################
-$username = $_SESSION['username'];	// username de quien hace la consulta
-$esAdmin = false;					// si la consulta la hace un admin
-$esAlumno = false;					// si la consulta la hace un alumno
-$esAlumnoIntercambio = false;		// si la consulta la hace un alumno de intercambio
-$esProfesor = false;				// si la consulta la hace un profesor
-
-// #################### VARIABLES ESPECIFICAS ####################
+// #################### VARIABLES ####################
 $esProfesorCurso =false;
 $nrcCurso = intval($_POST['nrcCurso']);
-
-// #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario($username);
-$esAdmin = $arrayEsUsuario[0];
-$esAlumno = $arrayEsUsuario[1];
-$esProfesor = $arrayEsUsuario[3];
 
 // #################### AHORA A HACER MAGIA ####################
 $queryInfoCurso = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.semestre, curso.ano, ramo.escuela,
