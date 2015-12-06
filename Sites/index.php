@@ -42,9 +42,6 @@ if ($esAdmin)
 		"<form action='crearCurso.php'>",
     		"<input type='submit' value='Crear curso'>",
 		"</form>",
-		"<form action='agregarProfesoresACurso.php'>",
-    		"<input type='submit' value='Agregar profesores a curso'>",
-		"</form>",
 		"<form action='eliminarCurso.php'>",
     		"<input type='submit' value='Eliminar curso'>",
 		"</form>"
