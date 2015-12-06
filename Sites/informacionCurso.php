@@ -180,7 +180,7 @@ elseif ($esAdmin)
 
 	$columnas = array("Agregar profesores al curso");
 	imprimirTabla($columnas, array(array(
-		"<form action='agregarProfesoresACurso.php' method='post'>" .
+		"<form action='agregarProfesorACurso.php' method='post'>" .
 			"<input class='hidden name='nrcCurso' value=$nrcCurso>" .
 			"<input type='submit' name='submit' value='Agregar profesores al curso'>" .
 		"</form>"
