@@ -121,7 +121,7 @@ if ($esProfesorCurso)
 	echo "<form action='informacionCurso.php' method='post'>";
 	echo "<input class=hidden type=number name=actualizarNotas value=1>";
 	echo "<input class=hidden type=number name=cantidadAlumnos value=$cantidadAlumnos";
-	echo "<input class=hidden type=number name=nrcCurso value=$nrcCurso";
+	echo "<input class=hidden type=text name=nrcCurso value=$nrcCurso";
 
 	// ##### Mostrar info alumnos curso #####
 	$columnas = array(
