@@ -14,14 +14,6 @@ session_start();
 // #################### LIBRERIAS ####################
 require_once('functions.php');
 
-// #################### DECLARACION BASES DE DATOS ####################
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
-
 // #################### AHORA A HACER MAGIA ####################
 $queryInfoCursos = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.semestre, curso.ano, ramo.escuela,
 						ramo.ncreditos, curso.cupos, curso.programa
