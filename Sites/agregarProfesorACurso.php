@@ -56,7 +56,7 @@ if ($esAdmin)
 
 	if ($usernameProfesorAgregado != "")
 	{
-		echo "<h5>Se agrego el profesor $usernameProfesorAgregado al curso con nrc $nrcCurso";
+		echo "<h5>Se agrego el profesor $usernameProfesorAgregado al curso con nrc $nrcCurso</h5>";
 	}
 
 }
