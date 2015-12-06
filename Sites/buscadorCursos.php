@@ -22,21 +22,21 @@ $bienvenidaBuscadorCursos = "
 	<h2>Buscador de Cursos</h2>
 	<form method='post' action='buscadorCursos.php'>
 		Año: <input type='number' name='anoCurso' value=2015>
-		<br><br>
+		<br>
 		Semestre: <input type='number' name='semestreCurso' value=2>
-		<br><br>
+		<br>
 		Nombre del Ramo: <input type='text' name='nombreRamo'>
-		<br><br>
+		<br>
 		Sigla: <input type='text' name='siglaCurso'>
-		<br><br>
+		<br>
 		Escuela: <input type='text' name='escuelaRamo'>
-		<br><br>
+		<br>
 		Nombre del Profesor: <input type='text' name='nombreProfesor'>
-		<br><br>
+		<br>
 		Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>
-		<br><br>
+		<br>
 		Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>
-		<br><br>
+		<br>
 		<input type='submit' name='submit' value='Buscar'> 
 	</form>
 ";
@@ -54,17 +54,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
    $semestreCurso = $_POST["semestreCurso"];
    $anoCurso = $_POST["anoCurso"];
 
-	$ultimaBusqueda = "
-		<h2>Tu última búsqueda:</h2>
-		Año: $anoCurso
-		Semestre: $semestreCurso
-		Nombre ramo: $nombreRamo
-		Sigla curso: $siglaCurso
-		Escuela ramo: $escuelaRamo
-		Nombre Profesor: $nombreProfesor
-		Apellido Paterno profesor: $apellidoPProfesor
-		Apellido Materno profesor: $apellidoMProfesor
-	";
+	$ultimaBusqueda = array (
+		"<h2>Tu última búsqueda:</h2>",
+		"Año: $anoCurso",
+		"Semestre: $semestreCurso",
+		"Nombre ramo: $nombreRamo",
+		"Sigla curso: $siglaCurso",
+		"Escuela ramo: $escuelaRamo",
+		"Nombre Profesor: $nombreProfesor",
+		"Apellido Paterno profesor: $apellidoPProfesor",
+		"Apellido Materno profesor: $apellidoMProfesor"
+	);
 	
 	imprimirLineasConTabsAPartirDe($ultimaBusqueda, 1);
 	
