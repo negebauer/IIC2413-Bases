@@ -20,20 +20,24 @@ $nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor =
 
 $bienvenidaBuscadorCursos = "
 	<h2>Buscador de Cursos</h2>
-	<form method='post' action='buscadorCursos.php'> 
-	   Nombre del Ramo: <input type='text' name='nombreRamo'>
-	   <br><br>
-	   Sigla: <input type='text' name='siglaCurso'>
-	   <br><br>
-	   Escuela: <input type='text' name='escuelaRamo'>
-	   <br><br>
-	   Nombre del Profesor: <input type='text' name='nombreProfesor'>
-	   <br><br>
-	   Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>
-	   <br><br>
-	   Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>
-	   <br><br>
-	   <input type='submit' name='submit' value='Buscar'> 
+	<form method='post' action='buscadorCursos.php'>
+		Año: <input type='number' name='anoCurso' value=2015>
+		<br><br>
+		Semestre: <input type='number' name='semestreCurso' value=2>
+		<br><br>
+		Nombre del Ramo: <input type='text' name='nombreRamo'>
+		<br><br>
+		Sigla: <input type='text' name='siglaCurso'>
+		<br><br>
+		Escuela: <input type='text' name='escuelaRamo'>
+		<br><br>
+		Nombre del Profesor: <input type='text' name='nombreProfesor'>
+		<br><br>
+		Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>
+		<br><br>
+		Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>
+		<br><br>
+		<input type='submit' name='submit' value='Buscar'> 
 	</form>
 ";
 
@@ -41,31 +45,28 @@ echo $bienvenidaBuscadorCursos;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-   $nombreRamo = test_input($_POST["nombreRamo"]);
-   $siglaCurso = test_input($_POST["siglaCurso"]);
-   $escuelaRamo = test_input($_POST["escuelaRamo"]);
-   $nombreProfesor = test_input($_POST["nombreProfesor"]);
-   $apellidoPProfesor = test_input($_POST["apellidoPProfesor"]);
-   $apellidoMProfesor = test_input($_POST["apellidoMProfesor"]);
-   $semestreCurso = 1;
-   $anoCurso = 2015;
+   $nombreRamo = $_POST["nombreRamo"];
+   $siglaCurso = $_POST["siglaCurso"];
+   $escuelaRamo = $_POST["escuelaRamo"];
+   $nombreProfesor = $_POST["nombreProfesor"];
+   $apellidoPProfesor = $_POST["apellidoPProfesor"];
+   $apellidoMProfesor = $_POST["apellidoMProfesor"];
+   $semestreCurso = $_POST["semestreCurso"];
+   $anoCurso = $_POST["anoCurso"];
 
 	$ultimaBusqueda = "
-		'<h2>Tu última búsqueda:</h2>';
-		$nombreRamo;
-		'<br>';
-		$siglaCurso;
-		'<br>';
-		$escuelaRamo;
-		'<br>';
-		$nombreProfesor;
-		'<br>';
-		$apellidoPProfesor;
-		'<br>';
-		$apellidoMProfesor;
+		<h2>Tu última búsqueda:</h2>
+		Año: $anoCurso
+		Semestre: $semestreCurso
+		Nombre ramo: $nombreRamo
+		Sigla curso: $siglaCurso
+		Escuela ramo: $escuelaRamo
+		Nombre Profesor: $nombreProfesor
+		Apellido Paterno profesor: $apellidoPProfesor
+		Apellido Materno profesor: $apellidoMProfesor
 	";
 	
-	echo $ultimaBusqueda;
+	imprimirLineasConTabsAPartirDe($ultimaBusqueda, 1);
 	
 	// Nuestras Consultas
 	$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos

@@ -11,6 +11,23 @@ require_once('global.php');
 	   return $data;
 	}
 
+	function imprimirLineasConTabsAPartirDe($lineas, $indexTab = -1)
+	{
+		$size = count($lineas);
+		for ($i=0; $i < $size; $i++) { 
+			if ($indexTab > -1 && $i >= $indexTab && array_key_exists ($i, $lineas))
+			{
+				echo "&emsp;";
+				echo $linea;
+				echo "<br>";
+			}
+			elseif (array_key_exists ($i, $lineas)) {
+				echo $linea;
+				echo "<br>";
+			}
+		}
+	}
+
 	function verificarUsuario($username)
     {
     	$dbp = $GLOBALS["dbp"];
