@@ -22,18 +22,26 @@ $bienvenidaBuscadorCursos = array (
 	"<h2>Buscador de Cursos</h2>",
 	"<form method='post' action='buscadorCursos.php'>",
 		"Año: <input type='number' name='anoCurso' value=2015>",
+		"<br><br>",
 		"Semestre: <input type='number' name='semestreCurso' value=2>",
+		"<br><br>",
 		"Nombre del Ramo: <input type='text' name='nombreRamo'>",
+		"<br><br>",
 		"Sigla: <input type='text' name='siglaCurso'>",
+		"<br><br>",
 		"Escuela: <input type='text' name='escuelaRamo'>",
+		"<br><br>",
 		"Nombre del Profesor: <input type='text' name='nombreProfesor'>",
+		"<br><br>",
 		"Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>",
+		"<br><br>",
 		"Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>",
+		"<br><br>",
 		"<input type='submit' name='submit' value='Buscar'> ",
 	"</form>"
 	);
 
-imprimirLineasConCantidadBRAPartirDeConTabsAPartirDe($bienvenidaBuscadorCursos, 2, 2, 0);
+imprimirLineas($bienvenidaBuscadorCursos);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -49,16 +57,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$ultimaBusqueda = array (
 		"<h2>Tu última búsqueda:</h2>",
 		"Año: $anoCurso",
+		"<br>",
 		"Semestre: $semestreCurso",
+		"<br>",
 		"Nombre ramo: $nombreRamo",
+		"<br>",
 		"Sigla curso: $siglaCurso",
+		"<br>",
 		"Escuela ramo: $escuelaRamo",
+		"<br>",
 		"Nombre Profesor: $nombreProfesor",
+		"<br>",
 		"Apellido Paterno profesor: $apellidoPProfesor",
-		"Apellido Materno profesor: $apellidoMProfesor"
+		"<br>",
+		"Apellido Materno profesor: $apellidoMProfesor",
+		"<br>"
 	);
 	
-	imprimirLineasConCantidadBRAPartirDeConTabsAPartirDe($ultimaBusqueda, 1, 1, 1);
+	imprimirLineas($ultimaBusqueda);
+	echo "<br><br>";
 	
 	// Nuestras Consultas
 	$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos
