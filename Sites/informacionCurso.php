@@ -110,7 +110,7 @@ if ($esProfesorCurso)
 	$alumnosCursoRowArrayConFormNota = [];
 	foreach ($alumnosCursoRowArray as $alumnoRow)
 	{
-		$modificacionNota = "<input name=$alumnoRow[0]>";
+		$modificacionNota = array("<input class='number' name=$alumnoRow[0]>");
 		$nuevaRow = array_merge($alumnoRow, $modificacionNota);
 		array_push($alumnosCursoRowArrayConFormNota, $nuevaRow);
 	}
