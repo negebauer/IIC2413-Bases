@@ -28,9 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
    $apellidoMProfesor = test_input($_POST["apellidoMProfesor"]);
 }
 
+$actionEcho = htmlspecialchars($_SERVER['PHP_SELF']);
 $bienvenidaBuscadorCursos = "
 	<h2>Buscador de Cursos</h2>
-	<form method='post' action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>'> 
+	<form method='post' action='<?php echo $actionEcho;?>'> 
 	   Nombre del Ramo: <input type='text' name='nombreRamo'>
 	   <br><br>
 	   Sigla: <input type='text' name='siglaCurso'>
