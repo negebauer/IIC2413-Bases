@@ -42,7 +42,7 @@ if ($esAdmin)
 		$nombres = $profesorRow[1];
 		$apellidop = $profesorRow[2];
 		$apellidom = $profesorRow[3];
-		$infoProfe = $username . " " . $nombres . " " . $apellidop . " " . $apellidom;
+		$infoProfe = $nombres . " " . $apellidop . " " . $apellidom;
 		$option = "<option value=$username>$infoProfe</option>";
 		array_push($formularioAgregarProfe, $option);
 	}
