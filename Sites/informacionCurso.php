@@ -150,7 +150,9 @@ if ($esProfesorCurso)
 
 	imprimirTabla($columnas, $alumnosCursoRowArrayConFormNota);
 
-	echo "<input type='submit' name='submit' value='Actualizar notas'>";
+	$columnas = array("Actualizar notas");
+	imprimirTabla($columnas, array(array("<input type='submit' name='submit' value='Actualizar notas'>")));
+
 	echo "</form>";
 }
 elseif ($esAdmin)
