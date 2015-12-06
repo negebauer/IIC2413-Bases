@@ -20,7 +20,7 @@ $nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor =
 
 $bienvenidaBuscadorCursos = "
 	<h2>Buscador de Cursos</h2>
-	<form method='post' action='../buscadorCursos.php'> 
+	<form method='post' action='buscadorCursos.php'> 
 	   Nombre del Ramo: <input type='text' name='nombreRamo'>
 	   <br><br>
 	   Sigla: <input type='text' name='siglaCurso'>
