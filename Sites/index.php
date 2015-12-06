@@ -28,9 +28,9 @@ require_once('functions.php');
 // #################### AHORA A HACER MAGIA ####################
 if ($username == "")
 {
-	// Mandarlo al login
+	header("location:login.php");
 }
 
-
+echo "<p>Usuario actualmente conectado: $username</p><br>";
 
 ?>
