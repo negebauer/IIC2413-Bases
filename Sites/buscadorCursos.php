@@ -47,6 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
    $nombreProfesor = test_input($_POST["nombreProfesor"]);
    $apellidoPProfesor = test_input($_POST["apellidoPProfesor"]);
    $apellidoMProfesor = test_input($_POST["apellidoMProfesor"]);
+   $semestreCurso = 1;
+   $anoCurso = 2015;
 
 	$ultimaBusqueda = "
 		'<h2>Tu última búsqueda:</h2>';
