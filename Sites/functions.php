@@ -18,13 +18,13 @@ require_once('global.php');
 			if ($indexTab > -1 && $i >= $indexTab && array_key_exists ($i, $lineas))
 			{
 				echo "&emsp;";
-				echo $lineas[i];
+				echo $lineas[$i];
 				for ($j=0; $j < $cantidadBR; $j++) { 
 					echo "<br>";
 				}
 			}
 			elseif (array_key_exists ($i, $lineas)) {
-				echo $lineas[i];
+				echo $lineas[$i];
 				echo "<br>";
 			}
 		}
