@@ -84,6 +84,29 @@ if ($esProfesor)
 
 if ($esProfesorCurso)
 {
+	// ##### Primero veamos si hay notas que actualizar #####
+	$actualizarNotas = isset($_POST['actualizarNotas']) ? $_POST['actualizarNotas'] : 0;
+
+	if ($actualizarNotas == 1)
+	{
+		$cantidadAlumnos = $_POST["cantidadAlumnos"];
+		for ($i=0; $i < $cantidadAlumnos; $i++)
+		{ 
+			$identificadorNota = "nota" . $i;
+			$indentificadorAlumno = "alumno" . $i;
+			$usernameAlumno = $_POST[$indentificadorAlumno];
+			$notaAlumno = isset($_POST[$identificadorNota]) ? $_POST[$identificadorNota] : -1;
+			if ($notaAlumno != -1)
+			{
+				$queryActualizarNota = "UPDATE nota
+										SET notafinal = $notaAlumno
+										WHERE username = $usernameAlumno;";
+
+				$dbp->query($queryActualizarNota);
+			}
+		}
+	}
+
 	// ##### Declaramos consulta para ver alumnos del curso #####
 	$queryAlumnosCurso = "SELECT usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, nota.notafinal
 						FROM usuario, alumno, nota
@@ -94,7 +117,10 @@ if ($esProfesorCurso)
 	// ##### Ejecutamos la consulta #####
 	$alumnosCursoRowArray = $dbp->query($queryAlumnosCurso)->fetchAll();
 
+	$cantidadAlumnos = count($alumnosCursoRowArray);
 	echo "<form action='informacioCurso.php' method='post'>";
+	echo "<input class=hidden type=number name=actualizarNotas value=1>";
+	echo "<input class=hidden type=number name=cantidadAlumnos value=$cantidadAlumnos";
 
 	// ##### Mostrar info alumnos curso #####
 	$columnas = array(
@@ -108,15 +134,22 @@ if ($esProfesorCurso)
 	);
 
 	$alumnosCursoRowArrayConFormNota = [];
-	foreach ($alumnosCursoRowArray as $alumnoRow)
+	for ($i=0; $i < $cantidadAlumnos; $i++)
 	{
-		$modificacionNota = array("<input class='number' name=$alumnoRow[0]>");
+		$alumnoRow = $alumnosCursoRowArray[$i];
+		$identificadorNota = "nota" . $i;
+		$indentificadorAlumno = "alumno" . $i;
+		$modificacionNota = array(
+			"<input type='number' name=$identificadorNota>",
+			"<input type='text' class='hidden' name=$indentificadorAlumno value=$alumnoRow[0]>"
+		);
 		$nuevaRow = array_merge($alumnoRow, $modificacionNota);
 		array_push($alumnosCursoRowArrayConFormNota, $nuevaRow);
 	}
 
 	imprimirTabla($columnas, $alumnosCursoRowArrayConFormNota);
 
+	echo "<input type='submit' name='submit' value='Actualizar notas'>";
 	echo "</form>";
 }
 elseif ($esAdmin)

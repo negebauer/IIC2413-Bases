@@ -29,7 +29,7 @@ $bienvenidaBuscadorCursos = array (
 		"<p>&emsp;&emsp; Nombre del Profesor: <input type='text' name='nombreProfesor'></p>",
 		"<p>&emsp;&emsp; Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'></p>",
 		"<p>&emsp;&emsp; Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'></p>",
-		"<input type='submit' name='submit' value='Buscar'> ",
+		"<input type='submit' name='submit' value='Buscar'>",
 	"</form>"
 	);
 
