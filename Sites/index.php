@@ -26,6 +26,11 @@ require_once('functions.php');
 
 
 // #################### AHORA A HACER MAGIA ####################
+if ($username == "")
+{
+	// Mandarlo al login
+}
+
 
 
 ?>

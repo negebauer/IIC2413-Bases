@@ -18,6 +18,33 @@ require_once('global.php');
 		}
 	}
 
+	function verificar_login($user, $password, &$result) 
+    {
+    	$dbp = $GLOBALS["dbp"];
+        $queryUsuario = "SELECT username, password
+        				FROM usuario
+        				WHERE username = '$user'";
+
+        $usuarioRowArray = $dbp->query($queryUsuario)->fetchAll();
+        
+
+
+        $exito = 0;
+        while ($data = pg_fetch_assoc($q)){
+            $exito++;
+            if ($data) {
+                $result = $data['password'];
+            }
+        }
+        // $result = $data;
+        if ($exito > 0) {
+            return True;
+        } else {
+            return False;
+        }
+        
+    }
+
 	function verificarUsuario($username)
     {
     	$dbp = $GLOBALS["dbp"];
