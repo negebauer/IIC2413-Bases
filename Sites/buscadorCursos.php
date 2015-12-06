@@ -21,22 +21,14 @@ $nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor =
 $bienvenidaBuscadorCursos = array (
 	"<h2>Buscador de Cursos</h2>",
 	"<form method='post' action='buscadorCursos.php'>",
-		"Año: <input type='number' name='anoCurso' value=2015>",
-		"<br><br>",
-		"Semestre: <input type='number' name='semestreCurso' value=2>",
-		"<br><br>",
-		"Nombre del Ramo: <input type='text' name='nombreRamo'>",
-		"<br><br>",
-		"Sigla: <input type='text' name='siglaCurso'>",
-		"<br><br>",
-		"Escuela: <input type='text' name='escuelaRamo'>",
-		"<br><br>",
-		"Nombre del Profesor: <input type='text' name='nombreProfesor'>",
-		"<br><br>",
-		"Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>",
-		"<br><br>",
-		"Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>",
-		"<br><br>",
+		"<p>Año: <input type='number' name='anoCurso' value=2015></p>",
+		"<p>Semestre: <input type='number' name='semestreCurso' value=2></p>",
+		"<p>Nombre del Ramo: <input type='text' name='nombreRamo'></p>",
+		"<p>Sigla: <input type='text' name='siglaCurso'></p>",
+		"<p>Escuela: <input type='text' name='escuelaRamo'></p>",
+		"<p>Nombre del Profesor: <input type='text' name='nombreProfesor'></p>",
+		"<p>Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'></p>",
+		"<p>Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'></p>",
 		"<input type='submit' name='submit' value='Buscar'> ",
 	"</form>"
 	);
@@ -56,26 +48,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 	$ultimaBusqueda = array (
 		"<h2>Tu última búsqueda:</h2>",
-		"Año: $anoCurso",
-		"<br>",
-		"Semestre: $semestreCurso",
-		"<br>",
-		"Nombre ramo: $nombreRamo",
-		"<br>",
-		"Sigla curso: $siglaCurso",
-		"<br>",
-		"Escuela ramo: $escuelaRamo",
-		"<br>",
-		"Nombre Profesor: $nombreProfesor",
-		"<br>",
-		"Apellido Paterno profesor: $apellidoPProfesor",
-		"<br>",
-		"Apellido Materno profesor: $apellidoMProfesor",
-		"<br>"
+		"<p>&emsp;Año: $anoCurso</p>",
+		"<p>&emsp;Semestre: $semestreCurso</p>",
+		"<p>&emsp;Nombre ramo: $nombreRamo</p>",
+		"<p>&emsp;Sigla curso: $siglaCurso</p>",
+		"<p>&emsp;Escuela ramo: $escuelaRamo</p>",
+		"<p>&emsp;Nombre Profesor: $nombreProfesor</p>",
+		"<p>&emsp;Apellido Paterno profesor: $apellidoPProfesor</p>",
+		"<p>&emsp;Apellido Materno profesor: $apellidoMProfesor</p>"
 	);
 	
 	imprimirLineas($ultimaBusqueda);
-	echo "<br><br>";
 	
 	// Nuestras Consultas
 	$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos
