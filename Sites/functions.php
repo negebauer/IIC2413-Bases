@@ -11,7 +11,7 @@ require_once('global.php');
 	   return $data;
 	}
 
-	function imprimirLineasConTabsAPartirDe($lineas, $cantidadBR = 1, $indexTab = -1)
+	function imprimirLineasConBRConTabsAPartirDe($lineas, $cantidadBR = 1, $indexTab = -1)
 	{
 		$size = count($lineas);
 		for ($i=0; $i < $size; $i++) { 
