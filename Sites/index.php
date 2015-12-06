@@ -27,25 +27,25 @@ if ($esAdmin)
 {
 	echo "<br><p>Usuario actual es <b>admin</b></p>";
 	$vistasAdmin = array(
-		"<form action='location:listaCursos.php'>",
+		"<form action='listaCursos.php'>",
     		"<input type='submit' value='Lista cursos'>",
 		"</form>",
-		"<form action='location:buscadorCursos.php'>",
+		"<form action='buscadorCursos.php'>",
     		"<input type='submit' value='Buscador cursos'>",
 		"</form>",
-		"<form action='location:listaAlumnos.php'>",
+		"<form action='listaAlumnos.php'>",
     		"<input type='submit' value='Lista alumnos'>",
 		"</form>",
-		"<form action='location:listaAlumnosIntercambio.php'>",
+		"<form action='listaAlumnosIntercambio.php'>",
     		"<input type='submit' value='Lista alumnos intercambio'>",
 		"</form>",
-		"<form action='location:crearCurso.php'>",
+		"<form action='crearCurso.php'>",
     		"<input type='submit' value='Crear curso'>",
 		"</form>",
-		"<form action='location:agregarProfesoresACurso.php'>",
+		"<form action='agregarProfesoresACurso.php'>",
     		"<input type='submit' value='Agregar profesores a curso'>",
 		"</form>",
-		"<form action='location:eliminarCurso.php'>",
+		"<form action='eliminarCurso.php'>",
     		"<input type='submit' value='Eliminar curso'>",
 		"</form>"
 	);
@@ -56,16 +56,16 @@ if ($esAlumno)
 {
 	echo "<br><p>Usuario actual es <b>alumno</b></p>";
 	$vistasAlumno = array(
-		"<form action='location:listaCursos.php'>",
+		"<form action='listaCursos.php'>",
     		"<input type='submit' value='Lista cursos'>",
 		"</form>",
-		"<form action='location:buscadorCursos.php'>",
+		"<form action='buscadorCursos.php'>",
     		"<input type='submit' value='Buscador cursos'>",
 		"</form>",
-		"<form action='location:informacionAlumno.php'>",
+		"<form action='informacionAlumno.php'>",
     		"<input type='submit' value='Informacion alumno'>",
 		"</form>",
-		"<form action='location:inscribirCurso.php'>",
+		"<form action='inscribirCurso.php'>",
     		"<input type='submit' value='Inscribir curso'>",
 		"</form>"
 	);
@@ -76,7 +76,7 @@ if ($esAlumnoIntercambio)
 {
 	echo "<br><p>Usuario actual es <b>alumno intercambio</b></p>";
 	$vistasAlumnoIntercambio = array(
-		"<form action='location:informacionAlumnoIntercambio.php'>",
+		"<form action='informacionAlumnoIntercambio.php'>",
     		"<input type='submit' value='Informacion alumno intercambio'>",
 		"</form>"
 	);
@@ -87,13 +87,13 @@ if ($esProfesor)
 {
 	echo "<br><p>Usuario actual es <b>profesor</b></p>";
 	$vistasProfesor = array(
-		"<form action='location:listaCursos.php'>",
+		"<form action='listaCursos.php'>",
     		"<input type='submit' value='Lista cursos'>",
 		"</form>",
-		"<form action='location:buscadorCursos.php'>",
+		"<form action='buscadorCursos.php'>",
     		"<input type='submit' value='Buscador cursos'>",
 		"</form>",
-		"<form action='location:listaAlumnos.php'>",
+		"<form action='listaAlumnos.php'>",
     		"<input type='submit' value='Lista alumnos'>",
 		"</form>"
 	);
