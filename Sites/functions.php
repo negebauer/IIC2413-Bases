@@ -138,6 +138,7 @@ require_once('global.php');
 			}
 			echo "</tr>";
 		}
+		echo '</table>';
 	}
 
 ?>
