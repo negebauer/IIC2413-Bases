@@ -98,7 +98,7 @@ $columnas = array (
 	"Semestre",
 	"Año",
 	"Escuela",
-	"Créditos"
+	"Créditos",
 	"Cupos"
 	);
 imprimirTabla($columnas, $infoBuscadorCursosRowArray);
