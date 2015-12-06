@@ -65,11 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos
 							FROM curso, ramo
 							WHERE ramo.sigla = curso.sigla
-							AND ramo.nombre LIKE CONCAT('{$nombreRamo}', '%')
-							AND curso.sigla LIKE CONCAT('{$siglaCurso}', '%')
+							AND ramo.nombre LIKE CONCAT('%', '{$nombreRamo}', '%')
+							AND curso.sigla LIKE CONCAT('%', '{$siglaCurso}', '%')
 							AND curso.semestre = {$semestreCurso}
 							AND curso.ano = {$anoCurso}
-							AND ramo.escuela LIKE CONCAT('{$escuelaRamo}', '%')
+							AND ramo.escuela LIKE CONCAT('%', '{$escuelaRamo}', '%')
 							AND (curso.sigla, curso.nrc) IN (SELECT curso.sigla, curso.nrc
 															FROM curso, profesorcurso, usuario
 															WHERE curso.nrc = profesorcurso.nrc
