@@ -84,7 +84,6 @@ if ($esProfesor)
 
 if ($esProfesorCurso)
 {
-	echo "<br><br><br><br><br><br><br><br>";
 	// ##### Primero veamos si hay notas que actualizar #####
 	$actualizarNotas = isset($_POST['actualizarNotas']) ? $_POST['actualizarNotas'] : 0;
 
@@ -119,7 +118,7 @@ if ($esProfesorCurso)
 	$alumnosCursoRowArray = $dbp->query($queryAlumnosCurso)->fetchAll();
 
 	$cantidadAlumnos = count($alumnosCursoRowArray);
-	echo "<form action='informacioCurso.php' method='post'>";
+	echo "<form action='informacionCurso.php' method='post'>";
 	echo "<input class=hidden type=number name=actualizarNotas value=1>";
 	echo "<input class=hidden type=number name=cantidadAlumnos value=$cantidadAlumnos";
 
