@@ -131,6 +131,10 @@ require_once('global.php');
 				{
 					echo "<td>" . $output . "</td>";
 				}
+				else
+				{
+					echo "<td>" . "" . "</td>";	
+				}
 			}
 			echo "</tr>";
 		}
