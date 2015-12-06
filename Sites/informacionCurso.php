@@ -102,7 +102,7 @@ if ($esProfesorCurso)
 			echo $identificadorNota . "<br>";
 			echo $indentificadorAlumno . "<br>";
 			$usernameAlumno = $_POST[$indentificadorAlumno];
-			$notaAlumno = isset($_POST[$identificadorNota]) ? $_POST[$identificadorNota] : -1;
+			$notaAlumno = $_POST[$identificadorNota] != "" ? $_POST[$identificadorNota] : -1;
 			echo $usernameAlumno . "<br>";
 			echo $notaAlumno . "<br>";
 			if ($notaAlumno != -1)
