@@ -18,10 +18,9 @@ $nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor =
 
 //FUENTE: http://www.w3schools.com/php/php_form_validation.asp
 
-$actionEcho = htmlspecialchars($_SERVER['PHP_SELF']);
 $bienvenidaBuscadorCursos = "
 	<h2>Buscador de Cursos</h2>
-	<form method='post' action='<?php echo $actionEcho;?>'> 
+	<form method='post' action='../buscadorCursos.php'> 
 	   Nombre del Ramo: <input type='text' name='nombreRamo'>
 	   <br><br>
 	   Sigla: <input type='text' name='siglaCurso'>
