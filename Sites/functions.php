@@ -18,7 +18,7 @@ require_once('global.php');
 		}
 	}
 
-	function verificar_login($user, $password, &$result) 
+	function verificar_login($user, $password) 
     {
     	$dbp = $GLOBALS["dbp"];
         $queryUsuario = "SELECT username, password
@@ -29,7 +29,7 @@ require_once('global.php');
         
         foreach ($usuarioRowArray as $usuario)
 		{
-			if ($user == $usuario[0] && $user == $usuario[1])
+			if ($user == $usuario[0] && $password == $usuario[1])
 			{
 				return true;
 			}

@@ -9,7 +9,7 @@ if(!isset($_SESSION['username'])) //para saber si existe o no ya la variable de 
 { 
     if(isset($_POST['login'])) //Si la primera condición no pasa, haremos otra preguntando si el boton de login     fue presionado
     { 
-        if(verificar_login($_POST['user'], $_POST['password'], $result)) //Si el boton fue presionado llamamos a la función verificar_login() dentro de otra condición preguntando si resulta verdadero y le pasamos los valores ingresados como parámetros.
+        if(verificar_login($_POST['user'], $_POST['password'])) //Si el boton fue presionado llamamos a la función verificar_login() dentro de otra condición preguntando si resulta verdadero y le pasamos los valores ingresados como parámetros.
         { 
             session_start();
             /*Si el login fue correcto, registramos la variable de sesión y al mismo tiempo refrescamos la pagina index.php.*/ 
