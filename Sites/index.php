@@ -33,4 +33,24 @@ if ($username == "")
 
 echo "<p>Usuario actualmente conectado: $username</p><br>";
 
+if ($esAdmin)
+{
+	echo "<p>Usuario actual es <b>admin</b></p><br>";
+}
+
+if ($esAlumno)
+{
+	echo "<p>Usuario actual es <b>alumno</b></p><br>";
+}
+
+if ($esAlumnoIntercambio)
+{
+	echo "<p>Usuario actual es <b>alumno intercambio</b></p><br>";
+}
+
+if ($esProfesor)
+{
+	echo "<p>Usuario actual es <b>profesor</b></p><br>";
+}
+
 ?>
