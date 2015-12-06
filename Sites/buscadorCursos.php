@@ -18,30 +18,22 @@ $nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor =
 
 //FUENTE: http://www.w3schools.com/php/php_form_validation.asp
 
-$bienvenidaBuscadorCursos = "
-	<h2>Buscador de Cursos</h2>
-	<form method='post' action='buscadorCursos.php'>
-		Año: <input type='number' name='anoCurso' value=2015>
-		<br>
-		Semestre: <input type='number' name='semestreCurso' value=2>
-		<br>
-		Nombre del Ramo: <input type='text' name='nombreRamo'>
-		<br>
-		Sigla: <input type='text' name='siglaCurso'>
-		<br>
-		Escuela: <input type='text' name='escuelaRamo'>
-		<br>
-		Nombre del Profesor: <input type='text' name='nombreProfesor'>
-		<br>
-		Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>
-		<br>
-		Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>
-		<br>
-		<input type='submit' name='submit' value='Buscar'> 
-	</form>
-";
+$bienvenidaBuscadorCursos = array (
+	"<h2>Buscador de Cursos</h2>",
+	"<form method='post' action='buscadorCursos.php'>",
+		"Año: <input type='number' name='anoCurso' value=2015>",
+		"Semestre: <input type='number' name='semestreCurso' value=2>",
+		"Nombre del Ramo: <input type='text' name='nombreRamo'>",
+		"Sigla: <input type='text' name='siglaCurso'>",
+		"Escuela: <input type='text' name='escuelaRamo'>",
+		"Nombre del Profesor: <input type='text' name='nombreProfesor'>",
+		"Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>",
+		"Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>",
+		"<input type='submit' name='submit' value='Buscar'> ",
+	"</form>"
+	);
 
-echo $bienvenidaBuscadorCursos;
+imprimirLineasConBRConTabsAPartirDe($bienvenidaBuscadorCursos, 2, 0);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -66,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		"Apellido Materno profesor: $apellidoMProfesor"
 	);
 	
-	imprimirLineasConTabsAPartirDe($ultimaBusqueda, 1);
+	imprimirLineasConBRConTabsAPartirDe($ultimaBusqueda, 1, 1);
 	
 	// Nuestras Consultas
 	$queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos

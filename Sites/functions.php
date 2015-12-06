@@ -11,7 +11,7 @@ require_once('global.php');
 	   return $data;
 	}
 
-	function imprimirLineasConTabsAPartirDe($lineas, $indexTab = -1)
+	function imprimirLineasConTabsAPartirDe($lineas, $cantidadBR = 1, $indexTab = -1)
 	{
 		$size = count($lineas);
 		for ($i=0; $i < $size; $i++) { 
@@ -19,7 +19,9 @@ require_once('global.php');
 			{
 				echo "&emsp;";
 				echo $linea;
-				echo "<br>";
+				for ($j=0; $j < $cantidadBR; $j++) { 
+					echo "<br>";
+				}
 			}
 			elseif (array_key_exists ($i, $lineas)) {
 				echo $linea;
