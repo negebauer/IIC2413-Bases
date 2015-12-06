@@ -28,7 +28,7 @@ catch(PDOException $e) {
 }
 
 // #################### VARIABLES ####################
-$username = $_SESSION['username'];
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : "";
 $arrayEsUsuario = verificarUsuario($username);
 $esAdmin = $arrayEsUsuario[0];
 $esAlumno = $arrayEsUsuario[1];
