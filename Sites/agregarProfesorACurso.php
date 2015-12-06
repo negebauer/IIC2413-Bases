@@ -21,7 +21,7 @@ if ($esAdmin)
 	$formularioAgregarProfe = array(
 		"<form action='agregarProfesorACurso.php' method='post'>",
 			"<input class=hidden name=nrcCurso value=$nrcCurso>",
-			"<select name=usernameProfesor"
+			"<select name=usernameProfesor>"
 	);
 
 	$cierreFormulario = array(
