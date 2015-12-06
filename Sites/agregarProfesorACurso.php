@@ -56,6 +56,11 @@ if ($esAdmin)
 
 	if ($usernameProfesorAgregado != "")
 	{
+		$queryAgregarProfesorACurso = "INSERT INTO profesorCurso
+									VALUES ($nrcCurso, '$usernameProfesorAgregado');";
+
+		$dbp->query($queryAgregarProfesorACurso);
+
 		echo "<h5>Se agrego el profesor $usernameProfesorAgregado al curso con nrc $nrcCurso</h5>";
 	}
 
