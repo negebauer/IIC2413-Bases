@@ -94,7 +94,7 @@ if ($esProfesorCurso)
 	// ##### Ejecutamos la consulta #####
 	$alumnosCursoRowArray = $dbp->query($queryAlumnosCurso)->fetchAll();
 
-	echo "<form action='$url' method='post'>";
+	echo "<form action='informacioCurso.php' method='post'>";
 
 	// ##### Mostrar info alumnos curso #####
 	$columnas = array(
@@ -111,7 +111,7 @@ if ($esProfesorCurso)
 	foreach ($alumnosCursoRowArray as $alumnoRow)
 	{
 		$modificacionNota = "<input name=$alumnoRow[0]>";
-		$nuevaRow = array_merge($alumnoRow, $formNota);
+		$nuevaRow = array_merge($alumnoRow, $modificacionNota);
 		array_push($alumnosCursoRowArrayConFormNota, $nuevaRow);
 	}
 
