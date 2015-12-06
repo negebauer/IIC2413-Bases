@@ -22,6 +22,12 @@ require_once('functions.php');
 // $esAlumnoIntercambio 	Si la consulta la hace un alumno de intercambio
 // $esProfesor 				Si la consulta la hace un profesor
 
+// #################### FUNCIONES ####################
+// imprimirLineas($lineas)																Imprime varias lineas (echo)
+// imprimirTabla($columnas, $data, $indexURL = -1, $url = "", $postVarName = "")		Imprime una tabla con columnas y datos de un query
+// 			Ademas permite que uno de los lugares de la tabla sea un boton que linke a $url. La columna sera la definida por $indexURL
+// 			y el nombre de la variables que se enviara en POST sera $posstVarName
+
 // #################### VARIABLES ####################
 
 
