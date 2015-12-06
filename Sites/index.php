@@ -20,7 +20,7 @@ if ($username == "")
 	header("location:login.php");
 }
 
-echo "<p>Usuario actualmente conectado: $username</p><br>";
+echo "<p>Usuario actualmente conectado: $username</p>";
 echo "<a href='logout.php'>Logout</a><br>";
 
 if ($esAdmin)
