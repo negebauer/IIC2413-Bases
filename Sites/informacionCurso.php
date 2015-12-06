@@ -120,8 +120,8 @@ if ($esProfesorCurso)
 	$cantidadAlumnos = count($alumnosCursoRowArray);
 	echo "<form action='informacionCurso.php' method='post'>";
 	echo "<input class=hidden type=number name='actualizarNotas' value=1>";
-	echo "<input class=hidden type=number name='cantidadAlumnos' value=$cantidadAlumnos";
-	echo "<input class=hidden name='nrcCurso' value=$nrcCurso";
+	echo "<input class=hidden type=number name='cantidadAlumnos' value=$cantidadAlumnos>";
+	echo "<input class=hidden name='nrcCurso' value=$nrcCurso>";
 
 	// ##### Mostrar info alumnos curso #####
 	$columnas = array(
