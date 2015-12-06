@@ -20,7 +20,7 @@ if ($esAdmin)
 
 	$formularioAgregarProfe = array(
 		"<form action='agregarProfesorACurso.php' method='post'>",
-			"<input class=hidden name=nrcCurso value=$nrcCurso",
+			"<input class=hidden name=nrcCurso value=$nrcCurso>",
 			"<select name=profesorSeleccionado"
 	);
 
