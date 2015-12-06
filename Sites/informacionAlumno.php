@@ -8,43 +8,23 @@
 
 <?php
 
-// #################### PARA USAR INFO DE SESION ####################
-session_start();
-
 // #################### LIBRERIAS ####################
 require_once('functions.php');
 
-// #################### DECLARACION BASES DE DATOS ####################
-$dbhost = "localhost";
-$dbname = "test";
-$mongo = new MongoClient("mongodb://$dbhost");
-$dbm = $mongo->$dbname;
-
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
-
-// #################### VARIABLES GENERALES ####################
-$username = $_SESSION['username'];	// username de quien hace la consulta
-$esAdmin = false;					// si la consulta la hace un admin
-$esAlumno = false;					// si la consulta la hace un alumno
-
-// #################### VARIABLES ESPECIFICAS ####################
-$usernameAlumno = "negebauer";		// username del alumno sobre el cual se hace la consulta. Si user es alumno entonces (username = usernameAlumno).
-
-// #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario($username);
-$esAdmin = $arrayEsUsuario[0];
-$esAlumno = $arrayEsUsuario[1];
+// #################### VARIABLES ####################
+$usernameAlumno = "";		// username del alumno sobre el cual se hace la consulta.
+							// Si user es alumno entonces (username = usernameAlumno).
 
 // #################### AHORA A HACER MAGIA ####################
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $usernameAlumno = intval($_POST['usernameAlumno']);	
+}
+
 if ($esAlumno)
 {
 	$usernameAlumno = $username;
 }
+
 if ($esAlumno || $esAdmin)
 {
 	// ##### Declaramos las consultas #####
@@ -90,6 +70,5 @@ if ($esAlumno || $esAdmin)
 	imprimirTabla($columnas, $cursosRowArray);
 
 }
-
 
 ?>

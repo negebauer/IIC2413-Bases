@@ -1,17 +1,15 @@
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>RENNAB</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+
 <?php
 
-// #################### DELCARACION BASES DE DATOS ####################
-$dbhost = "localhost";
-$dbname = "test";
-$mongo = new MongoClient("mongodb://$dbhost");
-$dbm = $mongo->$dbname;
-
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
+// #################### LIBRERIAS ####################
+require_once('functions.php');
 
 // #################### AGREGAR ALUMNOS DE INTERCAMBIO A BASE DE DATOS ####################
 $alumnos = $dbm->alumnos->find();
@@ -35,11 +33,6 @@ foreach (iterator_to_array($alumnos) as $alumno)
 			INSERT INTO alumnointercambio
 			VALUES ('{$id}', '{$universidad}');";
 
-	// Agregamos el alumno a la base de datos
-	// echo "Query1: {$query1}<br>";
-	// echo "Query2: {$query2}<br>";
-	// echo "Query3: {$query3}<br>";
-	// echo "<br>";
 	$dbp->query($query);
 
 }
