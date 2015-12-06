@@ -16,7 +16,7 @@ $queryInfoCursos = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, c
 						ramo.ncreditos, curso.cupos, curso.programa
 					FROM curso, ramo
 					WHERE ramo.sigla = curso.sigla
-					ORDER BY curso.ano DESC, curso.semestres DESC, curso.sigla ASC, curso.seccion ASC, ramo.nombre ASC;";
+					ORDER BY curso.ano DESC, curso.semestre DESC, curso.sigla ASC, curso.seccion ASC, ramo.nombre ASC;";
 
 $informacionCursosRowArray = $dbp->query($queryInfoCursos)->fetchAll();
 
