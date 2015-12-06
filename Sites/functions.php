@@ -105,15 +105,11 @@ require_once('global.php');
 		}
 		echo "</tr>";
 		foreach($data as $row) {
-			$size = count($row);
+			$size = count($columnas);
 			echo "<tr>";
 			for ($i=0; $i < $size; $i++) {
 				$output = "SKIPME";
-				if (!array_key_exists ($i, $row))
-				{
-					continue;
-				}
-				elseif (is_bool($row[$i]))
+				if (is_bool($row[$i]))
 				{
 					$output = $row[$i] ? 'Si' : 'No';
 				}
