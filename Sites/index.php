@@ -25,7 +25,7 @@ echo "<a href='logout.php'>Logout</a><br>";
 
 if ($esAdmin)
 {
-	echo "<p>Usuario actual es <b>admin</b></p><br>";
+	echo "<br><p>Usuario actual es <b>admin</b></p>";
 	$vistasAdmin = array(
 		"<form action='location:listaCursos.php'>",
     		"<input type='submit' value='Lista cursos'>",
@@ -54,7 +54,7 @@ if ($esAdmin)
 
 if ($esAlumno)
 {
-	echo "<p>Usuario actual es <b>alumno</b></p><br>";
+	echo "<br><p>Usuario actual es <b>alumno</b></p>";
 	$vistasAlumno = array(
 		"<form action='location:listaCursos.php'>",
     		"<input type='submit' value='Lista cursos'>",
@@ -74,7 +74,7 @@ if ($esAlumno)
 
 if ($esAlumnoIntercambio)
 {
-	echo "<p>Usuario actual es <b>alumno intercambio</b></p><br>";
+	echo "<br><p>Usuario actual es <b>alumno intercambio</b></p>";
 	$vistasAlumnoIntercambio = array(
 		"<form action='location:informacionAlumnoIntercambio.php'>",
     		"<input type='submit' value='Informacion alumno intercambio'>",
@@ -85,7 +85,7 @@ if ($esAlumnoIntercambio)
 
 if ($esProfesor)
 {
-	echo "<p>Usuario actual es <b>profesor</b></p><br>";
+	echo "<br><p>Usuario actual es <b>profesor</b></p>";
 	$vistasProfesor = array(
 		"<form action='location:listaCursos.php'>",
     		"<input type='submit' value='Lista cursos'>",
