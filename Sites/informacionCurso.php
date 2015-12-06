@@ -94,6 +94,8 @@ if ($esProfesorCurso)
 	// ##### Ejecutamos la consulta #####
 	$alumnosCursoRowArray = $dbp->query($queryAlumnosCurso)->fetchAll();
 
+	echo "<form action='$url' method='post'>";
+
 	// ##### Mostrar info alumnos curso #####
 	$columnas = array(
 		"Usuario",
@@ -101,9 +103,21 @@ if ($esProfesorCurso)
 		"Apellido Paterno",
 		"Apellido Materno",
 		"Mail UC",
-		"Nota final"
-		);
-	imprimirTabla($columnas, $alumnosCursoRowArray);
+		"Nota final",
+		"Nueva nota"
+	);
+
+	$alumnosCursoRowArrayConFormNota = [];
+	foreach ($alumnosCursoRowArray as $alumnoRow)
+	{
+		$modificacionNota = "<input name=$alumnoRow[0]>";
+		$nuevaRow = array_merge($alumnoRow, $formNota);
+		array_push($alumnosCursoRowArrayConFormNota, $nuevaRow);
+	}
+
+	imprimirTabla($columnas, $alumnosCursoRowArrayConFormNota);
+
+	echo "</form>";
 }
 elseif ($esAdmin)
 {
