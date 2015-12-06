@@ -75,8 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 															WHERE curso.nrc = profesorcurso.nrc
 															AND profesorcurso.username = usuario.username
 															AND (usuario.nombres LIKE CONCAT('%', '{$nombreProfesor}', '%'))
-																AND usuario.apellidop LIKE CONCAT('%', '{$apellidoPProfesor}', '%')
-																AND usuario.apellidom LIKE CONCAT('%', '{$apellidoMProfesor}', '%')
+																OR usuario.apellidop LIKE CONCAT('%', '{$apellidoPProfesor}', '%')
+																OR usuario.apellidom LIKE CONCAT('%', '{$apellidoMProfesor}', '%')
 															)
 							ORDER BY curso.sigla, ramo.nombre;";
 		
