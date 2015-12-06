@@ -21,6 +21,7 @@ if ($username == "")
 }
 
 echo "<p>Usuario actualmente conectado: $username</p><br>";
+echo "<a href='logout.php'>Logout</a><br>";
 
 if ($esAdmin)
 {
