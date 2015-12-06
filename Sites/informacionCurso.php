@@ -141,7 +141,7 @@ if ($esProfesorCurso)
 		$identificadorNota = "nota" . $i;
 		$indentificadorAlumno = "alumno" . $i;
 		$modificacionNota = array(
-			"<input type='number' name=$identificadorNota step='0.1'>" .
+			"<input type='number' name=$identificadorNota step='0.1' min='1.0' max='7.0'>" .
 			"<input type='text' class='hidden' name=$indentificadorAlumno value=$alumnoRow[0]>"
 		);
 		$nuevaRow = array_merge($alumnoRow, $modificacionNota);
