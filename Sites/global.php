@@ -27,14 +27,8 @@ catch(PDOException $e) {
 	echo $e->getMessage();
 }
 
-// #################### VARIABLES GENERALES ####################
-$username = $_SESSION['username'];	// username de quien hace la consulta
-$esAdmin = false;					// si la consulta la hace un admin
-$esAlumno = false;					// si la consulta la hace un alumno
-$esAlumnoIntercambio = false;		// si la consulta la hace un alumno de intercambio
-$esProfesor = false;				// si la consulta la hace un profesor
-
-// #################### VERIFICAR USUARIO ####################
+// #################### VARIABLES ####################
+$username = $_SESSION['username'];
 $arrayEsUsuario = verificarUsuario($username);
 $esAdmin = $arrayEsUsuario[0];
 $esAlumno = $arrayEsUsuario[1];

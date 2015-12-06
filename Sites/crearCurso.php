@@ -8,44 +8,15 @@
 
 <?php
 
-// #################### PARA USAR INFO DE SESION ####################
-session_start();
-
 // #################### LIBRERIAS ####################
 require_once('functions.php');
 
-// #################### DECLARACION BASES DE DATOS ####################
-$dbhost = "localhost";
-$dbname = "test";
-$mongo = new MongoClient("mongodb://$dbhost");
-$dbm = $mongo->$dbname;
+// #################### VARIABLES ####################
 
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
-
-// #################### VARIABLES GENERALES ####################
-$username = $_SESSION['username'];	// username de quien hace la consulta
-$esAdmin = false;					// si la consulta la hace un admin
-$esAlumno = false;					// si la consulta la hace un alumno
-$esAlumnoIntercambio = false;		// si la consulta la hace un alumno de intercambio
-$esProfesor = false;				// si la consulta la hace un profesor
-
-// #################### VARIABLES ESPECIFICAS ####################
-
-
-// #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario($username);
-$esAdmin = $arrayEsUsuario[0];
-$esAlumno = $arrayEsUsuario[1];
-$esAlumnoIntercambio = $arrayEsUsuario[2];
-$esProfesor = $arrayEsUsuario[3];
 
 // #################### AHORA A HACER MAGIA ####################
-if ($esAdmin){
+if ($esAdmin)
+{
 
 <style>
 .error {color: #FF0000;}

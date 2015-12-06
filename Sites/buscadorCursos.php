@@ -8,50 +8,18 @@
 
 <?php
 
-// #################### PARA USAR INFO DE SESION ####################
-session_start();
-
 // #################### LIBRERIAS ####################
 require_once('functions.php');
 
-// #################### DECLARACION BASES DE DATOS ####################
-$dbhost = "localhost";
-$dbname = "test";
-$mongo = new MongoClient("mongodb://$dbhost");
-$dbm = $mongo->$dbname;
-
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
-
-// #################### VARIABLES GENERALES ####################
-$username = $_SESSION['username'];	// username de quien hace la consulta
-$esAdmin = false;					// si la consulta la hace un admin
-$esAlumno = false;					// si la consulta la hace un alumno
-$esAlumnoIntercambio = false;		// si la consulta la hace un alumno de intercambio
-$esProfesor = false;				// si la consulta la hace un profesor
-
-// #################### VARIABLES ESPECIFICAS ####################
-
-
-// #################### VERIFICAR USUARIO ####################
-$arrayEsUsuario = verificarUsuario($username);
-$esAdmin = $arrayEsUsuario[0];
-$esAlumno = $arrayEsUsuario[1];
-$esAlumnoIntercambio = $arrayEsUsuario[2];
-$esProfesor = $arrayEsUsuario[3];
+// #################### VARIABLES ####################
+$nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor = $apellidoMProfesor = "";
 
 // #################### AHORA A HACER MAGIA ####################
 
 //FUENTE: http://www.w3schools.com/php/php_form_validation.asp
 
-// define variables y las deja vacías
-$nombreRamo = $siglaCurso = $escuelaRamo = $nombreProfesor =$apellidoPProfesor = $apellidoMProfesor = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
    $nombreRamo = test_input($_POST["nombreRamo"]);
    $siglaCurso = test_input($_POST["siglaCurso"]);
    $escuelaRamo = test_input($_POST["escuelaRamo"]);
@@ -60,44 +28,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $apellidoMProfesor = test_input($_POST["apellidoMProfesor"]);
 }
 
-function test_input($data) {
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
-}
+$bienvenidaBuscadorCursos = "
+	<h2>Buscador de Cursos</h2>
+	<form method='post' action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>'> 
+	   Nombre del Ramo: <input type='text' name='nombreRamo'>
+	   <br><br>
+	   Sigla: <input type='text' name='siglaCurso'>
+	   <br><br>
+	   Escuela: <input type='text' name='escuelaRamo'>
+	   <br><br>
+	   Nombre del Profesor: <input type='text' name='nombreProfesor'>
+	   <br><br>
+	   Apellido Paterno del Profesor: <input type='text' name='apellidoPProfesor'>
+	   <br><br>
+	   Apellido Materno del Profesor: <input type='text' name='apellidoMProfesor'>
+	   <br><br>
+	   <input type='submit' name='submit' value='Buscar'> 
+	</form>
+";
 
-<h2>Buscador de Cursos</h2>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-   Nombre del Ramo: <input type="text" name="nombreRamo">
-   <br><br>
-   Sigla: <input type="text" name="siglaCurso">
-   <br><br>
-   Escuela: <input type="text" name="escuelaRamo">
-   <br><br>
-   Nombre del Profesor: <input type="text" name="nombreProfesor">
-   <br><br>
-   Apellido Paterno del Profesor: <input type="text" name="apellidoPProfesor">
-   <br><br>
-   Apellido Materno del Profesor: <input type="text" name="apellidoMProfesor">
-   <br><br>
-   <input type="submit" name="submit" value="Buscar"> 
-</form>
+echo $bienvenidaBuscadorCursos;
 
-echo "<h2>Tu última búsqueda:</h2>";
-	echo $nombreRamo;
-	echo "<br>";
-	echo $siglaCurso;
-	echo "<br>";
-	echo $escuelaRamo;
-	echo "<br>";
-	echo $nombreProfesor;
-	echo "<br>";
-	echo $apellidoPProfesor;
-	echo "<br>";
-	echo $apellidoMProfesor;
+$ultimaBusqueda = "
+	'<h2>Tu última búsqueda:</h2>';
+	$nombreRamo;
+	'<br>';
+	$siglaCurso;
+	'<br>';
+	$escuelaRamo;
+	'<br>';
+	$nombreProfesor;
+	'<br>';
+	$apellidoPProfesor;
+	'<br>';
+	$apellidoMProfesor;
+";
 
-//Nuestras Consultas
+echo $ultimaBusqueda;
+
+// Nuestras Consultas
 $queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccion, curso.semestre, curso.ano, ramo.escuela, ramo.ncreditos, curso.cupos
 						FROM curso, ramo
 						WHERE ramo.sigla = curso.sigla
@@ -119,7 +88,7 @@ $queryBuscadorCursos = "SELECT curso.nrc, ramo.nombre, curso.sigla, curso.seccio
 // ##### Hacemos las consultas #####
 $infoBuscadorCursosRowArray = $dbp->query($queryBuscadorCursos)->fetchAll();
 
-// ##### Tabla información alumno #####
+// ##### Tabla información curso #####
 $columnas = array (
 	"NRC",
 	"Curso",
