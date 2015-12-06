@@ -1,22 +1,9 @@
 <?php
 
-// #################### DELCARACION BASES DE DATOS ####################
-$dbhost = "localhost";
-$dbname = "test";
-$mongo = new MongoClient("mongodb://$dbhost");
-$dbm = $mongo->$dbname;
+// #################### LIBRERIAS ####################
+require_once('functions.php');
 
-try {
-	$dbp = new PDO("pgsql:dbname=grupo5;host=localhost;port=5432;user=grupo5;password=gruponico");
-}
-catch(PDOException $e) {
-	echo $e->getMessage();
-}
-
-// #################### VARIABLES POR DESIGNAR ####################
-// $usernameAlumno = "563c1a99a20c8c06c7918ba6";
-// $nrcCurso = 99998;
-
+// #################### VARIABLES ####################
 $usernameAlumno = "testuser1";
 $nrcCurso = 14352;
 
