@@ -37,7 +37,7 @@ $esProfesor = $arrayEsUsuario[3];
 
 if ($username == "")
 {
-	header("location:index.php");
+	header("location:login.php");
 }
 
 ?>
