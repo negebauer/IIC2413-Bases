@@ -71,7 +71,7 @@ if ($esAlumnoIntercambio)
 {
 	echo "<br><p>Usuario actual es <b>alumno intercambio</b></p>";
 	$vistasAlumnoIntercambio = array(
-		"<form action='informacionAlumnoIntercambio.php'>",
+		"<form action='informacionAlumnoIntercambio.php' method='post'>",
     		"<input type='submit' value='Informacion alumno intercambio'>",
 		"</form>"
 	);
