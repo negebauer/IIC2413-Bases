@@ -64,6 +64,8 @@ if ($esAlumno)
 	if ($inscribirCurso == 1)
 	{
 
+		$usernameAlumno = $username;
+		
 		$equivalentesintercambio = [];
 
 		$queryInscribirCurso = "INSERT INTO nota(username, nrc)
