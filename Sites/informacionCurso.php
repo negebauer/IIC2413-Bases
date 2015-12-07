@@ -103,14 +103,23 @@ if ($esAlumno)
 								$queryCumpleRequisitos
 							);";
 
-		if (!($dbp->query($queryInscribirRamo) instanceof PDO)) {
-			// No cumple requisitos
-			echo "No cumple requisitos";
-		} else {
-			// Cumple requisitos
-			echo "Cumple requisitos";
-			$dbp->query($queryInscribirRamo);
+		$dbp->query($queryInscribirRamo);
+
+		$queryAlumnoEnRamo = "SELECT COUNT(*)
+							FROM nota
+							WHERE username = '$usernameAlumno'
+							AND nrc = $nrcCurso";
+
+		$alumnoEnCurso = $dbp->query($queryInscribirRamo)->fetchAll();
+		if ($alumnoEnCurso[0][0] > 0)
+		{
+			echo "Curso inscrito correctamente";
 		}
+		else
+		{
+			echo "Curso no fue inscrito, no se cumplen requisitos o no hay suficientes cupos";
+		}
+
 	}
 
 	$columnas = array("Opciones de alumno");
