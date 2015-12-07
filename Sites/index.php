@@ -72,6 +72,7 @@ if ($esAlumnoIntercambio)
 	echo "<br><p>Usuario actual es <b>alumno intercambio</b></p>";
 	$vistasAlumnoIntercambio = array(
 		"<form action='informacionAlumnoIntercambio.php' method='post'>",
+			"<input class='hidden' name='usernameAlumno' value=$username>",
     		"<input type='submit' value='Informacion alumno intercambio'>",
 		"</form>"
 	);
