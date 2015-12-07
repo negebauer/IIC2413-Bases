@@ -59,7 +59,7 @@ if ($esAlumno)
 		"<form action='buscadorCursos.php'>",
     		"<input type='submit' value='Buscador cursos'>",
 		"</form>",
-		"<form action='informacionAlumno.php'>",
+		"<form action='informacionAlumno.php' method='post'>",
 			"<input class='hidden' name='usernameAlumno' value=$username>",
     		"<input type='submit' value='Informacion alumno'>",
 		"</form>"
