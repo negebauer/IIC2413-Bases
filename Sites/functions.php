@@ -98,6 +98,8 @@ require_once('global.php');
 
     function imprimirTabla($columnas, $data, $indexURL = -1, $url = "", $postVarName = "")
     {
+    	$dbp = $GLOBALS["dbp"];
+
     	echo '<table border="1" class="table">';
 		echo '<tr>';
 		foreach ($columnas as $columna) {
@@ -117,6 +119,15 @@ require_once('global.php');
 				{
 					$output = $row[$i];
 				}
+
+				if ($columnas[$i] == "Cupos")
+				{
+					$queryCupos = "SELECT *
+								FROM CuposRestantes($row[0]);";
+					$cuposRowArray = $dbp->query($queryCupos)->fetchAll();
+					$output = $cuposRowArray[0][0];
+				}
+
 				if (!($output == "SKIPME") && $i == $indexURL)
 				{
 					$url = $url == "PROGRAMURL" ? "http://" . $output : $url;
