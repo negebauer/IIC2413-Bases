@@ -61,9 +61,6 @@ if ($esAlumno)
 		"</form>",
 		"<form action='informacionAlumno.php'>",
     		"<input type='submit' value='Informacion alumno'>",
-		"</form>",
-		"<form action='inscribirCurso.php'>",
-    		"<input type='submit' value='Inscribir curso'>",
 		"</form>"
 	);
 	imprimirLineas($vistasAlumno);
