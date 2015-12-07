@@ -65,4 +65,8 @@ if ($esAdmin){
 
 	imprimirTabla($columnas, $datos, 0, "informacionAlumnoIntercambio.php", "usernameAlumno");
 }
+else
+{
+	header('location:index.php');
+}
 ?>
