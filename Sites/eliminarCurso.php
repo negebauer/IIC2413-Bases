@@ -11,29 +11,38 @@
 // #################### LIBRERIAS ####################
 require_once('functions.php');
 
-// #################### VARIABLES PREDECLARADAS ####################
-// Son las que puedes usar gracias a la libreria functions.php que importa global.php
-// $dbm 					La base de datos de mongo
-// $dbp 					La base de datos de psql
-// $username 				Username de quien hace la consulta
-// $arrayEsUsuario 			Verifica quien hace consulta
-// $esAdmin 				Si la consulta la hace un admin
-// $esAlumno 				Si la consulta la hace un alumno
-// $esAlumnoIntercambio 	Si la consulta la hace un alumno de intercambio
-// $esProfesor 				Si la consulta la hace un profesor
-
-// #################### FUNCIONES ####################
-// imprimirLineas($lineas)																Imprime varias lineas (echo)
-// imprimirTabla($columnas, $data, $indexURL = -1, $url = "", $postVarName = "")		Imprime una tabla con columnas y datos de un query
-// 			Ademas permite que uno de los lugares de la tabla sea un boton que linke a $url. La columna sera la definida por $indexURL
-// 			y el nombre de la variables que se enviara en POST sera $posstVarName
-
 // #################### VARIABLES ####################
 
 
 // #################### AHORA A HACER MAGIA ####################
 if ($esAdmin)
 {
+
+	$nrcCurso = isset($_POST['nrcCurso']) ? $_POST['nrcCurso'] : "";
+
+	if ($nrcCurso != "")
+	{
+		$queryEliminarCurso = "DELETE
+						FROM curso
+						WHERE nrc = $nrcCurso;";
+
+		$dbp->query($queryEliminarCurso);
+
+		$queryCursoExiste = "SELECT COUNT(*)
+						FROM curso
+						WHERE nrc = $nrcCurso";
+
+		$curso = $dbp->query($queryCursoExiste)->fetchAll();
+		if ($curso[0][0] == 0)
+		{
+			echo "Curso eliminado correctamente";
+		}
+		else
+		{
+			echo "Curso no fue eliminado";
+		}
+	}
+
 	$formularioEliminarCurso = array(
 		"<form action='eliminarCurso.php' method='post'>",
 			"<select name=nrcCurso>"
@@ -67,31 +76,6 @@ if ($esAdmin)
 	$formularioEliminarCurso = array_merge($formularioEliminarCurso, $cierreFormulario);
 
 	imprimirLineas($formularioEliminarCurso);
-
-	$nrcCurso = isset($_POST['nrcCurso']) ? $_POST['nrcCurso'] : "";
-
-	if ($nrcCurso != "")
-	{
-		$queryEliminarCurso = "DELETE
-						FROM curso
-						WHERE nrc = $nrcCurso;";
-
-		$dbp->query($queryEliminarCurso);
-
-		$queryCursoExiste = "SELECT COUNT(*)
-						FROM curso
-						WHERE nrc = $nrcCurso";
-
-		$curso = $dbp->query($queryCursoExiste)->fetchAll();
-		if ($curso[0][0] == 0)
-		{
-			echo "Curso eliminado correctamente";
-		}
-		else
-		{
-			echo "Curso no fue eliminado";
-		}
-	}
 	
 }
 
