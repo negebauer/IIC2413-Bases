@@ -35,9 +35,9 @@ $esAlumno = $arrayEsUsuario[1];
 $esAlumnoIntercambio = $arrayEsUsuario[2];
 $esProfesor = $arrayEsUsuario[3];
 
-if ($username == "")
+if ($username == "" && basename(__FILE__) != 'login.php')
 {
-	header("location:login.php");
+	header("location:index.php");
 }
 
 ?>
