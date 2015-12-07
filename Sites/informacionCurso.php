@@ -94,7 +94,7 @@ if ($esAlumno)
 								FROM alumno, curso
 								WHERE alumno.username = '{$usernameAlumno}'
 								AND curso.nrc = {$nrcCurso}
-								AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]::text[])) = true
+								AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[$equivalentesintercambio]::text[])) = true
 								AND (select * from CuposRestantes(curso.nrc)) > 0;";
 		$queryInscribirRamo = "INSERT INTO nota(username, nrc)
 							(
