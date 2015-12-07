@@ -15,7 +15,13 @@ require_once('functions.php');
 $siglaLetras = $siglaNumeros = $siglaFinal = $nombre = $ncreditos = $escuela = "";
 $siglaLetrasErr = $siglaNumerosErr = $nombreErr = $ncreditosErr = $escuelaErr = "";
 
-
+function test_input($data) {
+     $data = trim($data);
+     $data = stripslashes($data);
+     $data = htmlspecialchars($data);
+     return $data;
+  }
+  
 // #################### AHORA A HACER MAGIA ####################
 if ($esAdmin){
 
@@ -71,13 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $escuelaErr = "*Requerido";
   } else {
     $escuela = test_input($_POST["escuela"]);
-  }
-
-  function test_input($data) {
-     $data = trim($data);
-     $data = stripslashes($data);
-     $data = htmlspecialchars($data);
-     return $data;
   }
 
   //Nuestras Consultas
