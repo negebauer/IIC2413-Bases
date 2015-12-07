@@ -30,7 +30,7 @@ require_once('functions.php');
 
 // #################### AHORA A HACER MAGIA ####################
 
-$id = $_POST['usernameAlumno'];
+$id = $_POST["usernameAlumno"];
 $alumnos = $dbm->alumnos;
 $universidades = $dbm->universidades;
 
