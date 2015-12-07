@@ -35,7 +35,11 @@ $esAlumno = $arrayEsUsuario[1];
 $esAlumnoIntercambio = $arrayEsUsuario[2];
 $esProfesor = $arrayEsUsuario[3];
 
-if ($username == "" && basename(__FILE__) != 'login.php')
+if (strpos(__FILE__, 'login.php') !== false)
+{
+
+}
+elseif ($username == "")
 {
 	header("location:login.php");
 }
