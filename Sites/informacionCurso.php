@@ -97,14 +97,20 @@ if ($esAlumno)
 								AND (SELECT *
 									FROM AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[$equivalentesintercambio]::text[])) = true
 								AND (SELECT *
-									FROM CuposRestantes(curso.nrc)) > 0);";
+									FROM CuposRestantes(curso.nrc)) > 0";
 		$queryInscribirRamo = "INSERT INTO nota(username, nrc)
 							(
 								$queryCumpleRequisitos
 							);";
 
-		$dbp->query($queryInscribirRamo);
-
+		if (!($dbp->query($queryInscribirRamo) instanceof PDO)) {
+			// No cumple requisitos
+			echo "No cumple requisitos";
+		} else {
+			// Cumple requisitos
+			echo "Cumple requisitos";
+			$dbp->query($queryInscribirRamo);
+		}
 	}
 
 	$columnas = array("Opciones de alumno");
