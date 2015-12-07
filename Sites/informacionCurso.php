@@ -150,12 +150,13 @@ if ($esProfesorCurso)
 
 	imprimirTabla($columnas, $alumnosCursoRowArrayConFormNota);
 
-	$columnas = array("Actualizar notas");
+	$columnas = array("Opciones de profesor");
 	imprimirTabla($columnas, array(array("<input type='submit' name='submit' value='Actualizar notas'>")));
 
 	echo "</form>";
 }
-elseif ($esAdmin)
+
+if ($esAdmin)
 {
 	// ##### Declaramos consulta para ver alumnos del curso #####
 	$queryAlumnosCurso = "SELECT usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom, alumno.mailuc, nota.notafinal
@@ -178,7 +179,7 @@ elseif ($esAdmin)
 		);
 	imprimirTabla($columnas, $alumnosCursoRowArray);
 
-	$columnas = array("Agregar profesores al curso");
+	$columnas = array("Opciones de administrador");
 	imprimirTabla($columnas, array(array(
 		"<form action='agregarProfesorACurso.php' method='post'>" .
 			"<input class='hidden' name='nrcCurso' value=$nrcCurso>" .
