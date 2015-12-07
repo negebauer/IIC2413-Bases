@@ -108,6 +108,6 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 // 	}
 // }
 
-imprimirTabla($columnasCursos, $aprobados);
+// imprimirTabla($columnasCursos, $aprobados);
 
 ?>
