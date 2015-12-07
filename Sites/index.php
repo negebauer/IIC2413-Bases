@@ -60,6 +60,7 @@ if ($esAlumno)
     		"<input type='submit' value='Buscador cursos'>",
 		"</form>",
 		"<form action='informacionAlumno.php'>",
+			"<input class='hidden' name='usernameAlumno' value=$username>",
     		"<input type='submit' value='Informacion alumno'>",
 		"</form>"
 	);

@@ -17,12 +17,7 @@ $usernameAlumno = "";		// username del alumno sobre el cual se hace la consulta.
 
 // #################### AHORA A HACER MAGIA ####################
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $usernameAlumno = intval($_POST['usernameAlumno']);	
-}
-
-if ($esAlumno)
-{
-	$usernameAlumno = $username;
+   $usernameAlumno = $_POST['usernameAlumno'];	
 }
 
 if ($esAlumno || $esAdmin || $esProfesor)
