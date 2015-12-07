@@ -39,5 +39,9 @@ if ($esAdmin || $esProfesor)
 	imprimirTabla($columnas, $alumnosRowArray, 1, "informacionAlumno.php", "usernameAlumno");
 
 }
+else
+{
+	header("location:index.php");
+}
 
 ?>

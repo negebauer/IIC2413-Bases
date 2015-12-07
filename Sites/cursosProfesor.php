@@ -30,31 +30,36 @@ require_once('functions.php');
 
 // #################### AHORA A HACER MAGIA ####################
 
+if ($esProfesor)
+{
+	$queryInfoCursos = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.semestre, curso.ano, ramo.escuela,
+							ramo.ncreditos, curso.cupos, curso.programa
+						FROM curso, ramo, profesorcurso
+						WHERE ramo.sigla = curso.sigla
+						AND curso.nrc = profesorcurso.nrc
+						AND profesorcurso.username = '{$username}'
+						ORDER BY curso.ano DESC, curso.semestre DESC, curso.sigla ASC, curso.seccion ASC, ramo.nombre ASC;";
 
-$queryInfoCursos = "SELECT curso.nrc, curso.sigla, curso.seccion, ramo.nombre, curso.semestre, curso.ano, ramo.escuela,
-						ramo.ncreditos, curso.cupos, curso.programa
-					FROM curso, ramo, profesorcurso
-					WHERE ramo.sigla = curso.sigla
-					AND curso.nrc = profesorcurso.nrc
-					AND profesorcurso.username = '{$username}'
-					ORDER BY curso.ano DESC, curso.semestre DESC, curso.sigla ASC, curso.seccion ASC, ramo.nombre ASC;";
+	$informacionCursosRowArray = $dbp->query($queryInfoCursos)->fetchAll();
 
-$informacionCursosRowArray = $dbp->query($queryInfoCursos)->fetchAll();
-
-// ##### Mostrar info curso #####
-$columnas = array(
-	"NRC",
-	"Sigla",
-	"Seccion",
-	"Nombre",
-	"Semestre",
-	"Año",
-	"Departamento",
-	"Creditos",
-	"Cupos",
-	"Programa"
-	);
-imprimirTabla($columnas, $informacionCursosRowArray, 0, "informacionCurso.php", "nrcCurso");
-
+	// ##### Mostrar info curso #####
+	$columnas = array(
+		"NRC",
+		"Sigla",
+		"Seccion",
+		"Nombre",
+		"Semestre",
+		"Año",
+		"Departamento",
+		"Creditos",
+		"Cupos",
+		"Programa"
+		);
+	imprimirTabla($columnas, $informacionCursosRowArray, 0, "informacionCurso.php", "nrcCurso");
+}
+else
+{
+	header("location:index.php");
+}
 
 ?>

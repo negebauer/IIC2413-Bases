@@ -78,6 +78,10 @@ if ($esAdmin)
 	imprimirLineas($formularioEliminarCurso);
 	
 }
+else
+{
+	header("location:index.php");
+}
 
 
 ?>
