@@ -57,6 +57,11 @@ $columnas = array(
 	);
 imprimirTabla($columnas, $profesoresCursoRowArray);
 
+if ($esAlumno)
+{
+	// Mostrar opción de tomar el curso
+}
+
 // ##### Veamos si es profesor del curso (para poder cambiar notas) #####
 if ($esProfesor)
 {
