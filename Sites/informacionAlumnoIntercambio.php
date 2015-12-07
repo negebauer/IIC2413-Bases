@@ -86,7 +86,7 @@ $datos = array();
 
 foreach ($aprobados as $curso)
 {
-	$query = "SELECT nombre
+	$query = "SELECT sigla, nombre
 			FROM ramo
 			WHERE sigla = '{$curso['equivalencia']}'
 			AND nombre <> '{$curso['nombre']}'";
