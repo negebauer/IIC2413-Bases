@@ -37,7 +37,7 @@ if ($esAdmin)
     "<p>&emsp;&emsp; Semestre: <input type='number' name='semestre' min='1' max='2'></p>",
     "<p>&emsp;&emsp; Programa: <input type='text' name='programa'></p>",
     "<p>&emsp;&emsp; Cupos: <input type='number' name='cupos' min='0'></p>",
-    "<input type='submit' name='submit' value='Ingresar Ramo'>",
+    "<p>Seleccionar Ramo'</p>",
       "<select name=sigla>"
   );
 
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $queryNrc = "SELECT max(nrc)
                 FROM Curso;";
 
-  $nrc = 1 + $dbp->query($queryNrc)->fetchAll();
+  $nrc = 1 + $dbp->query($queryNrc)->fetchAll()[0][0];
   
   //Seccion
   $querySeccion = "SELECT max(Seccion)
@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   AND ano LIKE {$ano}
                   AND semester LIKE {$semester};";
 
-  $seccion = 1 + $dbp->query($queryseccion)->fetchAll();
+  $seccion = 1 + $dbp->query($queryseccion)->fetchAll()[0][0];
 
   //Nuestras Consultas
   $queryCrearCurso = "INSERT INTO curso
@@ -133,9 +133,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   $dbp->query($queryCrearCurso);
 
-  echo $queryCrearCurso;
+  $queryRevisarCurso = "SELECT COUNT(*)
+                        FROM Curso
+                        WHERE nrc = $nrc;";
 
-  $cursoEnCurso = $dbp->query($queryCrearCurso)->fetchAll();
+  $cursoEnCurso = $dbp->query($queryRevisarCurso)->fetchAll();
 
   if ($cursoEnCurso[0][0] > 0)
   {
