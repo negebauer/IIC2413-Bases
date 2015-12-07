@@ -125,8 +125,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $querySeccion = "SELECT max(Seccion)
                   FROM Curso
                   WHERE sigla LIKE '{$sigla}'
-                  AND ano LIKE {$ano}
-                  AND semester LIKE {$semestre};";
+                  AND ano = $ano
+                  AND semester = {$semestre};";
 
   $seccion = 1 + $dbp->query($querySeccion)->fetchAll()[0][0];
 
