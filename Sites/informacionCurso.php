@@ -103,17 +103,8 @@ if ($esAlumno)
 								$queryCumpleRequisitos
 							);";
 
-		echo $queryCumpleRequisitos;
-		echo $queryInscribirRamo;
+		$dbp->query($queryInscribirRamo);
 		
-		if (!($dbp->query($queryInscribirRamo) instanceof PDO)) {
-			// No cumple requisitos
-			echo "No cumple requisitos o no hay cupos suficientes";
-		} else {
-			// Cumple requisitos
-			echo "Cumple requisitos";
-			$dbp->query($queryInscribirRamo);
-		}
 	}
 
 	$columnas = array("Opciones de alumno");
