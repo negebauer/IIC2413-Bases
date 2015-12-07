@@ -110,7 +110,7 @@ if ($esAlumno)
 							WHERE username = '$usernameAlumno'
 							AND nrc = $nrcCurso";
 
-		$alumnoEnCurso = $dbp->query($queryInscribirRamo)->fetchAll();
+		$alumnoEnCurso = $dbp->query($queryAlumnoEnRamo)->fetchAll();
 		if ($alumnoEnCurso[0][0] > 0)
 		{
 			echo "Curso inscrito correctamente";
