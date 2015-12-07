@@ -92,12 +92,15 @@ foreach ($aprobados as $curso)
 			AND nombre <> '{$curso['nombre']}'";
 	$queryResult = $dbp->query($query);
 	$notFound = true;
+	$k = 0;
 	foreach ($queryResult as $row)
 	{
+		echo $k += 1;
 		array_push($datos, array(
 			$curso["nombre"],
 			$row[0],
-			$row[1]));
+			$row[1]
+			));
 		$notFound = false;
 	}
 	if ($notFound)
@@ -105,7 +108,8 @@ foreach ($aprobados as $curso)
 		array_push($datos, array(
 			$curso["nombre"],
 			"--",
-			"--"));
+			"--"
+			));
 	}
 }
 
