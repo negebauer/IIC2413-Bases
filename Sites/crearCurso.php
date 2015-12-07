@@ -18,9 +18,9 @@ require_once('functions.php');
 if ($esAdmin)
 {
 
-<style>
+echo "<style>
 .error {color: #FF0000;}
-</style>
+</style>";
 
 // FUENTE: http://www.w3schools.com/php/php_form_required.asp
 // nrc: es definido por nosotros sumándole uno al máximo nrc existente en la tabla Cursos.
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $seccionErr = "*Requerido";
    }
    elseif (!(is_numeric($_POST["seccion"]))){
-   	$seccionErr = "*Debe ser numérico"
+   	$seccionErr = "*Debe ser numérico";
    }
     
     } else { //Falta chequear que la seccion debe ser la menor posible
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $anoErr = "*Requerido";
    }
     elseif (!(is_numeric($_POST["ano"]))){
-   	$anoErr = "*Debe ser numérico"
+   	$anoErr = "*Debe ser numérico";
    }
    else {
      $ano = test_input($_POST["ano"]);
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $semestreErr = "*Requerido";
    }
     elseif (!(is_numeric($_POST["semestre"]))){
-   	$semestreErr = "*Debe ser numérico"
+   	$semestreErr = "*Debe ser numérico";
    }
    else {
      $semestre = test_input($_POST["semestre"]);
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $cuposErr = "*Requerido";
    }
     elseif (!(is_numeric($_POST["cupos"]))){
-   	$cuposErr = "*Debe ser numérico"
+   	$cuposErr = "*Debe ser numérico";
    }
    else {
      $cupos = test_input($_POST["semestre"]);
@@ -86,27 +86,27 @@ function test_input($data) {
    return $data;
 }
 
-<?php
-								$datosConsulta1 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
-	
-								echo '<form action="consultasEntrega3/consulta1.php" method="post">';
-								echo '<label><select name="sigla">';
-							
-								foreach($db -> query($datosConsulta1) as $row)
-								{
-									echo "<option value=$row[0]>$row[0] $row[1]</option>";
-								}
 
-								echo '</label>';
-								echo '<span class="byline"> </span>';
-								echo '<span class="byline"> </span>';
-								echo '<span class="byline"> </span>';
-								echo '<span class="byline"> </span>';
-								echo '<span class="byline"> </span>';
-								echo "<br/>";
-								echo '<input type="submit"/>';
-								echo '</form>';
-							?>
+$datosConsulta1 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
+
+echo '<form action="consultasEntrega3/consulta1.php" method="post">';
+echo '<label><select name="sigla">';
+
+foreach($db -> query($datosConsulta1) as $row)
+{
+	echo "<option value=$row[0]>$row[0] $row[1]</option>";
+}
+
+echo '</label>';
+echo '<span class="byline"> </span>';
+echo '<span class="byline"> </span>';
+echo '<span class="byline"> </span>';
+echo '<span class="byline"> </span>';
+echo '<span class="byline"> </span>';
+echo "<br/>";
+echo '<input type="submit"/>';
+echo '</form>';
+							
 
 <h2>PHP Form Validation Example</h2>
 <p><span class="error">* required field.</span></p>
