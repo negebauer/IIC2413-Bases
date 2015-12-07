@@ -38,7 +38,8 @@ if ($esAdmin || $esProfesor)
 	$queryAlumnos = "SELECT usuario.rut, usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom,
 						alumno.mailuc, alumno.anoadmin, alumno.encausal 
 					FROM usuario, alumno
-					WHERE usuario.username = alumno.username;";
+					WHERE usuario.username = alumno.username
+					ORDER BY apellidop, apellidom, nombres;";
 
 	$alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
 
