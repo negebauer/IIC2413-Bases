@@ -34,6 +34,7 @@ require_once('functions.php');
 if ($esAdmin){
 
 	$alumnos = $dbm->alumnos;
+	$universidades = $dbm->universidades;
 
 	$columnas = array(
 		"Usuario",
@@ -47,11 +48,18 @@ if ($esAdmin){
 	foreach (iterator_to_array($alumnos->find()) as $alumno)
 	{
 		$splited = explode(" ", $alumno["nombre"]);
+		foreach (iterator_to_array($universidades->find()) as $universidad)
+		{
+			if ($universidad["_id"] == $alumno["universidad"]) {
+		    	$universidadAlumno = $universidad["nombre"];
+		    	break;
+			}
+		}
 		array_push($datos, array(
 			$alumno["_id"],
 			$splited[0],
 			$splited[1],
-			$alumno["universidad"]
+			$universidadAlumno
 			));
 	}
 
