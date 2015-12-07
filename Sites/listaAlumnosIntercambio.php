@@ -36,35 +36,25 @@ if ($esAdmin){
 	$alumnos = $dbm->alumnos;
 
 	$columnas = array(
+		"Usuario",
 		"Nombre",
 		"Apellido",
 		"Universidad"
 		);
 
-	echo '<table border="1" class="table">';
-	echo '<tr>';
-	foreach ($columnas as $columna) {
-		echo "<th>" . $columna . "</th>";
-	}
-	echo "</tr>";
-
-
+	$datos = array();
 
 	foreach (iterator_to_array($alumnos->find()) as $alumno)
 	{
 		$splited = explode(" ", $alumno["nombre"]);
-		echo "<tr>";
-		$data = array(
+		array_push(array(
+			$alumno["_id"],
 			$splited[0],
 			$splited[1],
 			$alumno["universidad"]
-			);
-
-		foreach ($data as $d) {
-			echo "<td>{$d}</td>";
-		}
-
-		echo "</tr>";
+			));
 	}
+
+	imprimirTabla($columnas, $datos);
 }
 ?>
