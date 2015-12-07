@@ -65,7 +65,7 @@ if ($esAlumno)
 	{
 
 		$usernameAlumno = $username;
-		
+
 		$equivalentesintercambio = [];
 
 		$queryInscribirCurso = "INSERT INTO nota(username, nrc)
@@ -78,12 +78,7 @@ if ($esAlumno)
 									AND (select * from CuposRestantes(curso.nrc)) > 0;
 								);";
 
-		$resultadoInscripcionRowArray = $dbp->query($queryInscribirCurso)->fetchAll();
-
-		foreach ($resultadoInscripcionRowArray as $resultadoRow) {
-			echo $resultadoRow;
-			echo $resultadoRow[0];
-		}
+		$resultadoInscripcionRowArray = $dbp->query($queryInscribirCurso);
 	}
 
 	$columnas = array("Opciones de alumno");
