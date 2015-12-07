@@ -89,11 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   $siglaFinal = siglaLetras.siglaNumeros;
 
   $queryRamoEnRamo = "SELECT COUNT(*)
-                      FROM ramo
-                      WHERE sigla = '$siglaFinal';"
+                    FROM ramo
+                    WHERE sigla = '$siglaFinal';";
 
-  $RamoEnRamo = $dbp->query($queryRamo)->fetchAll();
-  if ($RamoEnRamo[0][0] > 0)
+  $ramoEnRamo = $dbp->query($queryRamoEnRamo)->fetchAll();
+  if ($ramoEnRamo[0][0] > 0)
   {
    echo "Ramo inscrito correctamente";
   }
