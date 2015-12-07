@@ -12,144 +12,140 @@
 require_once('functions.php');
 
 // #################### VARIABLES ####################
+$programa = $cupos = $profesor = $nrc = $seccion = $ano = $semestre = $cupos = "";
+$programaErr = $cuposErr = $profesorErr = $nrcErr = $seccionErr = $anoErr = $semestreErr = $cuposErr = "";
 
+function test_input($data) {
+     $data = trim($data);
+     $data = stripslashes($data);
+     $data = htmlspecialchars($data);
+     return $data;
+}
 
 // #################### AHORA A HACER MAGIA ####################
 if ($esAdmin)
 {
+  // FUENTE: http://www.w3schools.com/php/php_form_required.asp
+  // nrc: es definido por nosotros sumándole uno al máximo nrc existente en la tabla Cursos.
+  // sección: es definido por nosotros sumándole uno a la máxima sección existente en la tabla Cursos.
+  // sigla: El usuario tendrá que elegir la sigla de la lista de ramos ya existentes.
+  // programa, cupos, año y semestre: Ingresados por usuario.
 
-echo "<style>
-.error {color: #FF0000;}
-</style>";
+  $formularioCrearCurso = array(
+    "<form action='crearCurso.php' method='post'>",
+    "<p>&emsp;&emsp; Año: <input type='number' name='ano' min='2010' max='2016'></p>",
+    "<p>&emsp;&emsp; Semestre: <input type='number' name='semestre' min='1' max='2'></p>",
+    "<p>&emsp;&emsp; Programa: <input type='text' name='programa'></p>",
+    "<p>&emsp;&emsp; Cupos: <input type='number' name='cupos' min='0'></p>",
+    "<input type='submit' name='submit' value='Ingresar Ramo'>",
+      "<select name=sigla>"
+  );
 
-// FUENTE: http://www.w3schools.com/php/php_form_required.asp
-// nrc: es definido por nosotros sumándole uno al máximo nrc existente en la tabla Cursos.
-// sigla: El usuario tendrá que elegir la sigla de la lista de ramos ya existentes.
-// profesor: El usuario tendrá que elegir al profesor de la lista de ramos ya existentes.
-// programa, cupos, sección, año y semestre: Ingresados por usuario.
+  $cierreFormulario = array(
+      "</select>",
+      "<input type='submit' name='submit' value='Crear Curso'>",
+    "</form>"
+  );
 
+  $queryRamos = "SELECT sigla, nombre
+                  FROM ramo
+                  ORDER BY sigla ASC, nombre ASC;";
 
-$sigla = $programa = $cupos = $profesor = $nrc = $seccion = $ano = $semestre = $cupos = "";
-$siglaErr = $programaErr = $cuposErr = $profesorErr = $nrcErr = $seccionErr = $anoErr = $semestreErr = $cuposErr = "";
+  $ramosRowArray = $dbp->query($queryRamos)->fetchAll();
 
+  foreach ($ramosRowArray as $ramosRow) {
+            $siglaRamos = $ramosRow[0];
+            $nombreRamos = $ramosRow[1];
+            $infoRamos = $siglaRamos . " " . $nombreRamos;
+            $option = "<option value=$siglaRamos>$infoRamos</option>";
+            array_push($formularioCrearCurso, $option);
+  }
+
+  $formularioCrearCurso = array_merge($formularioCrearCurso, $cierreFormulario);
+
+  imprimirLineas($formularioCrearCurso);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   if (empty($_POST["seccion"])) {
-     $seccionErr = "*Requerido";
-   }
-   elseif (!(is_numeric($_POST["seccion"]))){
-   	$seccionErr = "*Debe ser numérico";
-   }
-    
-    } else { //Falta chequear que la seccion debe ser la menor posible
-     $seccion = test_input($_POST["seccion"]);
-   }
-   
    if (empty($_POST["ano"])) {
      $anoErr = "*Requerido";
    }
-    elseif (!(is_numeric($_POST["ano"]))){
+   elseif (!(is_numeric($_POST["ano"]))){
    	$anoErr = "*Debe ser numérico";
    }
-   else {
+    
+    else { //Falta chequear que la seccion debe ser la menor posible
      $ano = test_input($_POST["ano"]);
    }
-
+   
    if (empty($_POST["semestre"])) {
      $semestreErr = "*Requerido";
    }
     elseif (!(is_numeric($_POST["semestre"]))){
    	$semestreErr = "*Debe ser numérico";
    }
+   elseif (intval($_POST["semestre"]) > 2){
+    $semestreErr = "Solo hay dos semestres: 1, 2.";
+  }
+   elseif (intval($_POST["semestre"]) < 1){
+    $semestreErr = "Solo hay dos semestres: 1, 2.";
+  }
    else {
      $semestre = test_input($_POST["semestre"]);
    }
 
-   if (empty($_POST["cupos"])) {
+   if (empty($_POST["programa"])) {
+     $programaErr = "*Requerido";
+   }
+    elseif (!(is_numeric($_POST["programa"]))){
+    $programaErr = "*Debe ser numérico";
+   }
+   else {
+     $programa = test_input($_POST["programa"]);
+   }
+
+  if (empty($_POST["cupos"])) {
      $cuposErr = "*Requerido";
    }
     elseif (!(is_numeric($_POST["cupos"]))){
-   	$cuposErr = "*Debe ser numérico";
+    $cuposErr = "*Debe ser numérico";
    }
    else {
-     $cupos = test_input($_POST["semestre"]);
+     $cupos = test_input($_POST["cupos"]);
    }
+   //NRC
+   $queryNrc = "SELECT max(nrc)
+                FROM Curso;";
 
+  $nrc = 1 + $dbp->query($queryNrc)->fetchAll();
+  
+  //Seccion
+  $querySeccion = "SELECT max(Seccion)
+                  FROM Curso
+                  WHERE sigla LIKE '{$sigla}'
+                  AND ano LIKE {$ano}
+                  AND semester LIKE {$semester};";
 
-     
-}
+  $seccion = 1 + $dbp->query($queryseccion)->fetchAll();
 
-function test_input($data) {
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
-}
+  //Nuestras Consultas
+  $queryCrearCurso = "INSERT INTO curso
+                       VALUES ({$nrc}, '{$sigla}', {$seccion}, {$ano}, {$semestre}, '{$programa}', {$cupos});";
+  
+  $dbp->query($queryCrearCurso);
 
+  echo $queryCrearCurso;
 
-$datosConsulta1 = "SELECT curso.sigla, ramo.nombre FROM curso, ramo WHERE ramo.sigla = curso.sigla GROUP BY curso.sigla, ramo.sigla ORDER BY curso.sigla";
+  $cursoEnCurso = $dbp->query($queryCrearCurso)->fetchAll();
 
-echo '<form action="consultasEntrega3/consulta1.php" method="post">';
-echo '<label><select name="sigla">';
-
-foreach($db -> query($datosConsulta1) as $row)
-{
-	echo "<option value=$row[0]>$row[0] $row[1]</option>";
-}
-
-echo '</label>';
-echo '<span class="byline"> </span>';
-echo '<span class="byline"> </span>';
-echo '<span class="byline"> </span>';
-echo '<span class="byline"> </span>';
-echo '<span class="byline"> </span>';
-echo "<br/>";
-echo '<input type="submit"/>';
-echo '</form>';
-							
-
-<h2>PHP Form Validation Example</h2>
-<p><span class="error">* required field.</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-   Name: <input type="text" name="name">
-   <span class="error">* <?php echo $nameErr;?></span>
-   <br><br>
-   E-mail: <input type="text" name="email">
-   <span class="error">* <?php echo $emailErr;?></span>
-   <br><br>
-   Website: <input type="text" name="website">
-   <span class="error"><?php echo $websiteErr;?></span>
-   <br><br>
-   Comment: <textarea name="comment" rows="5" cols="40"></textarea>
-   <br><br>
-   Gender:
-   <input type="radio" name="gender" value="female">Female
-   <input type="radio" name="gender" value="male">Male
-   <span class="error">* <?php echo $genderErr;?></span>
-   <br><br>
-   <input type="submit" name="submit" value="Submit"> 
-</form>
-
-
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
+  if ($cursoEnCurso[0][0] > 0)
+  {
+   echo "Curso inscrito correctamente";
+  }
+  else
+  {
+   echo "Curso no fue inscrito correctamente ¿Seguro que ya no existe?";
+  }
 
 }
-
--- [SQL] Crear un nuevo curso
-INSERT INTO curso
-VALUES ({$nrc}, '{$sigla}', {$seccion}, {$ano}, {$semestre}, '{$programa}', {$cupos});
-
--- [SQL] Agregar un profesor a un curso
-INSERT INTO profesorcurso
-VALUES ({$nrc}, '{$usernameProfesor}');
-
+}
 ?>
