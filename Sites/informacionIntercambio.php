@@ -38,7 +38,7 @@ if ($esAdmin){
 	$idQuery = array("nombre" => $mongoid);
 	$alumno = $alumnos->find($idQuery);
 
-	echo $alumno['_id'], $alumno['nombre'], $alumno['apellido']
+	echo $alumno['_id'], $alumno['nombre'], $alumno['apellido'];
 
 
 
