@@ -47,7 +47,7 @@ if ($esAdmin){
 	foreach (iterator_to_array($alumnos->find()) as $alumno)
 	{
 		$splited = explode(" ", $alumno["nombre"]);
-		array_push(array(
+		array_push($datos, array(
 			$alumno["_id"],
 			$splited[0],
 			$splited[1],
