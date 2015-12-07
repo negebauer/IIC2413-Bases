@@ -71,11 +71,14 @@ $aprobados = array();
 
 foreach (iterator_to_array($cursos->find()) as $curso)
 {
-	array_push($aprobados, array(
-		"_id" => $curso["_id"],
-		"nombre" => $curso["nombre"],
-		"equivalencia" => $curso["equivalencia"]
-		));
+	if (in_array($curso["_id"], $alumno["cursos"]))
+	{
+		array_push($aprobados, array(
+			"_id" => $curso["_id"],
+			"nombre" => $curso["nombre"],
+			"equivalencia" => $curso["equivalencia"]
+			));
+	}
 }
 
 echo json_encode($aprobados);
