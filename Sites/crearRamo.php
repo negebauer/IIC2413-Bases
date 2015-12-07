@@ -23,9 +23,9 @@ $bienvenidaCrearRamo = array (
   "<h2>Crear Ramo</h2>",
   "<form method='post' action='crearRamo.php'>",
     "<p>&emsp;&emsp; Letras de la Sigla: <input type='text' name='siglaLetras'></p>",
-    "<p>&emsp;&emsp; Números de la Sigla: <input type='number' name='siglaNumeros' min=‘0’ max=’9999’></p>",
+    "<p>&emsp;&emsp; Números de la Sigla: <input type='number' name='siglaNumeros' min='0' max='9999'></p>",
     "<p>&emsp;&emsp; Nombre del Ramo: <input type='text' name='nombre'></p>",
-    "<p>&emsp;&emsp; Número de Créditos: <input type='number' name=$ncreditos step=‘5’ min=‘5’ max=’10’></p>",
+    "<p>&emsp;&emsp; Número de Créditos: <input type='number' name=$ncreditos step='5' min='5' max='10'></p>",
     "<p>&emsp;&emsp; Escuela: <input type='text' name='escuelaRamo'></p>",
     "<input type='submit' name='submit' value='Ingresar Ramo'>",
   "</form>"
