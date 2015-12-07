@@ -37,7 +37,7 @@ $esProfesor = $arrayEsUsuario[3];
 
 if ($username == "" && basename(__FILE__) != 'login.php')
 {
-	header("location:index.php");
+	header("location:login.php");
 }
 
 ?>
