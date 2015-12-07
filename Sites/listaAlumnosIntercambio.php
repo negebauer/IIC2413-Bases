@@ -33,6 +33,8 @@ require_once('functions.php');
 
 if ($esAdmin){
 
+	$alumnos = $dbm->alumnos;
+
 	$columnas = array(
 		"Nombre",
 		"Apellido",
