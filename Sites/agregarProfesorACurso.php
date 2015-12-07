@@ -64,5 +64,10 @@ if ($esAdmin)
 	}
 
 }
+else
+{
+	header("location:index.php");
+}
+
 
 ?>
