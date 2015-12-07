@@ -38,8 +38,7 @@ if ($esAdmin || $esProfesor)
 	$queryAlumnos = "SELECT usuario.rut, usuario.username, usuario.nombres, usuario.apellidop, usuario.apellidom,
 						alumno.mailuc, alumno.anoadmin, alumno.encausal 
 					FROM usuario, alumno
-					WHERE usuario.username = alumno.username
-					AND alumno.username = '{$usernameAlumno}';";
+					WHERE usuario.username = alumno.username;";
 
 	$alumnosRowArray = $dbp->query($queryAlumnos)->fetchAll();
 
@@ -53,7 +52,7 @@ if ($esAdmin || $esProfesor)
 		"Año admision",
 		"En causal"
 	);
-	$imprimirTabla($columnas, $informacionAlumnoRowArray, 1, "informacionAlumno.php", "usernameAlumno");
+	imprimirTabla($columnas, $informacionAlumnoRowArray, 1, "informacionAlumno.php", "usernameAlumno");
 
 }
 
