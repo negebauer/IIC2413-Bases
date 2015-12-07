@@ -80,12 +80,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   }
 
   //Nuestras Consultas
+
+    $siglaFinal = $siglaLetras . $siglaNumeros;
+
   $queryCrearRamo = "INSERT INTO ramo
-                    VALUES ('$siglaLetras$siglaNumeros', '$nombre', $ncreditos, '$escuela');";
+                    VALUES ('$siglaFinal', '$nombre', $ncreditos, '$escuela');";
 
   $dbp->query($queryCrearRamo);
 
-  $siglaFinal = $siglaLetras . $siglaNumeros;
+  
 
   $queryRamoEnRamo = "SELECT COUNT(*)
                     FROM ramo
