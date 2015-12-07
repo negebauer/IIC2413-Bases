@@ -171,6 +171,7 @@ if ($esProfesorCurso)
 			$indentificadorAlumno = "alumno" . $i;
 			$usernameAlumno = $_POST[$indentificadorAlumno];
 			$notaAlumno = $_POST[$identificadorNota] != "" ? $_POST[$identificadorNota] : -1;
+			$notaAlumno = round($notaAlumno, 1);
 			if ($notaAlumno != -1)
 			{
 				$queryActualizarNota = "UPDATE nota
