@@ -52,10 +52,11 @@ if ($esAdmin){
 
 	foreach (iterator_to_array($alumnos->find()) as $alumno)
 	{
+		$splited = explode(" ", $alumno["nombre"]);
 		echo "<tr>";
 		$data = array(
-			$alumno["nombre"],
-			$alumno["apellido"],
+			$splited[0],
+			$splited[1],
 			$alumno["universidad"]
 			);
 
