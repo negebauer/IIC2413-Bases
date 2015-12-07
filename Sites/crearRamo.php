@@ -21,7 +21,7 @@ function test_input($data) {
      $data = htmlspecialchars($data);
      return $data;
   }
-  
+
 // #################### AHORA A HACER MAGIA ####################
 if ($esAdmin){
 
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
   $dbp->query($queryCrearRamo);
 
-  $siglaFinal = siglaLetras.siglaNumeros;
+  $siglaFinal = $siglaLetras . $siglaNumeros;
 
   $queryRamoEnRamo = "SELECT COUNT(*)
                     FROM ramo
