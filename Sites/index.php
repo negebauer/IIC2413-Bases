@@ -89,6 +89,9 @@ if ($esProfesor)
 		"<form action='buscadorCursos.php'>",
     		"<input type='submit' value='Buscador cursos'>",
 		"</form>",
+		"<form action='cursosProfesor.php'>",
+    		"<input type='submit' value='Mis cursos'>",
+		"</form>",
 		"<form action='listaAlumnos.php'>",
     		"<input type='submit' value='Lista alumnos'>",
 		"</form>"
