@@ -112,6 +112,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    else {
      $cupos = test_input($_POST["cupos"]);
    }
+
+   $sigla = $_POST["sigla"];
+
    //NRC
    $queryNrc = "SELECT max(nrc)
                 FROM Curso;";
@@ -123,9 +126,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   FROM Curso
                   WHERE sigla LIKE '{$sigla}'
                   AND ano LIKE {$ano}
-                  AND semester LIKE {$semester};";
+                  AND semester LIKE {$semestre};";
 
-  $seccion = 1 + $dbp->query($queryseccion)->fetchAll()[0][0];
+  $seccion = 1 + $dbp->query($querySeccion)->fetchAll()[0][0];
 
   //Nuestras Consultas
   $queryCrearCurso = "INSERT INTO curso
