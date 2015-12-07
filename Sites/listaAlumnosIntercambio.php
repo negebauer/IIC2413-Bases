@@ -32,15 +32,12 @@ require_once('functions.php');
 // #################### AHORA A HACER MAGIA ####################
 
 if ($esAdmin){
-	// $id = $_POST['intercambiado']
 
-	$mongoid = new MongoId("Felipe");
-	$idQuery = array("nombre" => $mongoid);
-	$alumno = $alumnos->find($idQuery);
-
-	echo $alumno['_id'], $alumno['nombre'], $alumno['apellido'];
-
-
-
+	$columnas = array(
+		"Nombre",
+		"Apellido",
+		"Universidad"
+		);
+	imprimirTabla($columnas, $alumnos->find());
 }
 ?>
