@@ -83,7 +83,7 @@ if ($esAdmin)
 						WHERE nrc = $nrcCurso";
 
 		$curso = $dbp->query($queryCursoExiste)->fetchAll();
-		if ($curso[0][0] > 0)
+		if ($curso[0][0] == 0)
 		{
 			echo "Curso eliminado correctamente";
 		}
