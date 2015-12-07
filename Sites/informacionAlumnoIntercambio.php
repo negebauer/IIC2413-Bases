@@ -33,6 +33,7 @@ require_once('functions.php');
 $id = $_POST["usernameAlumno"];
 $alumnos = $dbm->alumnos;
 $universidades = $dbm->universidades;
+$cursos = $dbm->cursos;
 
 $mongoid = new MongoId($id);
 $idQuery = array("_id" => $mongoid);
@@ -40,14 +41,67 @@ $alumnosMatch = $alumnos->find($idQuery);
 $alumnosMatch->next();
 $alumno = $alumnosMatch->current();
 
-echo json_encode($alumno);
-
 $columnas = array(
 	"Nombre",
 	"Apellido",
 	"Mail",
-	""
+	"Universidad"
 	);
 
+foreach (iterator_to_array($universidades->find()) as $universidad)
+{
+	if ($universidad["_id"] == $alumno["universidad"]) {
+    	$universidadAlumno = $universidad["nombre"];
+    	break;
+	}
+}
+$splited = explode(" ", $alumno["nombre"]);
+imprimirTabla($columnas, array(array(
+										$splited[0],
+										$splited[1],
+										$alumno["email"],
+										$universidadAlumno
+										)));
+
+$columnasCursos = array(
+	"Curso aprobado",
+	"Curso UC equivalente");
+
+$aprobados = array();
+
+foreach ($alumno["cursos"] as $aprobado)
+{
+	foreach (iterator_to_array($cursos->find()) as $curso)
+	{
+		if ($aprobado["_id"] == $curso["_id"])
+		{
+			$nombre = $curso["nombre"];
+			$equivalencia = $curso["equivalencia"];
+			$query = "SELECT sigla, nombre
+					FROM ramo
+					WHERE ramo.sigla = '{$equivalencia}'
+					AND ramo.nombre <> '{$nombre}'
+					AND ramo.escuela <> 'EscuelaNoIdentificada';";
+			$queryResult = $dbpsql->query($query);
+			$notFound = true;
+			foreach($queryResult as $row)
+			{
+				array_push($aprobados, array(
+					$aprobado["nombre"],
+					$curso["nombre"]
+					));
+				$notFound = false;
+			}
+			if ($notFound) {
+				array_push($aprobados, array(
+					$aprobado["nombre"],
+					"No existe"
+					));
+			}
+		}
+	}
+}
+
+imprimirTabla($columnasCursos, $aprobados);
 
 ?>
