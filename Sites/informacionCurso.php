@@ -59,7 +59,39 @@ imprimirTabla($columnas, $profesoresCursoRowArray);
 
 if ($esAlumno)
 {
-	// Mostrar opción de tomar el curso
+	$inscribirCurso = isset($_POST['inscribirCurso']) ? $_POST['inscribirCurso'] : 0;
+
+	if ($inscribirCurso == 1)
+	{
+
+		$equivalentesintercambio = [];
+
+		$queryInscribirCurso = "INSERT INTO nota(username, nrc)
+								(
+									SELECT alumno.username, curso.nrc
+									FROM alumno, curso
+									WHERE alumno.username = '$usernameAlumno'
+									AND curso.nrc = $nrcCurso
+									AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[$equivalentesintercambio]::text[])) = true
+									AND (select * from CuposRestantes(curso.nrc)) > 0;
+								);";
+
+		$resultadoInscripcionRowArray = $dbp->query($queryInscribirCurso)->fetchAll();
+
+		foreach ($resultadoInscripcionRowArray as $resultadoRow) {
+			echo $resultadoRow;
+			echo $resultadoRow[0];
+		}
+	}
+
+	$columnas = array("Opciones de alumno");
+	imprimirTabla($columnas, array(array(
+		"<form action='informacionCurso.php' method='post'>" .
+			"<input class='hidden' name='nrcCurso' value=$nrcCurso>" .
+			"<input class='hidden' name='inscribirCurso' value=1>" .
+			"<input type='submit' name='submit' value='Inscribir curso'>" .
+		"</form>"
+	)));
 }
 
 // ##### Veamos si es profesor del curso (para poder cambiar notas) #####
