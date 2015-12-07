@@ -63,6 +63,6 @@ if ($esAdmin){
 			));
 	}
 
-	imprimirTabla($columnas, $datos, 0, "informacionAlumnoIntercambio.php", 'usernameAlumno');
+	imprimirTabla($columnas, $datos, 0, "informacionAlumnoIntercambio.php", "usernameAlumno");
 }
 ?>

@@ -40,7 +40,7 @@ $alumnosMatch = $alumnos->find($idQuery);
 $alumnosMatch->next();
 $alumno = $alumnosMatch->current();
 
-echo $alumno;
+echo json_encode($alumno);
 
 $columnas = array(
 	"Nombre",
