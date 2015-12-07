@@ -12,7 +12,7 @@
 require_once('functions.php');
 
 // #################### VARIABLES ESPECIFICAS ####################
-$siglaLetras = $siglaNumeros = $nombre = $ncreditos = $escuela = "";
+$siglaLetras = $siglaNumeros = $siglaFinal = $nombre = $ncreditos = $escuela = "";
 $siglaLetrasErr = $siglaNumerosErr = $nombreErr = $ncreditosErr = $escuelaErr = "";
 
 
@@ -81,8 +81,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   }
 
   //Nuestras Consultas
-  $queryCrearCurso = "INSERT INTO Ramo
+  $queryCrearRamo = "INSERT INTO Ramo
                       VALUES ('{$siglaLetras}{$siglaNumeros}', '{$nombre}', {$ncreditos}, '{$escuela}');";
+
+  $dbp->query($queryCrearRamo);
+
+  $siglaFinal = siglaLetras.siglaNumeros;
+
+  $queryRamoEnRamo = "SELECT COUNT(*)
+                      FROM ramo
+                      WHERE sigla = '$siglaFinal';"
+
+  $RamoEnRamo = $dbp->query($queryRamo)->fetchAll();
+  if ($RamoEnRamo[0][0] > 0)
+  {
+   echo "Ramo inscrito correctamente";
+  }
+  else
+  {
+   echo "Ramo no fue inscrito correctamente ¿Seguro que ya no existe?";
+  }
+
 }
 }
 ?>
