@@ -65,6 +65,7 @@ imprimirTabla($columnas, array(array(
 
 $columnasCursos = array(
 	"Curso aprobado",
+	"Sigla UC",
 	"Curso UC equivalente");
 
 $aprobados = array();
@@ -81,38 +82,33 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 	}
 }
 
-echo json_encode($aprobados);
+$datos = array();
 
-// foreach ($aprobados as $curso)
-// {
-// 	if ($aprobado["_id"] == $curso["_id"])
-// 	{
-// 		$nombre = $curso["nombre"];
-// 		$equivalencia = $curso["equivalencia"];
-// 		$query = "SELECT sigla, nombre
-// 				FROM ramo
-// 				WHERE ramo.sigla = '{$equivalencia}'
-// 				AND ramo.nombre <> '{$nombre}'
-// 				AND ramo.escuela <> 'EscuelaNoIdentificada';";
-// 		$queryResult = $dbpsql->query($query);
-// 		$notFound = true;
-// 		foreach($queryResult as $row)
-// 		{
-// 			array_push($aprobados, array(
-// 				$aprobado["nombre"],
-// 				$curso["nombre"]
-// 				));
-// 			$notFound = false;
-// 		}
-// 		if ($notFound) {
-// 			array_push($aprobados, array(
-// 				$aprobado["nombre"],
-// 				"No existe"
-// 				));
-// 		}
-// 	}
-// }
+foreach ($aprobados as $curso)
+{
+	$query = "SELECT nombre
+			FROM ramo
+			WHERE sigla = {$curso['equivalencia']}
+			AND nombre <> {$curso['nombre']}";
+	$queryResult = $dbp->query($query);
+	$notFound = true;
+	foreach ($queryResult as $row)
+	{
+		array_push($datos, array(
+			$curso["nombre"],
+			$row[0],
+			$row[1]));
+		$notFound = false;
+	}
+	if ($notFound)
+	{
+		array_push($datos, array(
+			$curso["nombre"],
+			"--",
+			"--"));
+	}
+}
 
-// imprimirTabla($columnasCursos, $aprobados);
+imprimirTabla($columnasCursos, $datos);
 
 ?>
