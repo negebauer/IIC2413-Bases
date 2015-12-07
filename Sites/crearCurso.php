@@ -37,7 +37,7 @@ if ($esAdmin)
     "<p>&emsp;&emsp; Semestre: <input type='number' name='semestre' min='1' max='2'></p>",
     "<p>&emsp;&emsp; Programa: <input type='text' name='programa'></p>",
     "<p>&emsp;&emsp; Cupos: <input type='number' name='cupos' min='0'></p>",
-    "<p>Seleccionar Ramo'</p>",
+    "<p>Seleccionar Ramo</p>",
       "<select name=sigla>"
   );
 
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $semestreErr = "Solo hay dos semestres: 1, 2.";
   }
    else {
-     $semestre = test_input($_POST["semestre"]);
+     $semestre = intval(test_input($_POST["semestre"]));
    }
 
    if (empty($_POST["programa"])) {
