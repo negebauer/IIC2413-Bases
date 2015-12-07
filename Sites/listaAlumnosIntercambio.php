@@ -38,6 +38,30 @@ if ($esAdmin){
 		"Apellido",
 		"Universidad"
 		);
-	imprimirTabla($columnas, $alumnos->find());
+
+	echo '<table border="1" class="table">';
+	echo '<tr>';
+	foreach ($columnas as $columna) {
+		echo "<th>" . $columna . "</th>";
+	}
+	echo "</tr>";
+
+
+
+	foreach (iterator_to_array($alumnos->find()) as $alumno)
+	{
+		echo "<tr>";
+		$data = array(
+			$alumno["nombre"],
+			$alumno["apellido"],
+			$alumno["universidad"]
+			);
+
+		foreach ($data as $d) {
+			echo "<td>{$d}</td>";
+		}
+
+		echo "</tr>";
+	}
 }
 ?>
