@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
   $dbp->query($queryCrearRamo);
 
-  
+  echo $queryCrearRamo;
 
   $queryRamoEnRamo = "SELECT COUNT(*)
                     FROM ramo
