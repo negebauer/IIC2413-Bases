@@ -78,6 +78,8 @@ foreach (iterator_to_array($cursos->find()) as $curso)
 		));
 }
 
+echo json_encode($aprobados);
+
 // foreach ($aprobados as $curso)
 // {
 // 	if ($aprobado["_id"] == $curso["_id"])
