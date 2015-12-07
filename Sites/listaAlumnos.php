@@ -52,7 +52,7 @@ if ($esAdmin || $esProfesor)
 		"Año admision",
 		"En causal"
 	);
-	imprimirTabla($columnas, $queryAlumnos, 1, "informacionAlumno.php", "usernameAlumno");
+	imprimirTabla($columnas, $alumnosRowArray, 1, "informacionAlumno.php", "usernameAlumno");
 
 }
 
