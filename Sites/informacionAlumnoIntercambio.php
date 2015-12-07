@@ -89,7 +89,8 @@ foreach ($aprobados as $curso)
 	$query = "SELECT sigla, nombre
 			FROM ramo
 			WHERE sigla = '{$curso['equivalencia']}'
-			AND nombre <> '{$curso['nombre']}'";
+			AND nombre <> '{$curso['nombre']}'
+			AND escuela <> 'EscuelaNoIdentificada'";
 	$queryResult = $dbp->query($query);
 	$notFound = true;
 	$k = 0;
