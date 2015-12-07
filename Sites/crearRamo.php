@@ -31,7 +31,7 @@ $bienvenidaCrearRamo = array (
     "<p>&emsp;&emsp; Letras de la Sigla: <input type='text' name='siglaLetras'></p>",
     "<p>&emsp;&emsp; Números de la Sigla: <input type='number' name='siglaNumeros' min='0' max='9999'></p>",
     "<p>&emsp;&emsp; Nombre del Ramo: <input type='text' name='nombre'></p>",
-    "<p>&emsp;&emsp; Número de Créditos: <input type='number' name=$ncreditos step='5.0' min='5' max='10'></p>",
+    "<p>&emsp;&emsp; Número de Créditos: <input type='number' name=ncreditos step='5.0' min='5' max='10'></p>",
     "<p>&emsp;&emsp; Escuela: <input type='text' name='escuelaRamo'></p>",
     "<input type='submit' name='submit' value='Ingresar Ramo'>",
   "</form>"
@@ -73,10 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $ncreditos = test_input($_POST["ncreditos"]);
   }
 
-    if (empty($_POST["escuela"])) {
+    if (empty($_POST["escuelaRamo"])) {
     $escuelaErr = "*Requerido";
   } else {
-    $escuela = test_input($_POST["escuela"]);
+    $escuela = test_input($_POST["escuelaRamo"]);
   }
 
   //Nuestras Consultas
