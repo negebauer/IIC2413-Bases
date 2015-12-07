@@ -95,7 +95,7 @@ if ($esAdmin)
 		$k = 0;
 		foreach ($queryResult as $row)
 		{
-			echo $k += 1;
+			// echo $k += 1;
 			array_push($datos, array(
 				$curso["nombre"],
 				$row[0],
