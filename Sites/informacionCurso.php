@@ -100,6 +100,9 @@ if ($esAlumno)
 							(
 								{$queryCumpleRequisitos}
 							);";
+
+		echo $queryCumpleRequisitos;
+		echo $queryInscribirRamo;
 		
 		if (!($dbp->query($queryInscribirRamo) instanceof PDO)) {
 			// No cumple requisitos
