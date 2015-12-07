@@ -89,9 +89,7 @@ if ($esAdmin)
 	{
 		$query = "SELECT sigla, nombre
 				FROM ramo
-				WHERE sigla = '{$curso['equivalencia']}'
-				AND nombre <> '{$curso['nombre']}'
-				AND escuela <> 'EscuelaNoIdentificada'";
+				WHERE sigla = '{$curso['equivalencia']}'";
 		$queryResult = $dbp->query($query);
 		$notFound = true;
 		$k = 0;
