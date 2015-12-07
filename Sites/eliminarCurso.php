@@ -68,7 +68,7 @@ if ($esAdmin)
 
 	imprimirLineas($formularioEliminarCurso);
 
-	$nrcCursoEliminado = isset($_POST['usernameProfesor']) ? $_POST['usernameProfesor'] : "";
+	$nrcCursoEliminado = isset($_POST['nrcCurso']) ? $_POST['nrcCurso'] : "";
 
 	if ($nrcCursoEliminado != "")
 	{
