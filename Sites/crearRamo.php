@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
   //Nuestras Consultas
   $queryCrearRamo = "INSERT INTO Ramo
-                      VALUES ('{$siglaLetras}{$siglaNumeros}', '{$nombre}', {$ncreditos}, '{$escuela}');";
+                      VALUES ('$siglaLetras$siglaNumeros', '$nombre', $ncreditos, '$escuela');";
 
   $dbp->query($queryCrearRamo);
 
