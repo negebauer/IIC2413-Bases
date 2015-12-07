@@ -66,19 +66,49 @@ if ($esAlumno)
 
 		$usernameAlumno = $username;
 
-		$equivalentesintercambio = [];
+		$equivalentesintercambio = "";
 
-		$queryInscribirCurso = "INSERT INTO nota(username, nrc)
-								(
-									SELECT alumno.username, curso.nrc
-									FROM alumno, curso
-									WHERE alumno.username = '$usernameAlumno'
-									AND curso.nrc = $nrcCurso
-									AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[$equivalentesintercambio]::text[])) = true
-									AND (select * from CuposRestantes(curso.nrc)) > 0;
-								);";
+		if ($esIntercambio) {
+			$alumnos = $dbm->alumnos;
+			$cursos = $dbm->cursos;
+			$mongoid = new MongoId($usernameAlumno);
+			$idQuery = array("_id" => $mongoid);
+			$alumnosMatch = $alumnos->find($idQuery);
+			$alumnosMatch->next();
+			$alumno = $alumnosMatch->current();
+			
+			$cursosAlumno = $cursos->find(array('_id' => array('$in' => $alumno["cursos"])));
+		
+			foreach (iterator_to_array($cursosAlumno) as $curso)
+			{
+				$equivalencia = $curso["equivalencia"];
+				if ($equivalentesintercambio == "") {
+					$equivalentesintercambio = "'" . $equivalencia . "'";
+				} else {
+					$equivalentesintercambio .= ", " . "'" . $equivalencia . "'";
+				}
+			}
+		}
 
-		$resultadoInscripcionRowArray = $dbp->query($queryInscribirCurso);
+		$queryCumpleRequisitos = "SELECT alumno.username, curso.nrc
+								FROM alumno, curso
+								WHERE alumno.username = '{$usernameAlumno}'
+								AND curso.nrc = {$nrcCurso}
+								AND (select * from AlumnoCumpleRequisitos(alumno.username, curso.sigla, ARRAY[{$equivalentesintercambio}]::text[])) = true
+								AND (select * from CuposRestantes(curso.nrc)) > 0;";
+		$queryInscribirRamo = "INSERT INTO nota(username, nrc)
+							(
+								{$queryCumpleRequisitos}
+							);";
+		
+		if (!($dbp->query($queryInscribirRamo) instanceof PDO)) {
+			// No cumple requisitos
+			echo "No cumple requisitos o no hay cupos suficientes";
+		} else {
+			// Cumple requisitos
+			echo "Cumple requisitos";
+			$dbp->query($queryInscribirRamo);
+		}
 	}
 
 	$columnas = array("Opciones de alumno");
