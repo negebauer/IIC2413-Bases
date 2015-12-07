@@ -67,7 +67,7 @@ if ($esAlumno || $esAdmin || $esProfesor)
 		"Semestre",
 		"Nota"
 		);
-	imprimirTabla($columnas, $cursosRowArray);
+	imprimirTabla($columnas, $cursosRowArray, 0, "informacionCurso.php", "nrcCurso");
 
 }
 
