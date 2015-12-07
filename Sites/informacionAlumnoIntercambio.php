@@ -69,38 +69,44 @@ $columnasCursos = array(
 
 $aprobados = array();
 
-foreach ($alumno["cursos"] as $aprobado)
+foreach (iterator_to_array($cursos->find()) as $curso)
 {
-	foreach (iterator_to_array($cursos->find()) as $curso)
-	{
-		if ($aprobado["_id"] == $curso["_id"])
-		{
-			$nombre = $curso["nombre"];
-			$equivalencia = $curso["equivalencia"];
-			$query = "SELECT sigla, nombre
-					FROM ramo
-					WHERE ramo.sigla = '{$equivalencia}'
-					AND ramo.nombre <> '{$nombre}'
-					AND ramo.escuela <> 'EscuelaNoIdentificada';";
-			$queryResult = $dbpsql->query($query);
-			$notFound = true;
-			foreach($queryResult as $row)
-			{
-				array_push($aprobados, array(
-					$aprobado["nombre"],
-					$curso["nombre"]
-					));
-				$notFound = false;
-			}
-			if ($notFound) {
-				array_push($aprobados, array(
-					$aprobado["nombre"],
-					"No existe"
-					));
-			}
-		}
-	}
+	array_push($aprobados, array(
+		"_id" => $curso["_id"],
+		"nombre" => $curso["nombre"],
+		"equivalencia" => $curso["equivalencia"]
+		));
 }
+
+// foreach ($aprobados as $curso)
+// {
+// 	if ($aprobado["_id"] == $curso["_id"])
+// 	{
+// 		$nombre = $curso["nombre"];
+// 		$equivalencia = $curso["equivalencia"];
+// 		$query = "SELECT sigla, nombre
+// 				FROM ramo
+// 				WHERE ramo.sigla = '{$equivalencia}'
+// 				AND ramo.nombre <> '{$nombre}'
+// 				AND ramo.escuela <> 'EscuelaNoIdentificada';";
+// 		$queryResult = $dbpsql->query($query);
+// 		$notFound = true;
+// 		foreach($queryResult as $row)
+// 		{
+// 			array_push($aprobados, array(
+// 				$aprobado["nombre"],
+// 				$curso["nombre"]
+// 				));
+// 			$notFound = false;
+// 		}
+// 		if ($notFound) {
+// 			array_push($aprobados, array(
+// 				$aprobado["nombre"],
+// 				"No existe"
+// 				));
+// 		}
+// 	}
+// }
 
 imprimirTabla($columnasCursos, $aprobados);
 
