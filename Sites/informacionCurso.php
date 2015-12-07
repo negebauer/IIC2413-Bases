@@ -31,6 +31,8 @@ $queryProfesoresCurso = "SELECT nombres, apellidop, apellidom, mailuc, departame
 $informacionCursoRowArray = $dbp->query($queryInfoCurso)->fetchAll();
 $profesoresCursoRowArray = $dbp->query($queryProfesoresCurso)->fetchAll();
 
+echo "<p>Informacion curso:</p>";
+
 // ##### Mostrar info curso #####
 $columnas = array(
 	"NRC",
@@ -45,6 +47,8 @@ $columnas = array(
 	"Programa"
 	);
 imprimirTabla($columnas, $informacionCursoRowArray, 9, "PROGRAMURL");
+
+echo "<p>Profesores curso:</p>";
 
 // ##### Mostrat info profesores curso #####
 $columnas = array(
