@@ -68,7 +68,7 @@ if ($esAlumno)
 
 		$equivalentesintercambio = "";
 
-		if ($esIntercambio) {
+		if ($esAlumnoIntercambio) {
 			$alumnos = $dbm->alumnos;
 			$cursos = $dbm->cursos;
 			$mongoid = new MongoId($usernameAlumno);
