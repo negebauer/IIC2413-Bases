@@ -51,7 +51,6 @@ if ($esAdmin)
 
 	imprimirLineas($formularioAgregarProfe);
 
-
 	$usernameProfesorAgregado = isset($_POST['usernameProfesor']) ? $_POST['usernameProfesor'] : "";
 
 	if ($usernameProfesorAgregado != "")
